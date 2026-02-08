@@ -1,0 +1,9 @@
+export { Navbar } from "./navbar";
+export { Hero } from "./hero";
+export { PainPoints } from "./pain-points";
+export { VideoDemo } from "./video-demo";
+export { ValuePillars } from "./value-pillars";
+export { Features } from "./features";
+export { Security } from "./security";
+export { CtaSection } from "./cta-section";
+export { Footer } from "./footer";
