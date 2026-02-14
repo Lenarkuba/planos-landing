@@ -20,7 +20,7 @@ export function OriginSection() {
             Znajomy koordynator planu zaprosił mnie na produkcję. Na miejscu poznałem właściciela agencji castingowej, który potrzebował pomocy z&nbsp;Excelem. Setki PESEL-i w&nbsp;niezabezpieczonym arkuszu. Godziny spędzane na sprawdzaniu maili z&nbsp;niekompletnymi zgłoszeniami. Lista obecności na kartce.
           </p>
           <p className="mb-4">
-            W&nbsp;2024 zbudowałem dla niego pierwszy prototyp — prostą bazę artystów, nagrań i&nbsp;danych do ZUS. Zadziałało. Wthen zobaczyłem, że problem jest znacznie większy niż jeden Excel. Większość agencji w&nbsp;Polsce zmaga się z&nbsp;tym samym chaosem.
+            W&nbsp;2024 zbudowałem dla niego pierwszy prototyp — prostą bazę artystów, nagrań i&nbsp;danych do ZUS. Zadziałało. Wtedy zobaczyłem, że problem jest znacznie większy niż jeden Excel. Większość agencji w&nbsp;Polsce zmaga się z&nbsp;tym samym chaosem.
           </p>
           <p>
             PlanOS to nie jest kolejna platforma przetłumaczona z&nbsp;angielskiego. To system zaprojektowany od zera dzięki otwartej współpracy dla polskiego rynku — z&nbsp;obsługą PESEL-i, eksportem do ZUS, i&nbsp;ze zrozumieniem jak naprawdę wygląda praca agencji castingowej w&nbsp;Polsce.
