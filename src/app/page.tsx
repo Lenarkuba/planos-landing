@@ -1,11 +1,15 @@
 import {
   Navbar,
   Hero,
-  PainPoints,
-  VideoDemo,
-  ValuePillars,
-  Features,
-  Security,
+  ProofBar,
+  ProblemSection,
+  ComparisonSection,
+  PanelsSection,
+  FeaturesDeepSection,
+  WorkflowSection,
+  SecuritySection,
+  ForWhoSection,
+  OriginSection,
   CtaSection,
   Footer,
 } from "@/components";
@@ -16,11 +20,15 @@ export default function LandingPage() {
       <Navbar />
       <main>
         <Hero />
-        <PainPoints />
-        <VideoDemo />
-        <ValuePillars />
-        <Features />
-        <Security />
+        <ProofBar />
+        <ProblemSection />
+        <ComparisonSection />
+        <PanelsSection />
+        <FeaturesDeepSection />
+        <WorkflowSection />
+        <SecuritySection />
+        <ForWhoSection />
+        <OriginSection />
         <CtaSection />
       </main>
       <Footer />

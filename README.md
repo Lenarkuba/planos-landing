@@ -1,6 +1,6 @@
-# PLANOS CAST - Landing Page
+# PlanOS - Landing Page
 
-A modern, animated landing page for PLANOS CAST - the professional casting and talent management platform.
+A modern, animated landing page for PlanOS - the professional casting and talent management platform.
 
 ## Tech Stack
 
@@ -50,7 +50,7 @@ landing-page/
 │   │   ├── value-pillars.tsx # 3 pillars section
 │   │   ├── features.tsx     # Feature grid
 │   │   ├── security.tsx     # Security section
-│   │   ├── cta-section.tsx  # Call to action
+│   │   ├── cta-section.tsx   # Call to action
 │   │   ├── footer.tsx       # Footer
 │   │   └── index.ts         # Component exports
 │   └── lib/

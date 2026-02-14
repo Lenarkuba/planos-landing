@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "PLANOS CAST - Profesjonalna platforma do zarządzania castingami i talentami",
+  title: "PlanOS - Profesjonalna platforma do zarządzania castingami i artystami",
   description:
     "Automatyzuj obecność, dokumentację ZUS i zgodność z RODO. Platforma dla agencji castingowych i domów produkcyjnych.",
   keywords: [
     "casting",
-    "zarządzanie talentami",
+    "zarządzanie artystami",
     "agencja castingowa",
     "dom produkcyjny",
     "ZUS",
@@ -17,9 +17,9 @@ export const metadata: Metadata = {
     "epizodyści",
     "aktorzy",
   ],
-  authors: [{ name: "PLANOS CAST" }],
+  authors: [{ name: "PlanOS" }],
   openGraph: {
-    title: "PLANOS CAST - Profesjonalne zarządzanie castingami",
+    title: "PlanOS - Profesjonalne zarządzanie castingami",
     description:
       "Automatyzuj zgłosznia, dokumentację ZUS i zgodność z RODO. Platforma dla agencji castingowych i domów produkcyjnych.",
     type: "website",
