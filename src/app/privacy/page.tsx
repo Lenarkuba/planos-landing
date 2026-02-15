@@ -1,6 +1,9 @@
 import { Navbar, Footer } from "@/components";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Linkedin } from "lucide-react";
+
+const LINKEDIN_URL = "https://www.linkedin.com/in/j-lenar/";
 
 export const metadata: Metadata = {
   title: "Polityka prywatności | PlanOS",
@@ -44,12 +47,18 @@ export default function PrivacyPage() {
                 1. Administrator danych
               </h2>
               <p>
-                Administratorem Twoich danych osobowych jest PlanOS z siedzibą w Warszawie, Polska.
+                Administratorem Twoich danych osobowych jest PlanOS.
               </p>
               <div className="mt-4 p-5 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
                 <p className="text-[var(--text)] font-medium mb-2">Kontakt:</p>
-                <a href="mailto:kontakt@planoscast.pl" className="text-[var(--accent)] hover:underline">
-                  kontakt@planoscast.pl
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[var(--accent)] hover:underline"
+                >
+                  <Linkedin className="w-4 h-4" />
+                  LinkedIn
                 </a>
               </div>
             </section>
@@ -213,8 +222,11 @@ export default function PrivacyPage() {
                 ograniczenia przetwarzania, przenoszenia danych, sprzeciwu oraz wycofania zgody.
               </p>
               <p>
-                Kontakt: <a href="mailto:kontakt@planoscast.pl" className="text-[var(--accent)] hover:underline">kontakt@planoscast.pl</a>.
-                Skargę możesz złożyć do Prezesa UODO (ul. Stawki 2, Warszawa).
+                Kontakt:{" "}
+                <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[var(--accent)] hover:underline">
+                  <Linkedin className="w-4 h-4" />
+                  LinkedIn
+                </a>.
               </p>
             </section>
 
@@ -276,11 +288,16 @@ export default function PrivacyPage() {
               <div className="p-5 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
                 <p className="text-[var(--text)] font-medium">PlanOS</p>
                 <p className="mt-1">
-                  <a href="mailto:kontakt@planoscast.pl" className="text-[var(--accent)] hover:underline">
-                    kontakt@planoscast.pl
+                  <a
+                    href={LINKEDIN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-[var(--accent)] hover:underline"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                    LinkedIn
                   </a>
                 </p>
-                <p className="mt-1 text-[var(--text-dim)]">Warszawa, Polska</p>
               </div>
             </section>
           </div>

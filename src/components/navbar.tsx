@@ -8,11 +8,11 @@ export function Navbar() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-[100] pl-4 pr-2 py-4 md:px-8 md:py-4 backdrop-blur-[20px] bg-[rgba(10,10,12,0.8)] border-b border-[rgba(42,42,53,0.5)] transition-all duration-300 overflow-x-hidden"
+      className="fixed top-0 left-0 right-0 z-[100] px-4 py-4 md:px-8 md:py-4 backdrop-blur-[20px] bg-[rgba(10,10,12,0.8)] border-b border-[rgba(42,42,53,0.5)] transition-all duration-300 overflow-x-hidden"
       style={{ fontFamily: "var(--sans)" }}
     >
       <div className="w-full max-w-[1200px] min-w-0 mx-auto flex justify-between items-center">
-        <Link href="/" className="font-bold text-xl text-[var(--text)] no-underline tracking-tight">
+        <Link href="/" className="font-bold text-xl text-[var(--text)] no-underline tracking-tight shrink-0">
           Plan<span className="text-[var(--accent)]">OS</span>
         </Link>
         <ul className="hidden md:flex gap-8 items-center list-none">
@@ -49,7 +49,7 @@ export function Navbar() {
         </ul>
         <button
           type="button"
-          className="md:hidden shrink-0 bg-transparent border-none text-[var(--text)] text-2xl cursor-pointer p-1 mr-2"
+          className="md:hidden shrink-0 bg-transparent border-none text-[var(--text)] text-2xl cursor-pointer p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
           aria-label="Menu"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >

@@ -1,6 +1,9 @@
 import { Navbar, Footer } from "@/components";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Linkedin } from "lucide-react";
+
+const LINKEDIN_URL = "https://www.linkedin.com/in/j-lenar/";
 
 export const metadata: Metadata = {
   title: "Regulamin | PlanOS",
@@ -198,7 +201,7 @@ export default function TermsPage() {
               </h2>
               <ul className="list-disc pl-6 space-y-2">
                 <li>Regulamin podlega prawu polskiemu</li>
-                <li>Spory rozstrzygane będą przez sądy właściwe dla siedziby PlanOS (Warszawa)</li>
+                <li>Spory rozstrzygane będą przez sądy właściwe dla PlanOS</li>
                 <li>W sprawach nieuregulowanych stosuje się przepisy Kodeksu cywilnego</li>
               </ul>
             </section>
@@ -210,11 +213,16 @@ export default function TermsPage() {
               <div className="p-5 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
                 <p className="text-[var(--text)] font-medium">PlanOS</p>
                 <p className="mt-1">
-                  <a href="mailto:kontakt@planoscast.pl" className="text-[var(--accent)] hover:underline">
-                    kontakt@planoscast.pl
+                  <a
+                    href={LINKEDIN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-[var(--accent)] hover:underline"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                    LinkedIn
                   </a>
                 </p>
-                <p className="mt-1 text-[var(--text-dim)]">Warszawa, Polska</p>
               </div>
             </section>
           </div>
