@@ -27,7 +27,7 @@ export function Hero() {
           style={{ fontFamily: "var(--serif)" }}
           variants={{ hidden: fadeUp, visible: { ...fadeUpEnd, transition: { duration: 0.6, ease } } }}
         >
-          Wszystko w&nbsp;jednym miejscu — jedno źródło prawdy dla całej agencji
+          Wszystko w&nbsp;jednym miejscu — jedno źródło danych dla całej agencji
         </motion.h1>
         <motion.p
           className="text-[1.15rem] text-[var(--text-muted)] max-w-[600px] mx-auto mb-8 leading-[1.7]"
