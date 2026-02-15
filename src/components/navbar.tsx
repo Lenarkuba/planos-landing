@@ -37,9 +37,14 @@ export function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="/#cta" className="!text-white bg-[var(--accent)] px-5 py-2 rounded-lg font-semibold hover:bg-[var(--accent-soft)] hover:-translate-y-px transition-all">
+            <a
+              href="https://calendly.com/lenarkuba/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="!text-white bg-[var(--accent)] px-5 py-2 rounded-lg font-semibold hover:bg-[var(--accent-soft)] hover:-translate-y-px transition-all no-underline"
+            >
               Umów demo
-            </Link>
+            </a>
           </li>
         </ul>
         <button
@@ -57,7 +62,15 @@ export function Navbar() {
           <Link href="/#features" className="text-[var(--text-muted)] hover:text-[var(--text)]" onClick={() => setMobileMenuOpen(false)}>Funkcje</Link>
           <Link href="/#workflow" className="text-[var(--text-muted)] hover:text-[var(--text)]" onClick={() => setMobileMenuOpen(false)}>Jak to działa</Link>
           <Link href="/#security" className="text-[var(--text-muted)] hover:text-[var(--text)]" onClick={() => setMobileMenuOpen(false)}>Bezpieczeństwo</Link>
-          <Link href="/#cta" className="text-[var(--accent)] font-semibold" onClick={() => setMobileMenuOpen(false)}>Umów demo</Link>
+          <a
+            href="https://calendly.com/lenarkuba/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--accent)] font-semibold no-underline"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Umów demo
+          </a>
         </div>
       )}
     </nav>
