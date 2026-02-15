@@ -1,3 +1,7 @@
+"use client";
+
+import { AnimateIn, AnimateInStagger, AnimateInChild } from "./animate-in";
+
 const beforeItems = [
   "Dane artystów rozsiane po Excelach, mailach i Dropboxie",
   "Ręczne sprawdzanie każdego zgłoszenia na casting",
@@ -21,15 +25,18 @@ const afterItems = [
 export function ComparisonSection() {
   return (
     <section className="py-16 md:py-24 px-4 md:px-8 max-w-[1200px] mx-auto">
-      <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--accent)] mb-4">Transformacja</div>
-      <h2
-        className="text-[clamp(2rem,4vw,3rem)] font-normal leading-[1.15] mb-4"
-        style={{ fontFamily: "var(--serif)" }}
-      >
-        Jeden system zamiast <em className="italic text-[var(--accent)]">dziesięciu narzędzi</em>
-      </h2>
-      <div className="grid md:grid-cols-2 gap-8 mt-12">
-        <div className="rounded-2xl p-10 bg-[var(--bg-card)] border border-[var(--border)]">
+      <AnimateIn>
+        <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--accent)] mb-4">Transformacja</div>
+        <h2
+          className="text-[clamp(2rem,4vw,3rem)] font-normal leading-[1.15] mb-4"
+          style={{ fontFamily: "var(--serif)" }}
+        >
+          Jeden system zamiast <em className="italic text-[var(--accent)]">dziesięciu narzędzi</em>
+        </h2>
+      </AnimateIn>
+      <AnimateInStagger className="grid md:grid-cols-2 gap-8 mt-12" staggerDelay={0.12}>
+        <AnimateInChild>
+          <div className="rounded-2xl p-10 bg-[var(--bg-card)] border border-[var(--border)]">
           <div className="text-[0.7rem] font-bold uppercase tracking-[0.15em] mb-6 inline-block py-1 px-3 rounded-md bg-[rgba(239,85,85,0.1)] text-[var(--red)]">Bez PlanOS</div>
           <ul className="flex flex-col gap-4 list-none">
             {beforeItems.map((item) => (
@@ -39,7 +46,9 @@ export function ComparisonSection() {
               </li>
             ))}
           </ul>
-        </div>
+          </div>
+        </AnimateInChild>
+        <AnimateInChild>
         <div
           className="rounded-2xl p-10 border"
           style={{
@@ -57,7 +66,8 @@ export function ComparisonSection() {
             ))}
           </ul>
         </div>
-      </div>
+        </AnimateInChild>
+      </AnimateInStagger>
     </section>
   );
 }

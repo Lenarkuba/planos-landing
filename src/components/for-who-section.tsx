@@ -1,3 +1,7 @@
+"use client";
+
+import { AnimateIn, AnimateInStagger, AnimateInChild } from "./animate-in";
+
 const whoCards = [
   {
     title: "Agencje castingowe",
@@ -19,19 +23,19 @@ const whoCards = [
 export function ForWhoSection() {
   return (
     <section className="py-16 md:py-24 px-4 md:px-8 max-w-[1200px] mx-auto">
-      <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--accent)] mb-4">Dla kogo</div>
-      <h2
-        className="text-[clamp(2rem,4vw,3rem)] font-normal leading-[1.15] mb-4"
-        style={{ fontFamily: "var(--serif)" }}
-      >
-        Czy PlanOS jest <em className="italic text-[var(--accent)]">dla Twojej firmy?</em>
-      </h2>
-      <div className="grid md:grid-cols-3 gap-8 mt-12">
+      <AnimateIn>
+        <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--accent)] mb-4">Dla kogo</div>
+        <h2
+          className="text-[clamp(2rem,4vw,3rem)] font-normal leading-[1.15] mb-4"
+          style={{ fontFamily: "var(--serif)" }}
+        >
+          Czy PlanOS jest <em className="italic text-[var(--accent)]">dla Twojej firmy?</em>
+        </h2>
+      </AnimateIn>
+      <AnimateInStagger className="grid md:grid-cols-3 gap-6 mt-12 items-stretch" staggerDelay={0.1}>
         {whoCards.map((card) => (
-          <div
-            key={card.title}
-            className="rounded-2xl p-8 md:p-10 border border-[var(--border)] bg-[var(--bg-card)] transition-all hover:border-[var(--border-light)] hover:-translate-y-1"
-          >
+          <AnimateInChild key={card.title} className="h-full">
+          <div className="h-full flex flex-col rounded-2xl p-8 md:p-10 bg-[var(--bg-card)] transition-all hover:bg-[var(--bg-card-hover)] hover:-translate-y-1">
             <h3 className="text-xl md:text-2xl font-normal mb-2" style={{ fontFamily: "var(--serif)" }}>{card.title}</h3>
             <p className="text-sm text-[var(--text-muted)] leading-[1.6] mb-5">{card.desc}</p>
             <ul className="flex flex-col gap-2 list-none">
@@ -43,8 +47,9 @@ export function ForWhoSection() {
               ))}
             </ul>
           </div>
+          </AnimateInChild>
         ))}
-      </div>
+      </AnimateInStagger>
     </section>
   );
 }

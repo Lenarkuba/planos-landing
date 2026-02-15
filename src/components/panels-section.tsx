@@ -1,3 +1,7 @@
+"use client";
+
+import { AnimateIn, AnimateInStagger, AnimateInChild } from "./animate-in";
+
 const agencyFeatures = [
   { title: "Multi-projekt", desc: "Zarządzaj wieloma castingami i produkcjami jednocześnie. Każdy projekt z własną bazą artystów, harmonogramem i statusem." },
   { title: "Zgłoszenia w jednym miejscu", desc: "Kompletne aplikacje ze zdjęciem, self-tape i danymi. Filtruj po wyglądzie, umiejętnościach, dostępności. Zero pustych maili." },
@@ -42,18 +46,21 @@ function FeatureItem({
 export function PanelsSection() {
   return (
     <section id="features" className="py-16 md:py-24 px-4 md:px-8 max-w-[1200px] mx-auto">
-      <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--accent)] mb-4">Dwa panele, jeden system</div>
-      <h2
-        className="text-[clamp(2rem,4vw,3rem)] font-normal leading-[1.15] mb-4"
-        style={{ fontFamily: "var(--serif)" }}
-      >
-        Agencja zarządza. <em className="italic text-[var(--accent)]">Artysta współpracuje.</em>
-      </h2>
-      <p className="text-[var(--text-muted)] text-[1.05rem] max-w-[600px] leading-[1.7] mb-12">
-        Każdy ma swój widok i swoje uprawnienia. Dane synchronizują się w&nbsp;czasie rzeczywistym.
-      </p>
-      <div className="grid md:grid-cols-2 gap-8 mt-12">
-        <div className="rounded-2xl p-8 md:p-10 border border-[var(--border)] bg-[var(--bg-card)]">
+      <AnimateIn>
+        <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--accent)] mb-4">Dwa panele, jeden system</div>
+        <h2
+          className="text-[clamp(2rem,4vw,3rem)] font-normal leading-[1.15] mb-4"
+          style={{ fontFamily: "var(--serif)" }}
+        >
+          Agencja zarządza. <em className="italic text-[var(--accent)]">Artysta współpracuje.</em>
+        </h2>
+        <p className="text-[var(--text-muted)] text-[1.05rem] max-w-[600px] leading-[1.7] mb-12">
+          Każdy ma swój widok i swoje uprawnienia. Dane synchronizują się w&nbsp;czasie rzeczywistym.
+        </p>
+      </AnimateIn>
+      <AnimateInStagger className="grid md:grid-cols-2 gap-8 mt-12" staggerDelay={0.1}>
+        <AnimateInChild>
+          <div className="rounded-2xl p-8 md:p-10 border border-[var(--border)] bg-[var(--bg-card)]">
           <h3 className="text-xl md:text-2xl font-normal mb-1" style={{ fontFamily: "var(--serif)" }}>Panel Agencji</h3>
           <p className="text-[var(--text-dim)] text-sm mb-8 font-medium">Pełna kontrola nad castingami, projektami i&nbsp;artystami</p>
           <ul className="flex flex-col gap-5 list-none">
@@ -61,8 +68,10 @@ export function PanelsSection() {
               <FeatureItem key={f.title} title={f.title} desc={f.desc} />
             ))}
           </ul>
-        </div>
-        <div className="rounded-2xl p-8 md:p-10 border border-[var(--border)] bg-[var(--bg-card)]">
+          </div>
+        </AnimateInChild>
+        <AnimateInChild>
+          <div className="rounded-2xl p-8 md:p-10 border border-[var(--border)] bg-[var(--bg-card)]">
           <h3 className="text-xl md:text-2xl font-normal mb-1" style={{ fontFamily: "var(--serif)" }}>Portal Artysty</h3>
           <p className="text-[var(--text-dim)] text-sm mb-8 font-medium">Własne konto, pełna kontrola nad profilem i&nbsp;zgłoszeniami</p>
           <ul className="flex flex-col gap-5 list-none">
@@ -70,8 +79,9 @@ export function PanelsSection() {
               <FeatureItem key={f.title} title={f.title} desc={f.desc} dotColor="var(--green)" />
             ))}
           </ul>
-        </div>
-      </div>
+          </div>
+        </AnimateInChild>
+      </AnimateInStagger>
     </section>
   );
 }

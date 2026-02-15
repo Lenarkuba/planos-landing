@@ -1,3 +1,7 @@
+"use client";
+
+import { AnimateIn } from "./animate-in";
+
 export function CtaSection() {
   return (
     <section id="cta" className="py-24 md:py-32 px-4 md:px-8 text-center relative">
@@ -5,7 +9,7 @@ export function CtaSection() {
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] pointer-events-none"
         style={{ background: "radial-gradient(circle, var(--accent-glow) 0%, transparent 70%)" }}
       />
-      <div className="relative z-10 max-w-[600px] mx-auto -translate-y-6 md:-translate-y-8">
+      <AnimateIn className="relative z-10 max-w-[600px] mx-auto -translate-y-6 md:-translate-y-8">
         <h2
           className="text-[clamp(2rem,4vw,2.8rem)] font-normal mb-4 leading-tight"
           style={{ fontFamily: "var(--serif)" }}
@@ -25,7 +29,7 @@ export function CtaSection() {
             Umów prezentację →
           </a>
         </div>
-      </div>
+      </AnimateIn>
     </section>
   );
 }

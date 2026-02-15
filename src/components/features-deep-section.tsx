@@ -1,3 +1,7 @@
+"use client";
+
+import { AnimateIn, AnimateInStagger, AnimateInChild } from "./animate-in";
+
 const featureBlocks = [
   {
     num: "01",
@@ -93,33 +97,34 @@ function MockRow({
 export function FeaturesDeepSection() {
   return (
     <section className="py-16 md:py-24 px-4 md:px-8 max-w-[1200px] mx-auto">
-      <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--accent)] mb-4">Kluczowe możliwości</div>
-      <h2
-        className="text-[clamp(2rem,4vw,3rem)] font-normal leading-[1.15] mb-4"
-        style={{ fontFamily: "var(--serif)" }}
-      >
-        Zbudowane dla <em className="italic text-[var(--accent)]">realiów polskiego rynku</em>
-      </h2>
-      <p className="text-[var(--text-muted)] text-[1.05rem] max-w-[600px] leading-[1.7] mb-12">
-        System rozwija się w stałej współpracy z polskimi agencjami — z właścicielami i pracownikami, którzy codziennie mierzą się z problemami, które PlanOS ma rozwiązywać.
-      </p>
-      <div className="flex flex-col gap-px bg-[var(--border)] rounded-2xl overflow-hidden mt-12">
+      <AnimateIn>
+        <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--accent)] mb-4">Kluczowe możliwości</div>
+        <h2
+          className="text-[clamp(2rem,4vw,3rem)] font-normal leading-[1.15] mb-4"
+          style={{ fontFamily: "var(--serif)" }}
+        >
+          Zbudowane dla <em className="italic text-[var(--accent)]">realiów polskiego rynku</em>
+        </h2>
+        <p className="text-[var(--text-muted)] text-[1.05rem] max-w-[600px] leading-[1.7] mb-12">
+          System rozwija się w stałej współpracy z polskimi agencjami — z właścicielami i pracownikami, którzy codziennie mierzą się z problemami, które PlanOS ma rozwiązywać.
+        </p>
+      </AnimateIn>
+      <AnimateInStagger className="flex flex-col gap-6 mt-12" staggerDelay={0.1}>
         {featureBlocks.map((fb) => (
-          <div
-            key={fb.num}
-            className="grid md:grid-cols-2 bg-[var(--bg-card)] hover:bg-[var(--bg-card-hover)] transition-colors"
-          >
+          <AnimateInChild key={fb.num} className="h-full">
+          <div className="grid md:grid-cols-2 min-h-[320px] rounded-2xl overflow-hidden bg-[var(--bg-card)] hover:bg-[var(--bg-card-hover)] transition-colors">
             <div className="p-6 md:p-12 flex flex-col justify-center">
               <div className="text-4xl text-[var(--border-light)] italic mb-2 font-serif">{fb.num}</div>
               <h3 className="text-xl md:text-2xl font-normal mb-3" style={{ fontFamily: "var(--serif)" }}>{fb.title}</h3>
               <p className="text-sm text-[var(--text-muted)] leading-[1.7]">{fb.desc}</p>
             </div>
-            <div className="p-6 md:p-12 flex items-center justify-center border-l border-[var(--border)] md:border-l md:border-t-0 border-t border-[var(--border)]">
+            <div className="p-6 md:p-12 flex items-center justify-center md:border-l border-[var(--border)]">
               {fb.mock}
             </div>
           </div>
+          </AnimateInChild>
         ))}
-      </div>
+      </AnimateInStagger>
     </section>
   );
 }

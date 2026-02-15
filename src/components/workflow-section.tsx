@@ -1,3 +1,7 @@
+"use client";
+
+import { AnimateIn, AnimateInStagger, AnimateInChild } from "./animate-in";
+
 const steps = [
   {
     num: 1,
@@ -50,25 +54,29 @@ export function WorkflowSection() {
       className="min-h-screen py-16 md:py-24 px-4 md:px-8 flex flex-col justify-center"
     >
       <div className="max-w-[960px] mx-auto w-full">
-        <div className="text-sm font-semibold uppercase tracking-[0.12em] text-[var(--accent)] mb-6">
-          Jak to działa
-        </div>
-        <h2
-          className="text-[clamp(2.25rem,5vw,3.5rem)] font-normal leading-[1.15] mb-6"
-          style={{ fontFamily: "var(--serif)" }}
-        >
-          Od castingu do rozliczenia <em className="italic text-[var(--accent)]">w jednym przepływie</em>
-        </h2>
-        <p className="text-[var(--text-muted)] text-base max-w-[540px] leading-[1.6] mb-12">
-          Od castingu po ZUS — w jednym systemie.
-        </p>
+        <AnimateIn>
+          <div className="text-sm font-semibold uppercase tracking-[0.12em] text-[var(--accent)] mb-6">
+            Jak to działa
+          </div>
+          <h2
+            className="text-[clamp(2.25rem,5vw,3.5rem)] font-normal leading-[1.15] mb-6"
+            style={{ fontFamily: "var(--serif)" }}
+          >
+            Od castingu do rozliczenia <em className="italic text-[var(--accent)]">w jednym przepływie</em>
+          </h2>
+          <p className="text-[var(--text-muted)] text-base max-w-[540px] leading-[1.6] mb-12">
+            Od castingu po ZUS — w jednym systemie.
+          </p>
+        </AnimateIn>
         <div className="mt-8 relative">
           <div
-            className="absolute left-5 top-[2.5rem] bottom-[2.5rem] w-px opacity-30"
+            className="absolute left-5 top-[2.5rem] bottom-[2.5rem] w-px opacity-30 pointer-events-none"
             style={{ background: "linear-gradient(to bottom, var(--accent), var(--green))" }}
           />
+          <AnimateInStagger className="relative" staggerDelay={0.08}>
           {steps.map((s) => (
-            <div key={s.num} className="flex gap-5 py-5 relative">
+            <AnimateInChild key={s.num}>
+            <div className="flex gap-5 py-5 relative">
               <div
                 className="w-10 h-10 rounded-full bg-[var(--surface)] border border-[var(--border)] flex items-center justify-center text-sm font-bold text-[var(--accent)] shrink-0 z-10"
               >
@@ -89,7 +97,9 @@ export function WorkflowSection() {
                 </div>
               </div>
             </div>
+            </AnimateInChild>
           ))}
+          </AnimateInStagger>
         </div>
       </div>
     </section>
