@@ -1,6 +1,5 @@
 export { Navbar } from "./navbar";
 export { Hero } from "./hero";
-export { ProofBar } from "./proof-bar";
 export { ProblemSection } from "./problem-section";
 export { ComparisonSection } from "./comparison-section";
 export { PanelsSection } from "./panels-section";

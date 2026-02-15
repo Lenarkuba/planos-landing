@@ -1,7 +1,6 @@
 import {
   Navbar,
   Hero,
-  ProofBar,
   ProblemSection,
   ComparisonSection,
   PanelsSection,
@@ -20,7 +19,6 @@ export default function LandingPage() {
       <Navbar />
       <main>
         <Hero />
-        <ProofBar />
         <ProblemSection />
         <ComparisonSection />
         <PanelsSection />
