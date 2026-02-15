@@ -17,18 +17,13 @@ export function ProblemSection() {
       >
         Excel, maile, WhatsApp, Dropbox.<br /><em className="italic text-[var(--accent)]">Ile narzędzi</em> potrzebujesz żeby obsłużyć jeden casting?
       </h2>
-      <blockquote className="text-center max-w-[720px] mx-auto mb-12">
-        <p
-          className="text-[var(--text-muted)] text-[1.1rem] md:text-[1.2rem] leading-[1.7] mb-4 italic"
-          style={{ fontFamily: "var(--serif)" }}
-        >
-          &quot;Agencje castingowe tracą godziny na ręczne procesy, które powinny się dziać automatycznie.
-          Dane w pięciu miejscach, brak kontroli nad PESEL-ami, i ciągłe pytanie: kto potwierdził? &quot;
-        </p>
-        <cite className="text-[var(--text-dim)] text-sm not-italic">
-          — Adam, właściciel agencji
-        </cite>
-      </blockquote>
+      <p
+        className="text-[var(--text-muted)] text-[1.1rem] md:text-[1.2rem] leading-[1.7] max-w-[720px] mb-12 text-left"
+        style={{ fontFamily: "var(--serif)" }}
+      >
+        Agencje castingowe tracą godziny na ręczne procesy, które powinny się dziać automatycznie.
+        Dane w pięciu miejscach, brak kontroli nad PESEL-ami, i ciągłe pytanie: kto potwierdził?
+      </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border)] rounded-2xl overflow-hidden mt-8">
         {problems.map((p) => (
           <div key={p.title} className="bg-[var(--bg-card)] p-8 transition-colors hover:bg-[var(--bg-card-hover)]">
