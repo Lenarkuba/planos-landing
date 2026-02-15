@@ -41,9 +41,9 @@ export function Navbar() {
               href="https://calendly.com/lenarkuba/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="!text-white bg-[var(--accent)] px-5 py-2 rounded-lg font-semibold hover:bg-[var(--accent-soft)] hover:-translate-y-px transition-all no-underline"
+              className="inline-flex items-center gap-2 bg-[var(--accent)] text-white py-2.5 px-6 rounded-[10px] font-semibold text-[0.95rem] no-underline border-none cursor-pointer transition-all hover:bg-[var(--accent-soft)] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(79,124,255,0.25)]"
             >
-              Umów demo
+              Umów prezentację →
             </a>
           </li>
         </ul>
@@ -66,10 +66,10 @@ export function Navbar() {
             href="https://calendly.com/lenarkuba/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--accent)] font-semibold no-underline"
+            className="inline-flex items-center gap-2 bg-[var(--accent)] text-white py-2.5 px-6 rounded-[10px] font-semibold text-[0.95rem] no-underline border-none cursor-pointer transition-all hover:bg-[var(--accent-soft)] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(79,124,255,0.25)]"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Umów demo
+            Umów prezentację →
           </a>
         </div>
       )}
