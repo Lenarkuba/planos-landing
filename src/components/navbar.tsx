@@ -38,7 +38,7 @@ export function Navbar() {
           </li>
           <li>
             <a
-              href="https://calendly.com/lenarkuba/30min"
+              href="https://calendly.com/lenarkuba/planos-prezentacja-systemu-15-min-clone"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[var(--accent)] text-white py-2.5 px-6 rounded-[10px] font-semibold text-[0.95rem] no-underline border-none cursor-pointer transition-all hover:bg-[var(--accent-soft)] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(79,124,255,0.25)]"
@@ -63,7 +63,7 @@ export function Navbar() {
           <Link href="/#workflow" className="text-[var(--text-muted)] hover:text-[var(--text)]" onClick={() => setMobileMenuOpen(false)}>Jak to działa</Link>
           <Link href="/#security" className="text-[var(--text-muted)] hover:text-[var(--text)]" onClick={() => setMobileMenuOpen(false)}>Bezpieczeństwo</Link>
           <a
-            href="https://calendly.com/lenarkuba/30min"
+            href="https://calendly.com/lenarkuba/planos-prezentacja-systemu-15-min-clone"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[var(--accent)] text-white py-2.5 px-6 rounded-[10px] font-semibold text-[0.95rem] no-underline border-none cursor-pointer transition-all hover:bg-[var(--accent-soft)] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(79,124,255,0.25)]"

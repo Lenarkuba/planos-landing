@@ -10,3 +10,5 @@ export { ForWhoSection } from "./for-who-section";
 export { OriginSection } from "./origin-section";
 export { CtaSection } from "./cta-section";
 export { Footer } from "./footer";
+export { VideoDemo } from "./video-demo";
+export { ScreenshotSlideshow, ScreenshotStatic } from "./screenshot-slideshow";
