@@ -80,7 +80,7 @@ function MockRow({
 
 export function FeaturesDeepSection() {
   return (
-    <section className="py-16 md:py-24 px-4 md:px-8 max-w-[1200px] mx-auto">
+    <section id="capabilities" className="py-16 md:py-24 px-4 md:px-8 max-w-[1200px] mx-auto">
       <AnimateIn>
         <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--accent)] mb-4">Kluczowe możliwości</div>
         <h2

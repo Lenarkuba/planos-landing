@@ -27,6 +27,11 @@ export function Navbar() {
             </Link>
           </li>
           <li>
+            <Link href="/#capabilities" className="text-[var(--text-muted)] no-underline text-sm font-medium hover:text-[var(--text)] transition-colors">
+              Kluczowe możliwości
+            </Link>
+          </li>
+          <li>
             <Link href="/#workflow" className="text-[var(--text-muted)] no-underline text-sm font-medium hover:text-[var(--text)] transition-colors">
               Jak to działa
             </Link>
@@ -70,6 +75,7 @@ export function Navbar() {
         <div className="md:hidden mt-4 pt-4 border-t border-[var(--border)] flex flex-col gap-4">
           <Link href="/#problem" className="text-[var(--text-muted)] hover:text-[var(--text)]" onClick={() => setMobileMenuOpen(false)}>Co rozwiązujemy</Link>
           <Link href="/#features" className="text-[var(--text-muted)] hover:text-[var(--text)]" onClick={() => setMobileMenuOpen(false)}>Funkcje</Link>
+          <Link href="/#capabilities" className="text-[var(--text-muted)] hover:text-[var(--text)]" onClick={() => setMobileMenuOpen(false)}>Kluczowe możliwości</Link>
           <Link href="/#workflow" className="text-[var(--text-muted)] hover:text-[var(--text)]" onClick={() => setMobileMenuOpen(false)}>Jak to działa</Link>
           <Link href="/#security" className="text-[var(--text-muted)] hover:text-[var(--text)]" onClick={() => setMobileMenuOpen(false)}>Bezpieczeństwo</Link>
           <a
