@@ -6,11 +6,11 @@ const whoCards = [
   {
     title: "Agencje castingowe",
     desc: "Przestajesz gonić za danymi i zaczynasz domykać castingi. Artyści sami aktualizują profile, zgłoszenia przychodzą kompletne.",
-    features: ["Baza artystów z importem CSV", "Otwarte i zamknięte castingi", "Panel reżysera bez danych wrażliwych", "Eksport ZUS", "Zarządzanie wieloma projektami"],
+    features: ["Baza artystów z importem z Excela", "Otwarte i zamknięte castingi", "Panel reżysera bez danych wrażliwych", "Eksport ZUS", "Zarządzanie wieloma projektami"],
   },
   {
     title: "Domy produkcyjne",
-    desc: "Zarządzaj castingami i dniami zdjęciowymi wielu produkcji w jednym systemie. Od preselekcji po rozliczenie.",
+    desc: "Wiele produkcji, jeden system. Od preselekcji po rozliczenie — bez maili z załącznikami i arkuszy.",
     features: ["Multi-projekt z osobnymi zespołami", "Harmonogramy dni zdjęciowych", "Lista obecności na planie", "Historia współpracy z artystami", "Bezpieczne udostępnianie reżyserom"],
   },
   {

@@ -14,7 +14,7 @@ export function CtaSection() {
           className="text-[clamp(2rem,4vw,2.8rem)] font-normal mb-4 leading-tight"
           style={{ fontFamily: "var(--serif)" }}
         >
-          Gotowy aby poznać nową jakość pracy?
+          Pokaż nam swój proces. My pokażemy Ci system.
         </h2>
         <p className="text-[var(--text-muted)] mb-8 text-base">
           Twoja opinia wpływa na rozwój systemu. Zobacz PlanOS i&nbsp;powiedz nam,<br />co jest dla Ciebie ważne. 15&nbsp;minut, bez zobowiązań.

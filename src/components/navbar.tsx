@@ -38,6 +38,16 @@ export function Navbar() {
           </li>
           <li>
             <a
+              href="https://app.planos.pl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--text-muted)] no-underline text-sm font-medium hover:text-[var(--text)] transition-colors"
+            >
+              Zaloguj się
+            </a>
+          </li>
+          <li>
+            <a
               href="https://calendly.com/lenarkuba/planos-prezentacja-systemu-15-min-clone"
               target="_blank"
               rel="noopener noreferrer"
@@ -62,6 +72,15 @@ export function Navbar() {
           <Link href="/#features" className="text-[var(--text-muted)] hover:text-[var(--text)]" onClick={() => setMobileMenuOpen(false)}>Funkcje</Link>
           <Link href="/#workflow" className="text-[var(--text-muted)] hover:text-[var(--text)]" onClick={() => setMobileMenuOpen(false)}>Jak to działa</Link>
           <Link href="/#security" className="text-[var(--text-muted)] hover:text-[var(--text)]" onClick={() => setMobileMenuOpen(false)}>Bezpieczeństwo</Link>
+          <a
+            href="https://app.planos.pl"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--text-muted)] hover:text-[var(--text)]"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Zaloguj się
+          </a>
           <a
             href="https://calendly.com/lenarkuba/planos-prezentacja-systemu-15-min-clone"
             target="_blank"

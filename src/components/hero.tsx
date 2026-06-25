@@ -27,13 +27,13 @@ export function Hero() {
           style={{ fontFamily: "var(--serif)" }}
           variants={{ hidden: fadeUp, visible: { ...fadeUpEnd, transition: { duration: 0.6, ease } } }}
         >
-          Wszystko w&nbsp;jednym miejscu — jedno źródło danych dla całej agencji
+          Jeden system dla agencji castingowej. Koniec z&nbsp;chaosem.
         </motion.h1>
         <motion.p
           className="text-[1.15rem] text-[var(--text-muted)] max-w-[600px] mx-auto mb-8 leading-[1.7]"
           variants={{ hidden: fadeUp, visible: { ...fadeUpEnd, transition: { duration: 0.55, ease } } }}
         >
-          Projekty, castingi, artyści, dni zdjęciowe. Zarządzaj agencją bez Excela, bez chaosu.
+          Zgłoszenia, selekcja, dni zdjęciowe, ZUS — wszystko w&nbsp;jednym miejscu. Artyści sami aktualizują dane. Ty zarządzasz.
         </motion.p>
         <motion.div
           className="inline-flex items-center gap-2 py-1.5 px-4 bg-[var(--surface)] border border-[var(--border)] rounded-full text-[0.95rem] text-[var(--text-muted)] mb-8 font-medium"

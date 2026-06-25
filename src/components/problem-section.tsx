@@ -26,8 +26,8 @@ export function ProblemSection() {
         className="text-[var(--text-muted)] text-[1.1rem] md:text-[1.2rem] leading-[1.7] max-w-[720px] mb-12 text-left"
         style={{ fontFamily: "var(--serif)" }}
       >
-        Agencje castingowe tracą godziny na ręczne procesy, które powinny działać automatycznie.
-        Dane w pięciu miejscach, brak kontroli nad PESEL-ami, i ciągłe pytanie: kto potwierdził?
+        Dane w pięciu miejscach. Brak kontroli nad PESEL-ami. Ciągłe pytanie: kto potwierdził?
+        To da się naprawić.
       </p>
       </AnimateIn>
       <AnimateInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">

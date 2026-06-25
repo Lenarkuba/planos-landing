@@ -7,8 +7,8 @@ import { ScreenshotSlideshow, ScreenshotStatic } from "./screenshot-slideshow";
 const featureBlocks = [
   {
     num: "01",
-    title: "Otwarte i zamknięte castingi",
-    desc: "Wyślij publiczny link — każdy może się zgłosić, nawet bez konta. Albo zaproś konkretnych artystów z bazy do zamkniętej grupy. Niezarejestrowani kandydaci mogą zgłosić się i utworzyć profil w jednym kroku. Wszystkie zgłoszenia — także od osób bez konta — lądują w tym samym panelu i przeglądasz je tak samo jak od zarejestrowanych artystów.",
+    title: "Dynamiczny formularz zgłoszenia",
+    desc: "Na każdy casting sam ustalasz, jakie dane są wymagane — wymiary, zdjęcia, wizytówka, self-tape. Artysta nie wyśle zgłoszenia, dopóki nie uzupełni wszystkiego, czego potrzebujesz. Koniec z niekompletnymi zgłoszeniami i dopytywaniem o brakujące zdjęcia. Wysyłasz link publiczny albo zapraszasz artystów z bazy — wszystkie zgłoszenia, kompletne i gotowe do selekcji, lądują w jednym panelu.",
     mock: (
       <VideoDemo youtubeId="Gyiwj6UpaBc" />
     ),
@@ -18,7 +18,7 @@ const featureBlocks = [
   {
     num: "02",
     title: "Panel selekcji dla reżysera",
-    desc: "Wysyłasz link — reżyser przegląda preselekcję i wybiera finalnych kandydatów. Bez zakładania konta, bez dostępu do danych wrażliwych. Każdy panel jest zabezpieczony indywidualnym tokenem, po zakończonej selekcji dostajesz powiadomienie.",
+    desc: "Robisz preselekcję i wysyłasz reżyserowi jeden link — bez logowania, bez danych wrażliwych. Reżyser przegląda kandydatów, dodaje własne notatki przy każdym i zaznacza wybór. Prosty, intuicyjny widok — wszystko, czego potrzebuje, w jednym miejscu. Po zakończonej selekcji dostajesz powiadomienie z jego wyborami i komentarzami.",
     mock: (
       <VideoDemo youtubeId="EXPI617RY40" />
     ),

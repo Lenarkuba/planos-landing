@@ -7,7 +7,7 @@ const steps = [
     num: 1,
     title: "Zaimportuj bazę artystów",
     desc: "Wgraj istniejące dane artystów do systemu. Import waliduje wszystkie informacje i zwraca listę błędów dla rekordów, których nie można zaimportować.",
-    tags: ["Import CSV", "Walidacja danych", "Lista błędów"],
+    tags: ["Import z Excela", "Walidacja danych", "Lista błędów"],
   },
   {
     num: 2,
