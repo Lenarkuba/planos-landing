@@ -10,11 +10,11 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "PlanOS dla statystów i epizodystów — jeden profil dla wszystkich agencji",
   description:
-    "Jeden profil widoczny dla wszystkich Twoich agencji, zawsze aktualny. Zgłoszenia na castingi jednym kliknięciem, jasność co do terminów, umów i ZUS. Zapisz się na listę i zgłoś swoją agencję.",
+    "Jeden profil widoczny tylko dla agencji, z którymi współpracujesz, zawsze aktualny. Zgłoszenia na castingi jednym kliknięciem, jasność co do terminów, umów i ZUS. Zapisz się na listę i zgłoś swoją agencję.",
   openGraph: {
     title: "Jeden profil. Wszystkie Twoje agencje. — PlanOS dla statystów",
     description:
-      "Tworzysz profil raz, widzą go wszystkie agencje. Koniec z wysyłaniem tych samych danych w kółko. Zapisz się na listę.",
+      "Tworzysz profil raz — widzą go tylko agencje, z którymi współpracujesz. Koniec z wysyłaniem tych samych danych w kółko. Zapisz się na listę.",
     type: "website",
     locale: "pl_PL",
   },
@@ -42,11 +42,15 @@ const pains = [
 
 const benefits = [
   {
-    title: "Jeden profil dla wszystkich agencji",
-    desc: "Tworzysz profil raz. Widzą go wszystkie agencje, z którymi współpracujesz — koniec z wysyłaniem tych samych danych i zdjęć w kółko.",
+    title: "Jeden profil dla Twoich agencji",
+    desc: "Tworzysz profil raz. Widzą go tylko agencje, z którymi współpracujesz — koniec z wysyłaniem tych samych danych i zdjęć w kółko.",
   },
   {
-    title: "Aktualizujesz raz, widzą wszyscy",
+    title: "Widzą Cię tylko Twoje agencje",
+    desc: "Profil widzą wyłącznie agencje, które masz już w swojej współpracy — które dodały Cię do bazy albo do których sam zaaplikowałeś. Nie trafiasz do żadnej wspólnej, otwartej puli.",
+  },
+  {
+    title: "Aktualizujesz raz, widzą Twoje agencje",
     desc: "Nowa fryzura? Zmiana adresu lub numeru? Poprawiasz w jednym miejscu, a każda Twoja agencja od razu ma najnowszą wersję.",
   },
   {
@@ -62,8 +66,8 @@ const benefits = [
     desc: "Widzisz co podpisałeś i na jakich warunkach. Koniec z domyślaniem się, jak jesteś rozliczany.",
   },
   {
-    title: "Kontrola nad danymi (RODO)",
-    desc: "Wiesz kto i kiedy korzystał z Twoich danych. Pełna przejrzystość — zero arkuszy krążących po mailach.",
+    title: "Bezpieczeństwo i kontrola (RODO)",
+    desc: "Dane wrażliwe jak PESEL są szyfrowane (AES-256), a każdy dostęp jest rejestrowany. Wiesz, kto i kiedy korzystał z Twoich danych — i masz prawo w każdej chwili cofnąć zgodę i poprosić o ich usunięcie.",
   },
   {
     title: "Wszystko w telefonie",
@@ -72,6 +76,14 @@ const benefits = [
 ];
 
 const faq = [
+  {
+    q: "Czy moje dane zobaczą agencje, z którymi nie współpracuję?",
+    a: "Nie. Twój profil widzą tylko agencje, które masz już w swojej współpracy — czyli te, które dodały Cię do bazy, albo te, do których sam zaaplikowałeś. Nie trafiasz do żadnej wspólnej, otwartej puli, a aktualizacja danych dociera wyłącznie do tych agencji.",
+  },
+  {
+    q: "Czy moje dane są bezpieczne i czy mam nad nimi kontrolę?",
+    a: "Tak. Dane wrażliwe jak PESEL są szyfrowane (AES-256), a każdy dostęp do nich jest rejestrowany. Widzisz, która agencja korzysta z Twoich danych, a w każdej chwili masz prawo cofnąć zgodę i poprosić o ich usunięcie.",
+  },
   {
     q: "Czy to dla mnie darmowe?",
     a: "Tak. Jako statysta/epizodysta korzystasz z PlanOS bezpłatnie — za narzędzie płacą agencje.",
@@ -127,7 +139,7 @@ export default async function DlaStatystowPage() {
                 Jeden profil. <em className="italic text-[var(--accent)]">Wszystkie Twoje agencje.</em>
               </h1>
               <p className="text-[1.1rem] text-[var(--text-muted)] max-w-[520px] mb-7 leading-[1.7]">
-                Tworzysz profil raz — widzą go wszystkie agencje, z którymi współpracujesz.
+                Tworzysz profil raz — widzą go tylko agencje, z którymi współpracujesz.
                 Koniec z wysyłaniem tych samych danych i&nbsp;zdjęć w&nbsp;kółko. Zgłoszenia
                 jednym kliknięciem, jasność co do terminów i&nbsp;ZUS-u.
               </p>
