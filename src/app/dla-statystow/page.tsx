@@ -14,44 +14,35 @@ import { LandingNav } from "@/components/landing/nav";
 import { LandingFooter } from "@/components/landing/footer";
 import { Card, IconBadge, Section, SectionHeader } from "@/components/landing/ui";
 import { SecurityBand, TALENT_PILLARS } from "@/components/landing/security";
-import { WaitlistForm } from "@/components/waitlist-form";
-import { createAdminClient } from "@/lib/supabase-admin";
+import { SharePageLink } from "@/components/landing/share-page-link";
 
-export const dynamic = "force-dynamic";
+const OG_TITLE =
+  "Twoje dane u agencji. Pod Twoją kontrolą. — PlanOS dla statystów";
+const OG_DESCRIPTION =
+  "Bezpłatne konto dla statystów, epizodystów i hostess w agencji, która korzysta z PlanOS. Własny profil, zgody RODO, szyfrowany PESEL z historią dostępu, potwierdzenia dni pracy z telefonu. Dane widzi tylko Twoja agencja.";
 
 export const metadata: Metadata = {
   title: "PlanOS dla statystów, epizodystów i hostess — Twoje dane pod Twoją kontrolą",
-  description:
-    "Bezpłatne konto dla statystów, epizodystów i hostess w agencji, która korzysta z PlanOS. Własny profil, zgody RODO, które widzisz i cofasz, szyfrowany PESEL z rejestrem dostępu, potwierdzenia dni pracy z telefonu. Dane widzi tylko Twoja agencja.",
+  description: OG_DESCRIPTION,
+  keywords: [],
   alternates: { canonical: "/dla-statystow" },
   openGraph: {
-    title: "Twoje dane u agencji. Pod Twoją kontrolą. — PlanOS dla statystów",
-    description:
-      "Agencja, z którą współpracujesz, zaprasza Cię do PlanOS. Własny profil, zgody RODO, szyfrowany PESEL, potwierdzenia z telefonu. Twoje dane widzi tylko ta agencja.",
+    title: OG_TITLE,
+    description: OG_DESCRIPTION,
     type: "website",
     locale: "pl_PL",
     url: "/dla-statystow",
   },
+  twitter: {
+    title: OG_TITLE,
+    description: OG_DESCRIPTION,
+  },
 };
 
-async function getWaitlistCount(): Promise<number | null> {
-  try {
-    const supabase = createAdminClient();
-    const { count, error } = await supabase
-      .from("waitlist")
-      .select("*", { count: "exact", head: true });
-    if (error) return null;
-    return count ?? 0;
-  } catch {
-    return null;
-  }
-}
-
-const PAINS = [
-  "Twoje zdjęcia i PESEL krążą w mailach i arkuszach, do których nie masz wglądu.",
-  "Nie wiesz, kto ma dostęp do Twoich danych i po co.",
-  "Zmiana godziny zbiórki przychodzi SMS-em o 22:00.",
-  "Nie wiadomo, co podpisałeś i jak jesteś rozliczany.",
+const POSITIVES = [
+  "Własny profil, który sam aktualizujesz.",
+  "Zgody i umowy, które widzisz w jednym miejscu.",
+  "Potwierdzenie dnia pracy jednym kliknięciem.",
 ];
 
 const STEPS = [
@@ -59,7 +50,7 @@ const STEPS = [
     n: "01",
     title: "Agencja Cię zaprasza",
     body:
-      "Agencja, z którą współpracujesz, wysyła Ci link do PlanOS. Tylko ona Cię widzi — nie trafiasz do żadnej wspólnej bazy.",
+      "Agencja, z którą współpracujesz, wysyła Ci link do PlanOS. Widzi Cię tylko ona.",
   },
   {
     n: "02",
@@ -71,7 +62,7 @@ const STEPS = [
     n: "03",
     title: "Potwierdzasz i masz wgląd",
     body:
-      "Dni pracy potwierdzasz jednym kliknięciem z telefonu. Umowy, historia pracy i każdy dostęp do Twojego PESEL-u — wszystko widzisz w swoim koncie.",
+      "Dni pracy potwierdzasz jednym kliknięciem z telefonu. Umowy, historia pracy i historia dostępu do Twojego PESEL-u są w Twoim koncie.",
   },
 ];
 
@@ -98,37 +89,37 @@ const BENEFITS = [
     icon: KeyRound,
     title: "Szyfrowany PESEL i rejestr dostępu",
     body:
-      "Twój PESEL jest szyfrowany (AES-256). Każde odczytanie jest rejestrowane, a Ty dostajesz powiadomienie, kto i kiedy z niego skorzystał.",
+      "Twój PESEL jest szyfrowany. Każde odczytanie jest zapisywane, a historię dostępu widzisz w swoim koncie.",
   },
   {
     icon: CalendarCheck2,
     title: "Potwierdzenia dni pracy z telefonu",
     body:
-      "Nowy dzień zdjęciowy lub event? Potwierdzasz albo odrzucasz jednym kliknięciem — w kilka sekund, bez dzwonienia i odpisywania na SMS-y.",
+      "Nowy dzień zdjęciowy lub event? Potwierdzasz albo odrzucasz jednym kliknięciem z telefonu.",
   },
   {
     icon: ClipboardCheck,
     title: "Zgłoszenie z kompletnymi danymi w kilka sekund",
     body:
-      "Gdy Twoja agencja prowadzi nabór, wysyłasz kompletne zgłoszenie — zdjęcia, self-tape, wymiary — bez przepisywania tych samych danych od nowa.",
+      "Gdy Twoja agencja prowadzi nabór, wysyłasz kompletne zgłoszenie — zdjęcia, wymiary — bez przepisywania tych samych danych od nowa.",
   },
   {
     icon: BellRing,
     title: "Powiadomienia o zmianach",
     body:
-      "Zmiana godziny zbiórki, lokalizacji albo odwołanie dnia — dostajesz powiadomienie od razu, zamiast SMS-a w środku nocy.",
+      "Zmiana godziny zbiórki, lokalizacji albo odwołanie dnia — dostajesz powiadomienie od razu. Powiadomienia na telefonie działają po dodaniu PlanOS do ekranu głównego.",
   },
   {
     icon: FileText,
     title: "Umowy i historia pracy",
     body:
-      "Widzisz swoje umowy, przepracowane dni i historię rzetelności. Wiesz, co podpisałeś, na jakich warunkach i jak jesteś rozliczany.",
+      "Widzisz swoje umowy, przepracowane dni, historię rzetelności i swoją statystykę rzetelności. Wiesz, co podpisałeś, na jakich warunkach i jak jesteś rozliczany.",
   },
   {
     icon: Smartphone,
-    title: "Bez instalowania aplikacji",
+    title: "Bez sklepu z aplikacjami",
     body:
-      "Wszystko działa w przeglądarce telefonu przez linki od agencji. Nic nie instalujesz i nic nie musisz aktualizować.",
+      "Wszystko działa w przeglądarce telefonu przez linki od agencji. Żeby mieć PlanOS zawsze pod ręką i dostawać powiadomienia o dniach pracy, dodaj go do ekranu głównego — na iPhonie przez przycisk Udostępnij → „Do ekranu początkowego”, na Androidzie przez „Zainstaluj aplikację” w menu przeglądarki. Nic nie aktualizujesz.",
   },
 ];
 
@@ -139,7 +130,7 @@ const FAQ = [
   },
   {
     q: "Kto ma dostęp do mojego PESEL-u?",
-    a: "Tylko upoważnione osoby w Twojej agencji, i tylko wtedy, gdy jest to potrzebne — np. do umowy lub zgłoszenia do ZUS. PESEL jest szyfrowany (AES-256), a każde odczytanie jest rejestrowane. Dostajesz powiadomienie, kto i kiedy z niego skorzystał.",
+    a: "Tylko upoważnione osoby w Twojej agencji, i tylko wtedy, gdy jest to potrzebne — np. do umowy lub zgłoszenia do ZUS. PESEL jest szyfrowany, a każde odczytanie jest rejestrowane. Historię dostępu widzisz w swoim koncie.",
   },
   {
     q: "Czy mogę cofnąć zgodę i usunąć swoje dane?",
@@ -151,29 +142,16 @@ const FAQ = [
   },
   {
     q: "Czy muszę instalować aplikację?",
-    a: "Nie. Wszystko działa w przeglądarce telefonu przez linki, które wysyła Ci agencja: potwierdzenia, zgłoszenia, profil, umowy.",
-  },
-  {
-    q: "Moja agencja jeszcze nie korzysta z PlanOS. Co teraz?",
-    a: "Zapisz się na listę i podaj nazwę agencji, z którą współpracujesz. Damy Ci znać, gdy uruchomi PlanOS i będziesz mógł założyć bezpłatne konto. O wdrożeniu systemu decyduje wyłącznie agencja.",
-  },
-  {
-    q: "Co zrobicie z moim e-mailem?",
-    a: "Użyjemy go tylko po to, żeby dać Ci znać, gdy PlanOS będzie dostępny w Twojej agencji. Bez spamu, w każdej chwili możesz się wypisać.",
+    a: "Nie ma aplikacji w sklepie. PlanOS działa w przeglądarce. Jeśli chcesz dostawać powiadomienia o dniach pracy, dodaj go do ekranu głównego — zajmuje to kilka sekund.",
   },
 ];
 
-export default async function DlaStatystowPage() {
-  const count = await getWaitlistCount();
-  const showCount = typeof count === "number" && count >= 10;
-
+export default function DlaStatystowPage() {
   return (
     <div className="lp-root min-h-screen font-sans">
-      {/* Same chrome as the homepage (nav links are root-relative, so they lead back to /). */}
-      <LandingNav />
+      <LandingNav variant="talent" />
 
       <main>
-        {/* HERO */}
         <Section tone="paper" className="overflow-hidden pt-14 md:pt-20">
           <div
             aria-hidden="true"
@@ -189,34 +167,23 @@ export default async function DlaStatystowPage() {
               <span className="text-brand-ink">Pod Twoją kontrolą.</span>
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink-muted">
-              Agencja, z&nbsp;którą współpracujesz, zaprasza Cię do PlanOS. Dostajesz
-              bezpłatne konto i&nbsp;własny profil — zdjęcia, wymiary, kontakt — widoczny
-              wyłącznie dla tej agencji. Widzisz swoje zgody i&nbsp;każdy dostęp do
-              PESEL-u, potwierdzasz dni pracy z&nbsp;telefonu.
+              Twoja agencja wybrała PlanOS, żebyś miał własny profil, wgląd w
+              swoje zgody i umowy, i mógł potwierdzać dni pracy z telefonu. Twoje
+              dane widzi tylko ona.
             </p>
             <ul className="mx-auto mt-7 max-w-xl space-y-2.5 text-left">
-              {PAINS.map((p) => (
-                <li key={p} className="flex items-start gap-2.5 text-[0.95rem] text-ink-muted">
-                  <span aria-hidden="true" className="mt-0.5 shrink-0 text-tag-red-tx">
-                    ✕
+              {POSITIVES.map((p) => (
+                <li key={p} className="flex items-start gap-2.5 text-[0.95rem] text-ink">
+                  <span aria-hidden="true" className="mt-0.5 shrink-0 text-tag-green-tx">
+                    ✓
                   </span>
                   {p}
                 </li>
               ))}
             </ul>
-            {showCount && (
-              <p className="mt-6 text-sm text-ink-muted">
-                Dołącz do <strong className="text-ink">{count}</strong> osób, które już czekają
-              </p>
-            )}
-          </div>
-
-          <div id="zapis" className="relative mx-auto mt-12 max-w-lg scroll-mt-28">
-            <WaitlistForm />
           </div>
         </Section>
 
-        {/* JAK TO DZIAŁA */}
         <Section id="jak-to-dziala" tone="muted">
           <SectionHeader
             eyebrow="Jak to działa"
@@ -236,12 +203,11 @@ export default async function DlaStatystowPage() {
           </ol>
         </Section>
 
-        {/* KORZYŚCI */}
-        <Section id="korzysci" tone="paper">
+        <Section id="co-masz-z-tego" tone="paper">
           <SectionHeader
             eyebrow="Co masz z tego Ty"
-            title="Mniej papierologii. Więcej grania."
-            description="PlanOS porządkuje to, co dziś dzieje się w mailach, SMS-ach i arkuszach — i daje Ci wgląd w to, co dzieje się z Twoimi danymi."
+            title="Mniej papierologii."
+            description="Twoja agencja prowadzi wszystko w jednym systemie, a Ty masz w nim własne konto."
           />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {BENEFITS.map(({ icon: Icon, title, body }) => (
@@ -259,11 +225,10 @@ export default async function DlaStatystowPage() {
         <SecurityBand
           eyebrow="Bezpieczeństwo danych"
           title="Twoje dane. Twoje zasady."
-          description="Dziś Twój PESEL i zdjęcia najczęściej leżą w arkuszu albo w czyjejś skrzynce mailowej. W PlanOS są zaszyfrowane, każdy dostęp zostawia ślad, a Ty masz realne narzędzia, żeby o nich decydować — nie tylko zapis w regulaminie."
+          description="W PlanOS Twoje dane wrażliwe są zaszyfrowane, każdy dostęp zostawia ślad, a swoje zgody widzisz i cofasz sam."
           pillars={TALENT_PILLARS}
         />
 
-        {/* FAQ */}
         <Section id="faq" tone="muted" width="narrow">
           <SectionHeader eyebrow="FAQ" title="Najczęstsze pytania" />
           <div className="mt-10 divide-y divide-paper-border rounded-2xl border border-paper-border bg-paper-card shadow-card">
@@ -288,6 +253,19 @@ export default async function DlaStatystowPage() {
               </details>
             ))}
           </div>
+
+          <div className="mt-12 rounded-2xl border border-paper-border bg-paper-card px-6 py-8 text-center shadow-card md:px-8">
+            <h2 className="font-display text-2xl font-semibold text-ink">
+              Twoja agencja jeszcze nie korzysta z PlanOS?
+            </h2>
+            <p className="mx-auto mt-3 max-w-md text-pretty text-ink-muted">
+              Prześlij jej tę stronę. O wdrożeniu decyduje agencja.
+            </p>
+            <div className="mt-6 flex justify-center">
+              <SharePageLink />
+            </div>
+          </div>
+
           <p className="mt-8 text-center text-sm text-ink-muted">
             Prowadzisz agencję?{" "}
             <a href="/" className="font-semibold text-brand-ink hover:text-brand">

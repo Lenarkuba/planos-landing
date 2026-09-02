@@ -4,16 +4,27 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { APP_URL, BOOKING_URL } from "@/lib/site-config";
-import { ButtonLink } from "./ui";
+import { ButtonLink, cn } from "./ui";
 import logoMark from "../../../public/brand/logo.png";
 
-/* Root-relative hashes so the nav also works on subpages (/dla-statystow, /privacy, /terms). */
-const NAV_LINKS = [
+type NavLink = { href: string; label: string; ghost?: boolean };
+
+/* Root-relative hashes so the agency nav also works on /privacy and /terms. */
+const AGENCY_LINKS: NavLink[] = [
   { href: "/#funkcje", label: "Funkcje" },
   { href: "/#jak-to-dziala", label: "Jak to działa" },
   { href: "/#bezpieczenstwo", label: "Bezpieczeństwo" },
   { href: "/#cennik", label: "Cennik" },
   { href: "/#faq", label: "FAQ" },
+  { href: "/dla-statystow", label: "Dla statystów", ghost: true },
+];
+
+const TALENT_LINKS: NavLink[] = [
+  { href: "#jak-to-dziala", label: "Jak to działa" },
+  { href: "#co-masz-z-tego", label: "Co masz z tego" },
+  { href: "#bezpieczenstwo", label: "Bezpieczeństwo" },
+  { href: "#faq", label: "FAQ" },
+  { href: "/", label: "Dla agencji", ghost: true },
 ];
 
 export function Logo({ className = "" }: { className?: string }) {
@@ -34,8 +45,30 @@ export function Logo({ className = "" }: { className?: string }) {
   );
 }
 
-export function LandingNav() {
+function navLinkClass(ghost?: boolean) {
+  return cn(
+    "text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand",
+    ghost
+      ? "text-ink-faint hover:text-ink-muted"
+      : "text-ink-muted hover:text-ink",
+  );
+}
+
+function mobileLinkClass(ghost?: boolean) {
+  return cn(
+    "block rounded-lg px-3 py-2.5 text-[0.95rem] font-medium hover:bg-paper-muted",
+    ghost ? "text-ink-faint" : "text-ink",
+  );
+}
+
+export function LandingNav({
+  variant = "agency",
+}: {
+  variant?: "agency" | "talent";
+}) {
   const [open, setOpen] = useState(false);
+  const links = variant === "talent" ? TALENT_LINKS : AGENCY_LINKS;
+  const showLogin = variant !== "talent";
 
   return (
     <header className="sticky top-0 z-50 border-b border-paper-border bg-paper/85 backdrop-blur-md">
@@ -51,12 +84,9 @@ export function LandingNav() {
         </Link>
 
         <ul className="hidden items-center gap-7 lg:flex">
-          {NAV_LINKS.map((link) => (
+          {links.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-sm font-medium text-ink-muted transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
-              >
+              <a href={link.href} className={navLinkClass(link.ghost)}>
                 {link.label}
               </a>
             </li>
@@ -64,14 +94,16 @@ export function LandingNav() {
         </ul>
 
         <div className="flex items-center gap-2">
-          <ButtonLink
-            href={APP_URL}
-            variant="ghost"
-            size="sm"
-            className="hidden md:inline-flex"
-          >
-            Zaloguj się
-          </ButtonLink>
+          {showLogin && (
+            <ButtonLink
+              href={APP_URL}
+              variant="ghost"
+              size="sm"
+              className="hidden md:inline-flex"
+            >
+              Zaloguj się
+            </ButtonLink>
+          )}
           <ButtonLink
             href={BOOKING_URL}
             target="_blank"
@@ -115,26 +147,28 @@ export function LandingNav() {
           className="border-t border-paper-border bg-paper px-4 pb-5 pt-3 lg:hidden"
         >
           <ul className="flex flex-col gap-1">
-            {NAV_LINKS.map((link) => (
+            {links.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-2.5 text-[0.95rem] font-medium text-ink hover:bg-paper-muted"
+                  className={mobileLinkClass(link.ghost)}
                 >
                   {link.label}
                 </a>
               </li>
             ))}
-            <li>
-              <a
-                href={APP_URL}
-                onClick={() => setOpen(false)}
-                className="block rounded-lg px-3 py-2.5 text-[0.95rem] font-medium text-ink-muted hover:bg-paper-muted"
-              >
-                Zaloguj się
-              </a>
-            </li>
+            {showLogin && (
+              <li>
+                <a
+                  href={APP_URL}
+                  onClick={() => setOpen(false)}
+                  className="block rounded-lg px-3 py-2.5 text-[0.95rem] font-medium text-ink-muted hover:bg-paper-muted"
+                >
+                  Zaloguj się
+                </a>
+              </li>
+            )}
           </ul>
           <ButtonLink
             href={BOOKING_URL}

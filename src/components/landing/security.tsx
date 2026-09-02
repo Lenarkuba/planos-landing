@@ -42,19 +42,19 @@ export const TALENT_PILLARS: Pillar[] = [
     icon: FileKey2,
     title: "Szyfrowanie danych wrażliwych",
     body:
-      "PESEL i inne dane wrażliwe są szyfrowane algorytmem AES-256. Nie leżą w arkuszu ani w skrzynce mailowej.",
+      "PESEL i inne dane wrażliwe są szyfrowane.",
   },
   {
     icon: Eye,
     title: "Rejestr każdego dostępu",
     body:
-      "Każde odczytanie Twojego PESEL-u zostaje zapisane: kto, kiedy i w jakim celu. Dostajesz o tym powiadomienie.",
+      "Każde odczytanie Twojego PESEL-u zostaje zapisane: kto, kiedy i w jakim celu. Historię dostępu widzisz w swoim koncie.",
   },
   {
     icon: ShieldCheck,
     title: "Zgody i prawo do bycia zapomnianym",
     body:
-      "Widzisz wszystkie zgody, które wyraziłeś. Cofasz je jednym kliknięciem, a usunięcie danych na żądanie (prawo do bycia zapomnianym) realizuje system — nie ręcznie ktoś w biurze.",
+      "Widzisz wszystkie zgody, które wyraziłeś. Cofasz je jednym kliknięciem, a usunięcie danych na żądanie (prawo do bycia zapomnianym) realizuje system.",
   },
   {
     icon: Database,
