@@ -2,12 +2,8 @@ import Image from "next/image";
 import {
   ArrowRight,
   BarChart3,
-  Bell,
-  CalendarCheck2,
   ClipboardList,
-  FileSpreadsheet,
   ListChecks,
-  ShieldCheck,
   Users,
   type LucideIcon,
 } from "lucide-react";
@@ -49,52 +45,12 @@ const FEATURES: Feature[] = [
     href: "#demo",
   },
   {
-    title: "Dni pracy i potwierdzenia jednym kliknięciem",
-    body:
-      "Dzień zdjęciowy, event, akcja promocyjna — tworzysz harmonogram, talent potwierdza lub odrzuca z telefonu. Status widzisz na żywo, bez telefonów.",
-    icon: CalendarCheck2,
-    graphic: FEATURE_ICONS.dni,
-    href: "#platforma",
-  },
-  {
-    title: "Lista obecności z linku na miejscu",
-    body:
-      "Koordynator na planie lub na evencie otwiera bezpieczny link i odhacza obecność, opóźnienie, nieobecność. Godziny i stawki zapisują się od razu.",
-    icon: ListChecks,
-    graphic: FEATURE_ICONS.obecnosc,
-    href: "#platforma",
-  },
-  {
     title: "Statystyki rzetelności",
     body:
       "Obecność, punktualność, no-show i czas potwierdzenia przy każdej osobie. Filtrujesz bazę po rzetelności i obsadzasz tych, na których można liczyć.",
     icon: BarChart3,
     graphic: FEATURE_ICONS.rzetelnosc,
-    href: "#wzrost",
-  },
-  {
-    title: "Rozliczenia i eksport ZUS z historii pracy",
-    body:
-      "Zrealizowane dni pracy zamieniają się w pliki dla księgowości i eksport ZUS. System podpowiada daty umów i oznacza, kto już został zgłoszony.",
-    icon: FileSpreadsheet,
-    graphic: FEATURE_ICONS.zus,
-    href: "#platforma",
-  },
-  {
-    title: "Powiadomienia zamiast telefonów",
-    body:
-      "Zmiana godziny, odwołanie, nowy dzień pracy — wszyscy zainteresowani dostają powiadomienie w aplikacji. Widzisz, co zostało wysłane i czy dotarło.",
-    icon: Bell,
-    graphic: FEATURE_ICONS.powiadomienia,
-    href: "#wzrost",
-  },
-  {
-    title: "RODO, zgody i własność danych",
-    body:
-      "Zgody, prawo do bycia zapomnianym, rejestr dostępu do PESEL i pełny eksport danych w każdej chwili — wbudowane, nie doklejone. Odchodzisz? Zabierasz wszystko.",
-    icon: ShieldCheck,
-    graphic: FEATURE_ICONS.rodo,
-    href: "#bezpieczenstwo",
+    href: "#faq",
   },
 ];
 
@@ -103,11 +59,11 @@ export function Features() {
     <Section id="funkcje" tone="muted">
       <SectionHeader
         eyebrow="Funkcje"
-        title="Wszystko, czego potrzebuje agencja — bez oddawania kontroli nad danymi"
-        description="Zamiast arkuszy, maili i grup na komunikatorze — jeden system dla biura, koordynatorów na miejscu, klientów i talentów. Każda karta to jedna rzecz, którą przestajesz robić ręcznie."
+        title="Cztery rzeczy, które przestajesz robić ręcznie"
+        description="Zamiast arkuszy, maili i grup na komunikatorze — jeden system dla biura, koordynatorów na miejscu, klientów i talentów."
       />
 
-      <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-14 grid gap-5 sm:grid-cols-2">
         {FEATURES.map((f) => (
           <Card key={f.title} hover className="flex flex-col">
             <FeatureGraphic feature={f} />

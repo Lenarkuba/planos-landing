@@ -3,11 +3,11 @@ import { Section, SectionHeader } from "./ui";
 const FAQ_ITEMS = [
   {
     q: "Czy PlanOS nadaje się dla agencji hostess i eventowych?",
-    a: "Tak. Przepływ jest ten sam, co przy castingu: nabór do projektu, wybór klienta przez link, potwierdzenia jednym kliknięciem, lista obecności na evencie, umowy i eksport ZUS. Uczciwie: część nazw w aplikacji jest jeszcze filmowa (np. „dni zdjęciowe” zamiast „zmiany”), ale mechanika — ludzie, terminy, obecność, stawki, rozliczenia — działa identycznie dla hostess i promotorów.",
+    a: "Tak — ten sam przepływ: nabór, wybór klienta przez link, potwierdzenia, lista obecności na evencie, umowy i eksport ZUS. Szczegóły w sekcji Platforma.",
   },
   {
     q: "Czy PlanOS należy do jakiejś agencji albo z nią współpracuje?",
-    a: "Nie. PlanOS to niezależne oprogramowanie. Żadna agencja nie jest właścicielem ani inwestorem. Baza każdej agencji jest oddzielona — nie prowadzimy wspólnej puli talentów.",
+    a: "Nie. PlanOS to niezależna firma software'owa. Żadna agencja nie jest właścicielem ani inwestorem PlanOS, a baza każdej agencji jest odseparowana od pozostałych.",
   },
   {
     q: "Czy inna agencja może zobaczyć moją bazę?",
@@ -19,7 +19,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Jak PlanOS pomaga w zgodności z RODO?",
-    a: "Masz zarządzanie zgodami, usuwanie danych na wniosek (prawo do bycia zapomnianym) i szyfrowanie danych wrażliwych. Każdy dostęp do numerów PESEL jest rejestrowany. Dane są hostowane w UE. Umowę powierzenia przetwarzania (DPA) udostępniamy każdej agencji przy wdrożeniu.",
+    a: "Masz zarządzanie zgodami, usuwanie danych na żądanie (prawo do bycia zapomnianym) i szyfrowanie danych wrażliwych. Każdy dostęp do numerów PESEL jest rejestrowany. Dane są hostowane w UE. Umowę powierzenia przetwarzania (DPA) udostępniamy każdej agencji przy wdrożeniu.",
   },
   {
     q: "Jak wygląda eksport do ZUS?",

@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { LandingNav } from "@/components/landing/nav";
 import { Hero } from "@/components/landing/hero";
-import { TrustBand } from "@/components/landing/trust-band";
 import { Platform } from "@/components/landing/platform";
 import { Features } from "@/components/landing/features";
 import { HowItWorks } from "@/components/landing/how-it-works";
-import { Growth } from "@/components/landing/growth";
+import { Founder } from "@/components/landing/founder";
 import { Security } from "@/components/landing/security";
 import { DemoVideo } from "@/components/landing/demo-video";
 import { Pricing } from "@/components/landing/pricing";
@@ -70,7 +69,7 @@ const jsonLd = {
         "System (oprogramowanie SaaS) dla agencji castingowych, statystów i hostess: baza talentów, castingi i nabory, potwierdzenia, listy obecności, pliki dla księgowości i eksport ZUS. Dane oddzielone dla każdej agencji, RODO w standardzie.",
       offers: {
         "@type": "Offer",
-        name: "Cena założycielska",
+        name: "Cena startowa",
         priceCurrency: "PLN",
         price: "499",
         priceSpecification: {
@@ -103,14 +102,13 @@ export default function LandingPage() {
       <LandingNav />
       <main>
         <Hero />
-        <TrustBand />
         <Platform />
         <Features />
         <HowItWorks />
-        <Growth />
+        <Founder />
+        <Pricing />
         <Security />
         <DemoVideo />
-        <Pricing />
         <Faq />
         <FinalCta />
       </main>

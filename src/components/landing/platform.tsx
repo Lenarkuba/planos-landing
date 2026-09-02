@@ -100,6 +100,12 @@ export function Platform() {
           );
         })}
       </ol>
+
+      <p className="mx-auto mt-16 max-w-3xl text-pretty text-center leading-relaxed text-ink-muted">
+        Część nazw w aplikacji jest jeszcze filmowa (np. „dni zdjęciowe” zamiast
+        „zmiany”), ale mechanika — ludzie, terminy, obecność, stawki,
+        rozliczenia — działa identycznie dla hostess i promotorów.
+      </p>
     </Section>
   );
 }

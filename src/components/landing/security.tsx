@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
 import { Database, Eye, FileKey2, ShieldCheck } from "lucide-react";
+import { CONTACT_EMAIL } from "@/lib/site-config";
 import { Card, IconBadge, Section, SectionHeader } from "./ui";
 
 type Pillar = {
@@ -26,13 +27,13 @@ const AGENCY_PILLARS: Pillar[] = [
     icon: Eye,
     title: "RODO w praktyce",
     body:
-      "Zarządzanie zgodami, informacja dla talentu i usuwanie danych na wniosek (prawo do bycia zapomnianym) pozwalają realnie wypełnić obowiązki administratora. Udostępniamy umowę powierzenia przetwarzania (DPA).",
+      "Zarządzanie zgodami, informacja dla talentu i usuwanie danych na żądanie (prawo do bycia zapomnianym) pozwalają realnie wypełnić obowiązki administratora. Udostępniamy umowę powierzenia przetwarzania (DPA).",
   },
   {
     icon: Database,
     title: "Własność danych, bez uzależnienia",
     body:
-      "W każdej chwili pobierzesz wszystkie swoje dane (JSON + CSV w ZIP). Odchodzisz? Zabierasz dane ze sobą. Bez zakładników.",
+      "W każdej chwili pobierzesz wszystkie swoje dane (JSON + CSV w ZIP). Odchodzisz? Zabierasz wszystko. Bez zakładników.",
   },
 ];
 
@@ -53,7 +54,7 @@ export const TALENT_PILLARS: Pillar[] = [
     icon: ShieldCheck,
     title: "Zgody i prawo do bycia zapomnianym",
     body:
-      "Widzisz wszystkie zgody, które wyraziłeś. Cofasz je jednym kliknięciem, a wniosek o usunięcie danych realizuje system — nie ręcznie ktoś w biurze.",
+      "Widzisz wszystkie zgody, które wyraziłeś. Cofasz je jednym kliknięciem, a usunięcie danych na żądanie (prawo do bycia zapomnianym) realizuje system — nie ręcznie ktoś w biurze.",
   },
   {
     icon: Database,
@@ -69,7 +70,7 @@ type SecurityBandProps = {
   description: string;
   pillars: Pillar[];
   /** Optional closing band with a plain hosting / compliance statement. */
-  footerNote?: string;
+  footerNote?: ReactNode;
 };
 
 /** Shared security section — homepage and /dla-statystow use the same chrome. */
@@ -97,9 +98,9 @@ export function SecurityBand({
       </div>
 
       {footerNote ? (
-        <p className="mt-12 rounded-2xl border border-paper-border bg-paper-muted px-6 py-5 text-center text-pretty font-display text-lg font-semibold text-ink md:px-8 md:text-left">
+        <div className="mt-12 rounded-2xl border border-paper-border bg-paper-muted px-6 py-5 text-center text-pretty md:px-8 md:text-left">
           {footerNote}
-        </p>
+        </div>
       ) : null}
     </Section>
   );
@@ -112,7 +113,36 @@ export function Security() {
       title="Twoja baza nigdy nie trafi do innej agencji"
       description="Baza talentów i hostess to najcenniejszy zasób agencji. Dlatego oddzielenie danych, szyfrowanie i RODO są fundamentem PlanOS, a nie dodatkiem."
       pillars={AGENCY_PILLARS}
-      footerNote="Dane agencji są hostowane w UE (Supabase). Podprocesorów IT wymieniamy w polityce prywatności."
+      footerNote={<HostingNote />}
     />
+  );
+}
+
+function HostingNote() {
+  return (
+    <>
+      <p className="font-display text-lg font-semibold text-ink">
+        Dane są przechowywane w Unii Europejskiej (Supabase, AWS eu-west-1 —
+        Irlandia). Pełna lista podprocesorów znajduje się w załączniku do umowy
+        powierzenia.
+      </p>
+      <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+        Umowę powierzenia (DPA) wysyłamy na życzenie:{" "}
+        <a
+          href={`mailto:${CONTACT_EMAIL}`}
+          className="font-semibold text-brand-ink hover:text-brand"
+        >
+          {CONTACT_EMAIL}
+        </a>
+      </p>
+      {/* Odkomentuj, gdy /public/dpa.pdf będzie po weryfikacji prawnej:
+      <a
+        href="/dpa.pdf"
+        className="mt-3 inline-flex text-sm font-semibold text-brand-ink hover:text-brand"
+      >
+        Pobierz umowę powierzenia (DPA, PDF)
+      </a>
+      */}
+    </>
   );
 }

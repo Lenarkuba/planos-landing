@@ -57,14 +57,14 @@ export function Hero() {
             </p>
 
             <h1 className="lp-animate lp-delay-1 mt-8 text-balance font-display text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-6xl lg:text-7xl">
-              Cała agencja w jednym systemie —{" "}
-              <span className="lp-gradient-text">od zgłoszenia do rozliczenia.</span>
+              Przestajesz przepisywać tę samą osobę do{" "}
+              <span className="lp-gradient-text">trzech arkuszy.</span>
             </h1>
 
             <p className="lp-animate lp-delay-2 mx-auto mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-ink-muted sm:text-xl">
-              PlanOS łączy bazę talentów, castingi i nabory, potwierdzenia, listy
-              obecności i pliki dla księgowości. Przestajesz przepisywać tę samą
-              osobę do trzech arkuszy — a Twoja baza zostaje tylko Twoja.
+              PlanOS prowadzi agencję od zgłoszenia do rozliczenia: baza talentów,
+              nabory, potwierdzenia, listy obecności i pliki dla księgowości w
+              jednym miejscu. Twoja baza zostaje tylko Twoja.
             </p>
 
             <div className="lp-animate lp-delay-3 mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

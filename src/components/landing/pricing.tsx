@@ -2,12 +2,17 @@
 
 import { useState } from "react";
 import { Building2, Check, Moon, Rocket } from "lucide-react";
-import { BOOKING_URL } from "@/lib/site-config";
+import { BOOKING_URL, CONTACT_EMAIL } from "@/lib/site-config";
 import { ButtonLink, Card, IconBadge, Section, SectionHeader } from "./ui";
 
+/** Tier limits and the second-tier entry price — defaults until they are fixed. */
+const TALENT_LIMIT = "300";
+const SLEEP_MONTHS_LIMIT = "5";
+const TIER_TWO_FROM = "1490";
+
 const INCLUDED = [
-  "Zespół agencji — bez opłaty za osobę",
-  "Baza talentów i hostess",
+  "Wszyscy użytkownicy biura w cenie",
+  `Baza do [${TALENT_LIMIT}] aktywnych talentów`,
   "Castingi, nabory, formularze zgłoszeń i grupy",
   "Panel wyboru dla klienta (link bez logowania)",
   "Dni pracy, potwierdzenia i listy obecności",
@@ -52,7 +57,7 @@ export function Pricing() {
         {/* Main price card */}
         <article className="relative rounded-3xl border-2 border-brand bg-paper-card p-8 shadow-card-lg md:p-10">
           <span className="absolute -top-3.5 left-8 rounded-full bg-brand px-3.5 py-1 text-xs font-semibold text-brand-foreground">
-            Cena założycielska −50% — pierwsze 10 agencji
+            Cena startowa dla pierwszych 10 agencji
           </span>
 
           <p className="mt-2 flex items-baseline gap-2 text-lg font-medium text-ink-faint">
@@ -68,10 +73,14 @@ export function Pricing() {
             </span>
             <span className="text-lg font-medium text-ink-muted">/ mies.</span>
           </p>
+          <p className="mt-3 text-pretty text-ink-muted">
+            Po pierwszych 10 wdrożeniach cena standardowa wzrośnie. Agencje,
+            które dołączą wcześniej, zachowują cenę startową.
+          </p>
           <p className="mt-3 min-h-[3rem] text-pretty text-ink-muted">
             {annual
               ? "4 990 zł rozliczane raz w roku (cena regularna 9 980 zł) — płacisz w dobrym miesiącu, korzystasz cały rok. Wdrożenie (migracja bazy, RODO, ZUS, szkolenie) w cenie: 0 zł."
-              : "Połowa ceny regularnej (998 zł/mies.) dla pierwszych 10 agencji. Rozliczenie co miesiąc, bez zobowiązań."}
+              : "Bez liczenia użytkowników. Rozliczenie co miesiąc, bez zobowiązań."}
           </p>
 
           <div className="mt-8 border-t border-paper-border pt-8">
@@ -130,6 +139,13 @@ export function Pricing() {
                 ? "Przy rozliczeniu rocznym wdrożenie jest w cenie — 0 zł."
                 : "1500 zł przy rozliczeniu miesięcznym. Przy płatności rocznej: 0 zł."}
             </p>
+            <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+              Baza zmigrowana i zespół przeszkolony w 10 dni roboczych od
+              przekazania danych — albo wdrożenie jest bezpłatne.
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+              Pierwszy miesiąc abonamentu zwracamy bez pytań, jeśli zrezygnujesz.
+            </p>
           </Card>
 
           {!annual && (
@@ -150,6 +166,10 @@ export function Pricing() {
                 Mniej projektów poza sezonem? Przełącz konto w tryb tylko-do-odczytu.
                 Dane są bezpieczne i gotowe, gdy wracasz do produkcji lub sezonu eventowego.
               </p>
+              <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                Dostępny w planie miesięcznym. Maksymalnie [{SLEEP_MONTHS_LIMIT}]
+                miesięcy w roku.
+              </p>
             </Card>
           )}
 
@@ -158,20 +178,21 @@ export function Pricing() {
               <IconBadge className="bg-paper-card">
                 <Building2 aria-hidden="true" className="h-5 w-5" />
               </IconBadge>
-              <h3 className="font-semibold text-ink">Kilka marek albo kilka agencji?</h3>
+              <h3 className="font-semibold text-ink">Duża agencja lub kilka marek</h3>
             </div>
-            <p className="mt-3 text-sm leading-relaxed text-ink-muted">
-              Jeśli chcesz zebrać dane kilku marek w jednej bazie albo prowadzisz
-              więcej niż jedną agencję — to już osobna rozmowa. Pokażemy, jak to
-              ułożyć na demo.
+            <p className="mt-4 font-display text-3xl font-medium tracking-tight text-ink">
+              od [{TIER_TWO_FROM}] zł{" "}
+              <span className="font-sans text-sm font-medium text-ink-muted">/ mies.</span>
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+              Powyżej [{TALENT_LIMIT}] aktywnych talentów albo więcej niż jedna
+              marka. Napisz, ustalimy zakres.
             </p>
             <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`mailto:${CONTACT_EMAIL}`}
               className="mt-4 inline-flex text-sm font-semibold text-brand-ink hover:text-brand"
             >
-              Umów rozmowę →
+              Napisz do nas →
             </a>
           </Card>
         </div>

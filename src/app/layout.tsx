@@ -24,7 +24,7 @@ const instrumentSerif = Instrument_Serif({
 const TITLE =
   "PlanOS — system dla agencji castingowych, statystów i hostess | baza talentów, obecności, ZUS";
 const DESCRIPTION =
-  "System dla agencji castingowych, statystów i hostess: baza talentów, castingi i nabory, potwierdzenia, listy obecności i pliki dla księgowości w jednym miejscu. RODO w standardzie.";
+  "System dla agencji castingowych, statystów i hostess: baza talentów, nabory, potwierdzenia, listy obecności i pliki dla księgowości w jednym miejscu. RODO i szyfrowany PESEL w standardzie.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -59,9 +59,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PlanOS — cała agencja w jednym systemie",
-    description:
-      "Baza talentów, castingi i nabory, potwierdzenia, obecności i pliki dla księgowości. Dla agencji castingowych, statystów i hostess.",
+    title: TITLE,
+    description: DESCRIPTION,
   },
   robots: { index: true, follow: true },
 };
