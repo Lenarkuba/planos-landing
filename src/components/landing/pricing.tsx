@@ -136,7 +136,7 @@ export function Pricing() {
               </div>
             </div>
             <p className="mt-4 flex items-baseline gap-2 font-display text-3xl font-semibold tracking-tight text-ink">
-              {annual ? "0 zł" : "1500 zł"}
+              {annual ? "0 zł" : "1499 zł"}
               {annual && (
                 <span className="rounded-full bg-tag-green-bg px-2 py-0.5 font-sans text-[0.7rem] font-bold text-tag-green-tx">
                   gratis
@@ -147,7 +147,7 @@ export function Pricing() {
               Migracja Twojej bazy, konfiguracja RODO i eksportu ZUS, szkolenie
               zespołu. {annual
                 ? "Przy rozliczeniu rocznym wdrożenie jest w cenie — 0 zł."
-                : "1500 zł przy rozliczeniu miesięcznym. Przy płatności rocznej: 0 zł."}
+                : "1499 zł przy rozliczeniu miesięcznym. Przy płatności rocznej: 0 zł."}
             </p>
             <p className="mt-3 text-sm leading-relaxed text-ink-muted">
               Baza zmigrowana i zespół przeszkolony w 10 dni roboczych od
