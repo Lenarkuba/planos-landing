@@ -2,9 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap');
+/*
+ * Fonts are loaded via next/font in src/app/layout.tsx and exposed as:
+ *   --font-sans        DM Sans          (body, all pages)
+ *   --font-display     Fraunces         (landing v2 headings)
+ *   --font-instrument  Instrument Serif (legacy dark pages: /privacy, /terms, /dla-statystow)
+ */
 
 :root {
+  /* ---- Legacy dark tokens (legal + talent waitlist pages) ---- */
   --bg: #0A0A0C;
   --bg-card: #111115;
   --bg-card-hover: #18181E;
@@ -22,8 +28,33 @@
   --orange: #F0A050;
   --orange-glow: rgba(240, 160, 80, 0.12);
   --red: #EF5555;
-  --serif: 'Instrument Serif', Georgia, serif;
-  --sans: 'DM Sans', -apple-system, sans-serif;
+  --serif: var(--font-instrument), Georgia, serif;
+  --sans: var(--font-sans), -apple-system, sans-serif;
+
+  /* ---- Landing v2 warm tokens (HSL triplets, used by tailwind.config.ts) ---- */
+  --lp-background: 40 33% 98%;
+  --lp-foreground: 40 8% 20%;
+  --lp-muted: 40 24% 96%;
+  --lp-muted-foreground: 38 6% 42%;
+  --lp-faint: 40 7% 59%;
+  --lp-border: 40 24% 90%;
+  --lp-card: 0 0% 100%;
+  --lp-primary: 32 95% 44%;
+  --lp-primary-foreground: 40 33% 98%;
+  --lp-brand-ink: 26 90% 37%;
+  --lp-brand-bright: 38 92% 50%;
+  --lp-brand-soft: 36 76% 94%;
+  --lp-hover: 40 37% 16%;
+  --lp-tag-green-bg: 120 26% 91%;
+  --lp-tag-green-tx: 144 34% 34%;
+  --lp-tag-blue-bg: 206 45% 91%;
+  --lp-tag-blue-tx: 207 47% 40%;
+  --lp-tag-red-bg: 12 78% 93%;
+  --lp-tag-red-tx: 6 48% 46%;
+  --lp-tag-orange-bg: 35 86% 89%;
+  --lp-tag-orange-tx: 33 81% 32%;
+  --lp-tag-grey-bg: 40 18% 89%;
+  --lp-tag-grey-tx: 40 7% 39%;
 }
 
 * {
@@ -45,7 +76,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom scrollbar - dark theme */
+/* Custom scrollbar - dark theme (legacy pages) */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -63,7 +94,21 @@ body {
   background: var(--border-light);
 }
 
-/* Landing page: subtle entrance animation (CSS-only, no JS cost) */
+/* Landing v2 root: warm paper theme + light scrollbar */
+.lp-root {
+  background: hsl(var(--lp-background));
+  color: hsl(var(--lp-foreground));
+}
+
+.lp-root ::-webkit-scrollbar-track {
+  background: hsl(var(--lp-muted));
+}
+
+.lp-root ::-webkit-scrollbar-thumb {
+  background: hsl(var(--lp-border));
+}
+
+/* ---- Landing animations (CSS-only, no JS cost) ---- */
 @keyframes lpFadeUp {
   from {
     opacity: 0;
@@ -75,21 +120,94 @@ body {
   }
 }
 
+@keyframes lpRevealScale {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes lpFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes lpPulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 hsl(var(--lp-brand-bright) / 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 10px hsl(var(--lp-brand-bright) / 0);
+  }
+}
+
+@keyframes lpGradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
 .lp-animate {
   animation: lpFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.lp-reveal-scale {
+  animation: lpRevealScale 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.lp-float {
+  animation: lpFloat 6s ease-in-out infinite;
+}
+
+.lp-pulse-glow {
+  animation: lpPulseGlow 2.4s ease-out infinite;
+}
+
+.lp-gradient-text {
+  background-image: linear-gradient(
+    90deg,
+    hsl(var(--lp-brand-ink)),
+    hsl(var(--lp-brand-bright)),
+    hsl(var(--lp-brand-ink))
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: lpGradientShift 8s ease-in-out infinite;
 }
 
 .lp-delay-1 { animation-delay: 0.1s; }
 .lp-delay-2 { animation-delay: 0.2s; }
 .lp-delay-3 { animation-delay: 0.3s; }
+.lp-delay-4 { animation-delay: 0.45s; }
+.lp-delay-5 { animation-delay: 0.6s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .lp-animate {
+  .lp-animate,
+  .lp-reveal-scale,
+  .lp-float,
+  .lp-pulse-glow,
+  .lp-gradient-text {
     animation: none;
   }
 }
 
-/* Fade-in animation */
+/* Legacy fade-in (used by IntersectionObserver-driven components) */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);

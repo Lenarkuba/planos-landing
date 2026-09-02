@@ -6,7 +6,7 @@ import Link from "next/link";
 type Status = "idle" | "loading" | "success" | "error";
 
 const inputClass =
-  "w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-[0.95rem] text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-blue-700 focus:ring-2 focus:ring-blue-700/20";
+  "w-full rounded-lg border border-paper-border bg-paper px-4 py-3 text-[0.95rem] text-ink placeholder:text-ink-faint outline-none transition-colors focus:border-brand focus:ring-2 focus:ring-brand/20";
 
 export function ContactForm() {
   const [name, setName] = useState("");
@@ -55,10 +55,10 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-xl border border-slate-200 bg-white p-8 text-center md:p-10">
-        <h3 className="text-2xl font-bold text-slate-900">Dziękuję za wiadomość</h3>
-        <p className="mt-3 text-[0.95rem] leading-relaxed text-slate-600">
-          Odezwę się w ciągu 1–2 dni roboczych. Jeśli sprawa jest pilna,
+      <div className="rounded-2xl border border-paper-border bg-paper-card p-8 text-center shadow-card md:p-10">
+        <h3 className="font-display text-2xl font-semibold text-ink">Dziękujemy za wiadomość</h3>
+        <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-muted">
+          Odezwiemy się w ciągu 1–2 dni roboczych. Jeśli sprawa jest pilna,
           skorzystaj z telefonu lub umów demo bezpośrednio w kalendarzu.
         </p>
       </div>
@@ -68,13 +68,13 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-6 md:p-8"
+      className="flex flex-col gap-4 rounded-2xl border border-paper-border bg-paper-card p-6 shadow-card md:p-8"
       aria-label="Formularz kontaktowy"
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="flex flex-col gap-1.5">
-          <label htmlFor="cf-name" className="text-sm font-medium text-slate-800">
-            Imię i nazwisko <span aria-hidden="true" className="text-blue-700">*</span>
+          <label htmlFor="cf-name" className="text-sm font-medium text-ink">
+            Imię i nazwisko <span aria-hidden="true" className="text-brand-ink">*</span>
           </label>
           <input
             id="cf-name"
@@ -87,8 +87,8 @@ export function ContactForm() {
           />
         </div>
         <div className="flex flex-col gap-1.5">
-          <label htmlFor="cf-agency" className="text-sm font-medium text-slate-800">
-            Nazwa agencji <span aria-hidden="true" className="text-blue-700">*</span>
+          <label htmlFor="cf-agency" className="text-sm font-medium text-ink">
+            Nazwa agencji <span aria-hidden="true" className="text-brand-ink">*</span>
           </label>
           <input
             id="cf-agency"
@@ -104,8 +104,8 @@ export function ContactForm() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="flex flex-col gap-1.5">
-          <label htmlFor="cf-email" className="text-sm font-medium text-slate-800">
-            E-mail <span aria-hidden="true" className="text-blue-700">*</span>
+          <label htmlFor="cf-email" className="text-sm font-medium text-ink">
+            E-mail <span aria-hidden="true" className="text-brand-ink">*</span>
           </label>
           <input
             id="cf-email"
@@ -118,8 +118,8 @@ export function ContactForm() {
           />
         </div>
         <div className="flex flex-col gap-1.5">
-          <label htmlFor="cf-phone" className="text-sm font-medium text-slate-800">
-            Telefon <span className="font-normal text-slate-400">(opcjonalnie)</span>
+          <label htmlFor="cf-phone" className="text-sm font-medium text-ink">
+            Telefon <span className="font-normal text-ink-faint">(opcjonalnie)</span>
           </label>
           <input
             id="cf-phone"
@@ -133,8 +133,8 @@ export function ContactForm() {
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label htmlFor="cf-message" className="text-sm font-medium text-slate-800">
-          Wiadomość <span aria-hidden="true" className="text-blue-700">*</span>
+        <label htmlFor="cf-message" className="text-sm font-medium text-ink">
+          Wiadomość <span aria-hidden="true" className="text-brand-ink">*</span>
         </label>
         <textarea
           id="cf-message"
@@ -161,7 +161,7 @@ export function ContactForm() {
       </div>
 
       {errorMsg && (
-        <p className="text-sm text-red-600" role="alert">
+        <p className="text-sm text-tag-red-tx" role="alert">
           {errorMsg}
         </p>
       )}
@@ -169,15 +169,15 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="inline-flex items-center justify-center rounded-lg bg-blue-700 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
+        className="inline-flex h-12 items-center justify-center rounded-xl bg-brand px-8 text-base font-semibold text-brand-foreground shadow-brand transition-all hover:bg-brand-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-60"
       >
         {status === "loading" ? "Wysyłam…" : "Wyślij wiadomość"}
       </button>
 
-      <p className="text-xs leading-relaxed text-slate-500">
+      <p className="text-xs leading-relaxed text-ink-faint">
         Wysyłając formularz, zgadzasz się na kontakt w sprawie PlanOS.
         Szczegóły przetwarzania danych znajdziesz w{" "}
-        <Link href="/privacy" className="underline hover:text-slate-700">
+        <Link href="/privacy" className="underline hover:text-ink">
           polityce prywatności
         </Link>
         .

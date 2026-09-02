@@ -1,57 +1,46 @@
+import { Section, SectionHeader } from "./ui";
+
 const STEPS = [
   {
-    title: "Demo i rozmowa",
-    body: "Pokazujemy system i słuchamy, jak działa Twoja agencja.",
+    n: "01",
+    title: "Demo i konfiguracja",
+    body:
+      "Pokazujemy system na przykładzie Twojej agencji i słuchamy, jak pracujecie. Ustawiamy projekty, typy umów i formularze zgłoszeń tak, jak dziś sprzedajecie.",
   },
   {
-    title: "Wdrożenie i migracja",
-    body: "Przenosimy Twoją bazę i konfigurujemy RODO oraz eksport ZUS.",
+    n: "02",
+    title: "Migracja bazy i zaproszenie zespołu",
+    body:
+      "Przenosimy dotychczasową bazę z arkuszy — system wyłapuje duplikaty i braki. Zapraszasz zespół z odpowiednimi uprawnieniami, a koordynatorzy dostają tylko listę obecności.",
   },
   {
-    title: "Szkolenie zespołu",
-    body: "Krótkie, praktyczne wdrożenie.",
-  },
-  {
-    title: "Bieżące wsparcie",
-    body: "Masz bezpośredni kontakt z twórcą systemu.",
+    n: "03",
+    title: "Pierwszy projekt na żywo",
+    body:
+      "Publikujesz nabór, klient wybiera przez link, talenty potwierdzają dni pracy. Po pierwszym miesiącu pliki dla księgowości i eksport ZUS budują się same z tego, co już zrobiliście.",
   },
 ];
 
 export function HowItWorks() {
   return (
-    <section
-      className="scroll-mt-20 border-y border-slate-200 bg-slate-50 py-16 md:py-24"
-      aria-labelledby="how-heading"
-    >
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue-700">
-          Współpraca
-        </p>
-        <h2
-          id="how-heading"
-          className="mt-3 text-balance text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
-        >
-          Jak zaczynamy współpracę
-        </h2>
+    <Section id="jak-to-dziala" tone="paper">
+      <SectionHeader
+        eyebrow="Jak zaczynamy"
+        title="Działasz w systemie po jednym tygodniu, nie po kwartale"
+        description="Nie musisz być osobą techniczną. Migrację i konfigurację robimy razem, a zespół przechodzi krótkie, praktyczne szkolenie."
+      />
 
-        <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {STEPS.map((step, i) => (
-            <li
-              key={step.title}
-              className="rounded-2xl border border-slate-200 bg-white p-6"
-            >
-              <span
-                aria-hidden="true"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-blue-700 to-indigo-600 text-sm font-semibold text-white"
-              >
-                {i + 1}
-              </span>
-              <h3 className="mt-4 text-lg font-semibold text-slate-900">{step.title}</h3>
-              <p className="mt-2 text-[0.95rem] leading-relaxed text-slate-600">{step.body}</p>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
+      <ol className="mt-14 grid gap-8 md:grid-cols-3">
+        {STEPS.map((s) => (
+          <li key={s.n} className="relative">
+            <span className="font-display text-5xl font-medium text-brand/60">{s.n}</span>
+            <h3 className="mt-3 font-display text-xl font-medium text-ink md:text-2xl">
+              {s.title}
+            </h3>
+            <p className="mt-3 text-pretty leading-relaxed text-ink-muted">{s.body}</p>
+          </li>
+        ))}
+      </ol>
+    </Section>
   );
 }

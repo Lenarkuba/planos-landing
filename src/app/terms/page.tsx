@@ -1,4 +1,5 @@
-import { Navbar, Footer } from "@/components";
+import { LandingNav } from "@/components/landing/nav";
+import { LandingFooter } from "@/components/landing/footer";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Linkedin } from "lucide-react";
@@ -13,61 +14,60 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen bg-[var(--bg)]">
+    <div className="lp-root min-h-screen font-sans">
+      <LandingNav />
+      <main className="bg-paper">
         {/* Header */}
-        <header className="border-b border-[var(--border)] py-12 md:py-16 px-4 md:px-8">
+        <header className="border-b border-paper-border bg-paper-muted py-12 md:py-16 px-4 md:px-8">
           <div className="max-w-3xl mx-auto">
-            <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--accent)] mb-3">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-ink mb-3">
               Dokument prawny
             </div>
             <h1
-              className="text-[clamp(2rem,4vw,3rem)] font-normal mb-2"
-              style={{ fontFamily: "var(--serif)", color: "var(--text)" }}
+              className="font-display text-4xl font-medium tracking-tight text-ink sm:text-5xl mb-2"
             >
               Regulamin
             </h1>
-            <p className="text-[var(--text-dim)] text-sm">
+            <p className="text-ink-faint text-sm">
               Ostatnia aktualizacja: {new Date().toLocaleDateString("pl-PL", { day: "numeric", month: "long", year: "numeric" })}
             </p>
           </div>
         </header>
 
-        <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-          <div className="space-y-10 text-[var(--text-muted)]">
-            <p className="text-[var(--text)] leading-relaxed">
+        <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 leading-relaxed">
+          <div className="space-y-10 text-ink-muted">
+            <p className="text-ink leading-relaxed">
               Niniejszy regulamin określa zasady korzystania z platformy PlanOS — serwisu do
               zarządzania castingami, artystami i dniami zdjęciowymi dla agencji castingowych
               i domów produkcyjnych. Korzystanie z Platformy oznacza akceptację regulaminu.
             </p>
 
             <section>
-              <h2 className="text-xl font-semibold mt-10 mb-4" style={{ color: "var(--text)" }}>
+              <h2 className="font-display text-2xl font-medium mt-10 mb-4 text-ink">
                 1. Postanowienia ogólne
               </h2>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
-                  <strong className="text-[var(--text)]">Platforma</strong> — aplikacja internetowa PlanOS,
+                  <strong className="text-ink">Platforma</strong> — aplikacja internetowa PlanOS,
                   dostępna pod adresem planoscast.pl oraz powiązane subdomeny
                 </li>
                 <li>
-                  <strong className="text-[var(--text)]">Użytkownik</strong> — osoba fizyczna lub prawna
+                  <strong className="text-ink">Użytkownik</strong> — osoba fizyczna lub prawna
                   korzystająca z Platformy (agencja, pracownik agencji, artysta)
                 </li>
                 <li>
-                  <strong className="text-[var(--text)]">Artysta</strong> — statyst, epizodysta lub aktor
+                  <strong className="text-ink">Artysta</strong> — statyst, epizodysta lub aktor
                   zarejestrowany w Platformie
                 </li>
                 <li>
-                  <strong className="text-[var(--text)]">Agencja</strong> — organizacja korzystająca
+                  <strong className="text-ink">Agencja</strong> — organizacja korzystająca
                   z panelu agencji (agencja castingowa, dom produkcyjny)
                 </li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-10 mb-4" style={{ color: "var(--text)" }}>
+              <h2 className="font-display text-2xl font-medium mt-10 mb-4 text-ink">
                 2. Usługi Platformy
               </h2>
               <p className="mb-4">PlanOS umożliwia m.in.:</p>
@@ -83,7 +83,7 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-10 mb-4" style={{ color: "var(--text)" }}>
+              <h2 className="font-display text-2xl font-medium mt-10 mb-4 text-ink">
                 3. Rejestracja i konta
               </h2>
               <ul className="list-disc pl-6 space-y-2">
@@ -96,7 +96,7 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-10 mb-4" style={{ color: "var(--text)" }}>
+              <h2 className="font-display text-2xl font-medium mt-10 mb-4 text-ink">
                 4. Dane wrażliwe i bezpieczeństwo
               </h2>
               <ul className="list-disc pl-6 space-y-2">
@@ -105,7 +105,7 @@ export default function TermsPage() {
                 <li>Użytkownicy zobowiązują się chronić dane dostępne w ramach swojej roli</li>
                 <li>Panel reżysera nie wyświetla PESEL-i, adresów ani numerów telefonów</li>
                 <li>Szczegóły przetwarzania danych określa{" "}
-                  <Link href="/privacy" className="text-[var(--accent)] hover:underline">
+                  <Link href="/privacy" className="text-brand-ink hover:underline">
                     Polityka prywatności
                   </Link>
                 </li>
@@ -113,7 +113,7 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-10 mb-4" style={{ color: "var(--text)" }}>
+              <h2 className="font-display text-2xl font-medium mt-10 mb-4 text-ink">
                 5. Zasady użytkowania
               </h2>
               <p className="mb-4">Użytkownik zobowiązuje się do:</p>
@@ -127,7 +127,7 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-10 mb-4" style={{ color: "var(--text)" }}>
+              <h2 className="font-display text-2xl font-medium mt-10 mb-4 text-ink">
                 6. Obowiązki agencji wobec artystów
               </h2>
               <ul className="list-disc pl-6 space-y-2">
@@ -139,7 +139,7 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-10 mb-4" style={{ color: "var(--text)" }}>
+              <h2 className="font-display text-2xl font-medium mt-10 mb-4 text-ink">
                 7. Nieobecność (no-show) i reputacja
               </h2>
               <p>
@@ -150,7 +150,7 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-10 mb-4" style={{ color: "var(--text)" }}>
+              <h2 className="font-display text-2xl font-medium mt-10 mb-4 text-ink">
                 8. Prawa własności intelektualnej
               </h2>
               <ul className="list-disc pl-6 space-y-2">
@@ -161,7 +161,7 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-10 mb-4" style={{ color: "var(--text)" }}>
+              <h2 className="font-display text-2xl font-medium mt-10 mb-4 text-ink">
                 9. Odpowiedzialność i wyłączenia
               </h2>
               <ul className="list-disc pl-6 space-y-2">
@@ -173,7 +173,7 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-10 mb-4" style={{ color: "var(--text)" }}>
+              <h2 className="font-display text-2xl font-medium mt-10 mb-4 text-ink">
                 10. Zawieszenie i rozwiązanie umowy
               </h2>
               <p>
@@ -185,7 +185,7 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-10 mb-4" style={{ color: "var(--text)" }}>
+              <h2 className="font-display text-2xl font-medium mt-10 mb-4 text-ink">
                 11. Zmiany regulaminu
               </h2>
               <p>
@@ -196,7 +196,7 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-10 mb-4" style={{ color: "var(--text)" }}>
+              <h2 className="font-display text-2xl font-medium mt-10 mb-4 text-ink">
                 12. Postanowienia końcowe
               </h2>
               <ul className="list-disc pl-6 space-y-2">
@@ -207,17 +207,17 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-10 mb-4" style={{ color: "var(--text)" }}>
+              <h2 className="font-display text-2xl font-medium mt-10 mb-4 text-ink">
                 13. Kontakt
               </h2>
-              <div className="p-5 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
-                <p className="text-[var(--text)] font-medium">PlanOS</p>
+              <div className="p-5 rounded-xl bg-paper-muted border border-paper-border">
+                <p className="text-ink font-medium">PlanOS</p>
                 <p className="mt-1">
                   <a
                     href={LINKEDIN_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-[var(--accent)] hover:underline"
+                    className="inline-flex items-center gap-2 text-brand-ink hover:underline"
                   >
                     <Linkedin className="w-4 h-4" />
                     LinkedIn
@@ -227,18 +227,18 @@ export default function TermsPage() {
             </section>
           </div>
 
-          <nav className="mt-14 pt-8 border-t border-[var(--border)] flex flex-wrap gap-2">
-            <Link href="/" className="text-[var(--accent)] hover:underline font-medium text-sm">
+          <nav className="mt-14 pt-8 border-t border-paper-border flex flex-wrap gap-2">
+            <Link href="/" className="text-brand-ink hover:underline font-medium text-sm">
               ← Powrót na stronę główną
             </Link>
-            <span className="text-[var(--border)]">|</span>
-            <Link href="/privacy" className="text-[var(--accent)] hover:underline font-medium text-sm">
+            <span className="text-paper-border">|</span>
+            <Link href="/privacy" className="text-brand-ink hover:underline font-medium text-sm">
               Polityka prywatności
             </Link>
           </nav>
         </article>
       </main>
-      <Footer />
-    </>
+      <LandingFooter />
+    </div>
   );
 }

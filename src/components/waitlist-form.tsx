@@ -1,9 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { CheckCircle2 } from "lucide-react";
 
 type Status = "idle" | "loading" | "success" | "error";
 
+const inputClass =
+  "w-full rounded-lg border border-paper-border bg-paper px-4 py-3 text-[0.95rem] text-ink placeholder:text-ink-faint outline-none transition-colors focus:border-brand focus:ring-2 focus:ring-brand/20";
+
+/**
+ * Talent waitlist form (/dla-statystow). Styled with the landing v2 paper/brand
+ * tokens. Posts e-mail + agency + city to /api/waitlist (no referral fields).
+ */
 export function WaitlistForm() {
   const [email, setEmail] = useState("");
   const [agency, setAgency] = useState("");
@@ -54,35 +63,26 @@ export function WaitlistForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl p-8 md:p-10 border border-[var(--green)]/40 bg-[var(--bg-card)] text-center">
-        <div className="text-4xl mb-3">✅</div>
-        <h3
-          className="text-2xl font-normal mb-2"
-          style={{ fontFamily: "var(--serif)" }}
-        >
-          Jesteś na liście!
-        </h3>
-        <p className="text-[var(--text-muted)] text-[0.95rem] leading-[1.6]">
-          Odezwiemy się, gdy PlanOS będzie dostępny dla Twojej agencji.
-          <br />
-          Im więcej statystów zgłosi tę samą agencję, tym szybciej ją zaprosimy —
-          podeślij link znajomym z planu. 🎬
+      <div className="rounded-2xl border border-paper-border bg-paper-card p-8 text-center shadow-card md:p-10">
+        <CheckCircle2 aria-hidden="true" className="mx-auto h-10 w-10 text-brand" />
+        <h3 className="mt-4 font-display text-2xl font-semibold text-ink">Jesteś na liście!</h3>
+        <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-muted">
+          Odezwiemy się, gdy PlanOS będzie dostępny w Twojej agencji. Do tego czasu nic nie
+          musisz robić — a Twój e-mail wykorzystamy tylko do tej jednej wiadomości.
         </p>
       </div>
     );
   }
 
-  const inputClass =
-    "w-full bg-[var(--surface)] border border-[var(--border)] rounded-[10px] px-4 py-3 text-[0.95rem] text-[var(--text)] placeholder:text-[var(--text-dim)] outline-none transition-colors focus:border-[var(--accent)]";
-
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl p-6 md:p-8 border border-[var(--border)] bg-[var(--bg-card)] flex flex-col gap-4"
+      className="flex flex-col gap-4 rounded-2xl border border-paper-border bg-paper-card p-6 shadow-card md:p-8"
+      aria-label="Zapis na listę oczekujących"
     >
       <div className="flex flex-col gap-1.5">
-        <label htmlFor="wl-email" className="text-sm font-medium text-[var(--text)]">
-          Twój e-mail <span className="text-[var(--accent)]">*</span>
+        <label htmlFor="wl-email" className="text-sm font-medium text-ink">
+          Twój e-mail <span aria-hidden="true" className="text-brand-ink">*</span>
         </label>
         <input
           id="wl-email"
@@ -97,25 +97,25 @@ export function WaitlistForm() {
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label htmlFor="wl-agency" className="text-sm font-medium text-[var(--text)]">
+        <label htmlFor="wl-agency" className="text-sm font-medium text-ink">
           Z którą agencją współpracujesz?
         </label>
         <input
           id="wl-agency"
           type="text"
-          placeholder="Nazwa agencji (lub „freelancer / nie wiem”)"
+          placeholder="Nazwa agencji (lub „nie wiem / kilka”)"
           value={agency}
           onChange={(e) => setAgency(e.target.value)}
           className={inputClass}
         />
-        <span className="text-[0.78rem] text-[var(--text-dim)]">
-          Zaczynamy od agencji, które statyści zgłaszają najczęściej.
+        <span className="text-xs text-ink-faint">
+          Dzięki temu damy Ci znać, gdy właśnie Twoja agencja uruchomi PlanOS.
         </span>
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label htmlFor="wl-city" className="text-sm font-medium text-[var(--text)]">
-          Miasto / region <span className="text-[var(--text-dim)]">(opcjonalnie)</span>
+        <label htmlFor="wl-city" className="text-sm font-medium text-ink">
+          Miasto / region <span className="font-normal text-ink-faint">(opcjonalnie)</span>
         </label>
         <input
           id="wl-city"
@@ -140,21 +140,21 @@ export function WaitlistForm() {
         />
       </div>
 
-      <label className="flex gap-2.5 items-start cursor-pointer text-[0.85rem] text-[var(--text-muted)] leading-[1.5]">
+      <label className="flex cursor-pointer items-start gap-2.5 text-sm leading-relaxed text-ink-muted">
         <input
           type="checkbox"
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
-          className="mt-0.5 accent-[var(--accent)] w-4 h-4 shrink-0"
+          className="mt-0.5 h-4 w-4 shrink-0 accent-brand"
         />
         <span>
-          Chcę dostać informację, gdy PlanOS będzie dostępny. Zgadzam się na kontakt
-          mailowy w tej sprawie. W każdej chwili mogę się wypisać.
+          Chcę dostać informację, gdy PlanOS będzie dostępny. Zgadzam się na kontakt mailowy w tej
+          sprawie. W każdej chwili mogę się wypisać.
         </span>
       </label>
 
       {errorMsg && (
-        <p className="text-[0.85rem] text-[var(--red)]" role="alert">
+        <p className="text-sm text-tag-red-tx" role="alert">
           {errorMsg}
         </p>
       )}
@@ -162,13 +162,17 @@ export function WaitlistForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="inline-flex items-center justify-center gap-2 bg-[var(--accent)] text-white py-3 px-8 rounded-[10px] font-semibold text-[0.95rem] border-none cursor-pointer transition-all hover:bg-[var(--accent-soft)] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(79,124,255,0.25)] disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0 disabled:shadow-none"
+        className="inline-flex h-12 items-center justify-center rounded-xl bg-brand px-8 text-base font-semibold text-brand-foreground shadow-brand transition-all hover:bg-brand-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {status === "loading" ? "Zapisuję..." : "Zapisz się na listę →"}
+        {status === "loading" ? "Zapisujemy…" : "Zapisz się na listę"}
       </button>
 
-      <p className="text-[0.78rem] text-[var(--text-dim)] text-center">
-        Zero spamu. Tylko jedna wiadomość, gdy ruszamy.
+      <p className="text-center text-xs leading-relaxed text-ink-faint">
+        Zero spamu. Tylko jedna wiadomość, gdy ruszamy. Szczegóły w{" "}
+        <Link href="/privacy" className="underline hover:text-ink">
+          polityce prywatności
+        </Link>
+        .
       </p>
     </form>
   );

@@ -1,28 +1,46 @@
 import type { Metadata } from "next";
 import { LandingNav } from "@/components/landing/nav";
 import { Hero } from "@/components/landing/hero";
-import { Outcomes } from "@/components/landing/outcomes";
-import { Problem } from "@/components/landing/problem";
+import { TrustBand } from "@/components/landing/trust-band";
+import { Platform } from "@/components/landing/platform";
 import { Features } from "@/components/landing/features";
-import { Workflow } from "@/components/landing/workflow";
-import { Panels } from "@/components/landing/panels";
-import { DemoVideo } from "@/components/landing/demo-video";
-import { Security } from "@/components/landing/security";
-import { Founder } from "@/components/landing/founder";
 import { HowItWorks } from "@/components/landing/how-it-works";
+import { Growth } from "@/components/landing/growth";
+import { Security } from "@/components/landing/security";
+import { DemoVideo } from "@/components/landing/demo-video";
 import { Pricing } from "@/components/landing/pricing";
 import { Faq, FAQ_ITEMS } from "@/components/landing/faq";
 import { FinalCta } from "@/components/landing/final-cta";
 import { LandingFooter } from "@/components/landing/footer";
-import { SITE_URL } from "@/lib/site-config";
+import { CONTACT_EMAIL, SITE_URL } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
+const ORGANIZATION_ID = `${SITE_URL}/#organization`;
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "Organization",
+      "@id": ORGANIZATION_ID,
+      name: "PlanOS",
+      url: SITE_URL,
+      logo: `${SITE_URL}/logo.svg`,
+      email: CONTACT_EMAIL,
+      description:
+        "PlanOS to niezależny producent oprogramowania (SaaS) dla agencji castingowych, statystów i hostess. PlanOS nie jest agencją i nie jest powiązany z żadną agencją castingową, statystów ani hostess — żadna agencja nie jest jego właścicielem ani nie finansuje projektu. Dane każdej agencji korzystającej z systemu są odseparowane; PlanOS nie prowadzi wspólnej bazy talentów i nie udostępnia danych między agencjami.",
+      knowsAbout: [
+        "oprogramowanie dla agencji castingowych",
+        "oprogramowanie dla agencji hostess",
+        "baza talentów",
+        "RODO",
+        "eksport ZUS",
+      ],
+      areaServed: "PL",
+    },
     {
       "@type": "SoftwareApplication",
       name: "PlanOS",
@@ -30,8 +48,11 @@ const jsonLd = {
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web",
       inLanguage: "pl",
+      author: { "@id": ORGANIZATION_ID },
+      publisher: { "@id": ORGANIZATION_ID },
+      provider: { "@id": ORGANIZATION_ID },
       description:
-        "Bezpieczny system dla agencji castingowych i agencji statystów: baza talentów, obsługa castingów, obecności na planie, eksport ZUS i pełna zgodność z RODO.",
+        "Niezależny system (oprogramowanie SaaS) dla agencji castingowych, statystów i hostess: baza talentów, castingi i nabory, potwierdzenia, listy obecności, pliki dla księgowości i eksport ZUS. PlanOS nie jest agencją i nie jest powiązany z żadną agencją; dane oddzielone dla każdej agencji, RODO w standardzie.",
       offers: {
         "@type": "Offer",
         priceCurrency: "PLN",
@@ -58,7 +79,7 @@ const jsonLd = {
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
+    <div className="lp-root min-h-screen font-sans">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -66,15 +87,13 @@ export default function LandingPage() {
       <LandingNav />
       <main>
         <Hero />
-        <Outcomes />
-        <Problem />
+        <TrustBand />
+        <Platform />
         <Features />
-        <Workflow />
-        <Panels />
-        <DemoVideo />
-        <Security />
-        <Founder />
         <HowItWorks />
+        <Growth />
+        <Security />
+        <DemoVideo />
         <Pricing />
         <Faq />
         <FinalCta />

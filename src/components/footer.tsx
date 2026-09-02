@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Linkedin } from "lucide-react";
-
-const LINKEDIN_URL = "https://www.linkedin.com/in/j-lenar/";
+import { Mail } from "lucide-react";
+import { CONTACT_EMAIL } from "@/lib/site-config";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,12 +12,10 @@ export function Footer() {
       <div className="max-w-[1200px] mx-auto flex flex-col items-center gap-6">
         <nav className="flex gap-6 list-none">
           <a
-            href={LINKEDIN_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`mailto:${CONTACT_EMAIL}`}
             className="text-sm text-[var(--text-dim)] no-underline hover:text-[var(--text-muted)] transition-colors inline-flex items-center gap-1.5"
           >
-            <Linkedin className="w-3.5 h-3.5" />
+            <Mail className="w-3.5 h-3.5" />
             Kontakt
           </a>
           <Link
@@ -34,6 +31,10 @@ export function Footer() {
             Regulamin
           </Link>
         </nav>
+        <p className="text-sm text-[var(--text-dim)] text-center max-w-[520px] leading-relaxed">
+          PlanOS to niezależny produkt technologiczny. Nie jesteśmy agencją — dane każdej
+          agencji są od siebie odseparowane.
+        </p>
         <p className="text-sm text-[var(--text-dim)]">
           © {currentYear} PlanOS
         </p>

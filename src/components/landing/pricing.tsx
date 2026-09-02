@@ -1,182 +1,198 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Moon, Rocket } from "lucide-react";
-import { BOOKING_URL } from "@/lib/site-config";
-import { TrustLine } from "./trust-line";
+import { Building2, Check, Moon, Rocket } from "lucide-react";
+import { BOOKING_URL, CONTACT_EMAIL, FOUNDING_OFFER_DEADLINE } from "@/lib/site-config";
+import { ButtonLink, Card, IconBadge, Section, SectionHeader } from "./ui";
 
-const PLAN_FEATURES = [
-  "Baza talentów z aktualnymi profilami",
-  "Castingi, formularze zgłoszeń i grupy castingowe",
-  "Panel selekcji dla reżysera",
-  "Dni zdjęciowe, potwierdzenia i obecności",
+const INCLUDED = [
+  "Nieograniczona liczba użytkowników w agencji",
+  "Nieograniczona baza talentów i hostess",
+  "Castingi, nabory, formularze zgłoszeń i grupy",
+  "Panel wyboru dla klienta (link bez logowania)",
+  "Dni pracy, potwierdzenia i listy obecności",
   "Statystyki rzetelności talentów",
-  "Eksport ZUS z historii nagrań",
-  "Zgody RODO i usuwanie danych",
+  "Pliki dla księgowości i eksport ZUS",
+  "Zgody RODO, usuwanie danych i rejestr dostępu",
   "Pełny eksport danych w każdej chwili",
-  "Bezpośrednie wsparcie twórcy systemu",
+  "Bezpośrednie wsparcie zespołu PlanOS",
 ];
 
 export function Pricing() {
   const [annual, setAnnual] = useState(false);
 
   return (
-    <section
-      id="cennik"
-      className="scroll-mt-20 bg-white py-16 md:py-24"
-      aria-labelledby="pricing-heading"
-    >
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue-700">
-            Cennik
-          </p>
-          <h2
-            id="pricing-heading"
-            className="mt-3 text-balance text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
-          >
-            Przejrzysty cennik, bez ukrytych kosztów
-          </h2>
-          <p className="mt-4 text-lg text-slate-600">
-            Stała opłata za całą agencję — nie płacisz od użytkownika.
-          </p>
+    <Section id="cennik" tone="paper" aria-labelledby="pricing-heading">
+      <SectionHeader
+        eyebrow="Cennik"
+        title="Jedna opłata za całą agencję. Bez opłat za użytkownika."
+        description="Ta sama cena, czy w biurze pracują dwie osoby, czy dwanaście. Wszystko w cenie od pierwszego dnia — nic nie jest zamknięte w wyższym pakiecie."
+      />
 
-          {/* Billing toggle */}
-          <div
-            className="mt-8 inline-flex items-center rounded-full border border-slate-200 bg-slate-50 p-1"
-            role="group"
-            aria-label="Wybór okresu rozliczenia"
-          >
-            <button
-              type="button"
-              onClick={() => setAnnual(false)}
-              aria-pressed={!annual}
-              className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 ${
-                !annual ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"
-              }`}
-            >
-              Miesięcznie
-            </button>
-            <button
-              type="button"
-              onClick={() => setAnnual(true)}
-              aria-pressed={annual}
-              className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 ${
-                annual ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"
-              }`}
-            >
-              Rocznie
-              <span className="ml-2 rounded-full bg-emerald-100 px-2 py-0.5 text-[0.7rem] font-bold text-emerald-700">
-                2 mies. gratis
-              </span>
-            </button>
-          </div>
-        </div>
-
-        <div className="mt-12 grid items-start gap-6 lg:grid-cols-[1.2fr_1fr]">
-          {/* Main plan */}
-          <article className="relative rounded-2xl border-2 border-blue-700 bg-white p-8 shadow-[0_30px_70px_-35px_rgba(29,78,216,0.45)]">
-            <span className="absolute -top-3.5 left-8 rounded-full bg-gradient-to-r from-blue-700 to-indigo-600 px-3.5 py-1 text-xs font-semibold text-white">
-              Pełny system dla Twojej agencji
+      {/* Billing toggle */}
+      <div className="mt-8 flex justify-center">
+        <div
+          className="inline-flex items-center rounded-full border border-paper-border bg-paper-muted p-1"
+          role="group"
+          aria-label="Wybór okresu rozliczenia"
+        >
+          <ToggleButton active={!annual} onClick={() => setAnnual(false)}>
+            Miesięcznie
+          </ToggleButton>
+          <ToggleButton active={annual} onClick={() => setAnnual(true)}>
+            Rocznie
+            <span className="ml-2 rounded-full bg-tag-green-bg px-2 py-0.5 text-[0.7rem] font-bold text-tag-green-tx">
+              2 mies. gratis
             </span>
-            <h3 className="text-xl font-semibold text-slate-900">PlanOS</h3>
-            <p className="mt-1 text-sm text-slate-500">
-              Cała agencja, bez limitu użytkowników
-            </p>
+          </ToggleButton>
+        </div>
+      </div>
 
-            <p className="mt-5 flex items-baseline gap-2">
-              <span className="text-5xl font-bold tracking-tight text-slate-900">
-                {annual ? "416" : "499"} zł
-              </span>
-              <span className="text-base font-medium text-slate-500">/ mies.</span>
-            </p>
-            <p className="mt-1.5 min-h-[1.5rem] text-sm text-slate-500">
-              {annual
-                ? "4 990 zł rozliczane raz w roku — płacisz w dobrym miesiącu, korzystasz cały rok, także w spokojniejszych okresach."
-                : "Rozliczenie co miesiąc, bez zobowiązań."}
-            </p>
+      <div className="mt-12 grid items-start gap-6 lg:grid-cols-[1.25fr_1fr]">
+        {/* Main price card */}
+        <article className="relative rounded-3xl border-2 border-brand bg-paper-card p-8 shadow-card-lg md:p-10">
+          <span className="absolute -top-3.5 left-8 rounded-full bg-brand px-3.5 py-1 text-xs font-semibold text-brand-foreground">
+            Pełny system dla Twojej agencji
+          </span>
 
-            <ul className="mt-7 grid gap-3 sm:grid-cols-2">
-              {PLAN_FEATURES.map((feature) => (
-                <li key={feature} className="flex gap-2.5 text-[0.92rem] leading-snug text-slate-700">
-                  <Check aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-blue-700" />
-                  {feature}
+          <p className="mt-2 flex items-baseline gap-2">
+            <span className="font-display text-6xl font-medium tracking-tight text-ink md:text-7xl">
+              {annual ? "416" : "499"} zł
+            </span>
+            <span className="text-lg font-medium text-ink-muted">/ mies.</span>
+          </p>
+          <p className="mt-3 min-h-[3rem] text-pretty text-ink-muted">
+            {annual
+              ? "4 990 zł rozliczane raz w roku — płacisz w dobrym miesiącu, korzystasz cały rok, także w spokojniejszych okresach."
+              : "To wszystko. Bez progów, bez pakietów, bez liczenia użytkowników. Rozliczenie co miesiąc, bez zobowiązań."}
+          </p>
+
+          <div className="mt-8 border-t border-paper-border pt-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-faint">
+              W cenie dla każdej agencji
+            </p>
+            <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+              {INCLUDED.map((item) => (
+                <li key={item} className="flex gap-2.5 text-[0.92rem] leading-snug text-ink">
+                  <Check aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                  {item}
                 </li>
               ))}
             </ul>
-
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-blue-700 to-indigo-600 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-700/20 transition-all hover:shadow-xl hover:shadow-blue-700/30 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
-            >
-              Umów demo
-            </a>
-          </article>
-
-          {/* Side cards */}
-          <div className="flex flex-col gap-6">
-            <article className="rounded-2xl border border-slate-200 bg-slate-50 p-7">
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white ring-1 ring-slate-200">
-                  <Rocket aria-hidden="true" className="h-5 w-5 text-blue-700" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-slate-900">Wdrożenie</h3>
-                  <p className="text-sm text-slate-500">jednorazowo</p>
-                </div>
-              </div>
-              <p className="mt-4 text-2xl font-bold tracking-tight text-slate-900">1500 zł</p>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                Migracja Twojej bazy, konfiguracja RODO i eksportu ZUS,
-                szkolenie zespołu. Nie musisz być osobą techniczną — wszystko
-                przygotowujemy za Ciebie.
-              </p>
-            </article>
-
-            <article className="rounded-2xl border border-slate-200 bg-slate-50 p-7">
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white ring-1 ring-slate-200">
-                  <Moon aria-hidden="true" className="h-5 w-5 text-blue-700" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-slate-900">Tryb uśpienia</h3>
-                  <p className="text-sm text-slate-500">na spokojniejsze okresy</p>
-                </div>
-              </div>
-              <p className="mt-4 text-2xl font-bold tracking-tight text-slate-900">
-                149 zł <span className="text-sm font-medium text-slate-500">/ mies.</span>
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                Mniej projektów? Przełącz konto w tryb tylko-do-odczytu. Twoje
-                dane są bezpieczne i gotowe, gdy wracasz do produkcji.
-              </p>
-            </article>
           </div>
-        </div>
 
-        {/* Founders offer */}
-        <div className="mt-8 flex flex-col items-start gap-5 rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-50/60 p-6 md:flex-row md:items-center md:justify-between md:p-8">
-          <div>
-            <h3 className="text-lg font-semibold text-slate-900">
-              Oferta dla agencji-założycieli
-            </h3>
-            <p className="mt-1.5 max-w-2xl text-[0.95rem] leading-relaxed text-slate-700">
-              Pierwsze agencje otrzymują stałą, obniżoną stawkę na zawsze.
-              Liczba miejsc ograniczona — zgłoszenia do [DATE].
-            </p>
-          </div>
-          <a
-            href="#kontakt"
-            className="inline-flex shrink-0 items-center justify-center rounded-xl bg-slate-900 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+          <ButtonLink
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            size="lg"
+            className="mt-9 w-full"
           >
-            Zapytaj o ofertę założycielską
-          </a>
-        </div>
+            Umów demo
+          </ButtonLink>
+          <p className="mt-3 text-center text-sm text-ink-faint">
+            Zobaczysz system na przykładzie swojej agencji. Bez zobowiązań.
+          </p>
+        </article>
 
-        <TrustLine className="mt-8 justify-center" />
+        {/* Side cards */}
+        <div className="flex flex-col gap-5">
+          <Card>
+            <div className="flex items-center gap-3">
+              <IconBadge>
+                <Rocket aria-hidden="true" className="h-5 w-5" />
+              </IconBadge>
+              <div>
+                <h3 className="font-semibold text-ink">Wdrożenie</h3>
+                <p className="text-sm text-ink-muted">jednorazowo</p>
+              </div>
+            </div>
+            <p className="mt-4 font-display text-3xl font-medium tracking-tight text-ink">1500 zł</p>
+            <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+              Migracja Twojej bazy, konfiguracja RODO i eksportu ZUS, szkolenie
+              zespołu. Nie musisz być osobą techniczną — wszystko przygotowujemy za Ciebie.
+            </p>
+          </Card>
+
+          <Card>
+            <div className="flex items-center gap-3">
+              <IconBadge>
+                <Moon aria-hidden="true" className="h-5 w-5" />
+              </IconBadge>
+              <div>
+                <h3 className="font-semibold text-ink">Tryb uśpienia</h3>
+                <p className="text-sm text-ink-muted">na spokojniejsze okresy</p>
+              </div>
+            </div>
+            <p className="mt-4 font-display text-3xl font-medium tracking-tight text-ink">
+              149 zł <span className="font-sans text-sm font-medium text-ink-muted">/ mies.</span>
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+              Mniej projektów poza sezonem? Przełącz konto w tryb tylko-do-odczytu.
+              Dane są bezpieczne i gotowe, gdy wracasz do produkcji lub sezonu eventowego.
+            </p>
+          </Card>
+
+          <Card className="bg-paper-muted">
+            <div className="flex items-center gap-3">
+              <IconBadge className="bg-paper-card">
+                <Building2 aria-hidden="true" className="h-5 w-5" />
+              </IconBadge>
+              <h3 className="font-semibold text-ink">Prowadzisz większą agencję lub kilka marek?</h3>
+            </div>
+            <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+              Ta sama cena, bez „pakietu enterprise”. Jeśli chcesz najpierw
+              omówić, jak PlanOS poradzi sobie z Twoją skalą — napisz, przejdziemy
+              przez to razem.
+            </p>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="mt-4 inline-flex text-sm font-semibold text-brand-ink hover:text-brand"
+            >
+              Napisz: {CONTACT_EMAIL}
+            </a>
+          </Card>
+        </div>
       </div>
-    </section>
+
+      {/* Founders offer */}
+      <div className="mt-8 flex flex-col items-start gap-5 rounded-2xl border border-brand/30 bg-brand-soft/60 p-6 md:flex-row md:items-center md:justify-between md:p-8">
+        <div>
+          <h3 className="font-display text-xl font-medium text-ink">
+            Oferta dla agencji-założycieli
+          </h3>
+          <p className="mt-1.5 max-w-2xl text-[0.95rem] leading-relaxed text-ink-muted">
+            Pierwsze agencje otrzymują stałą, obniżoną stawkę na zawsze. Liczba
+            miejsc ograniczona — zgłoszenia do {FOUNDING_OFFER_DEADLINE}.
+          </p>
+        </div>
+        <ButtonLink href="#kontakt" variant="inverted" size="lg" className="shrink-0 bg-ink text-paper hover:bg-ink-hover">
+          Zapytaj o ofertę założycielską
+        </ButtonLink>
+      </div>
+    </Section>
+  );
+}
+
+function ToggleButton({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={active}
+      className={`inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand ${
+        active ? "bg-paper-card text-ink shadow-sm" : "text-ink-muted hover:text-ink"
+      }`}
+    >
+      {children}
+    </button>
   );
 }

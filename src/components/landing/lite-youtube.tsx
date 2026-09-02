@@ -27,7 +27,7 @@ export function LiteYouTube({ videoId, title }: { videoId: string; title: string
       type="button"
       onClick={() => setLoaded(true)}
       aria-label={`Odtwórz wideo: ${title}`}
-      className="group relative block h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+      className="group relative block h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
     >
       <Image
         src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
@@ -40,7 +40,7 @@ export function LiteYouTube({ videoId, title }: { videoId: string; title: string
       <span className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-xl transition-transform group-hover:scale-105">
         <svg
           aria-hidden="true"
-          className="ml-1 h-6 w-6 text-blue-700"
+          className="ml-1 h-6 w-6 text-brand-ink"
           viewBox="0 0 24 24"
           fill="currentColor"
         >
