@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<title>Umowa powierzenia przetwarzania danych osobowych (DPA) — PlanOS — PROJEKT</title>
+<style>
+  @page { size: A4; margin: 22mm 20mm 22mm 20mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: "Segoe UI", Arial, Helvetica, sans-serif; color: #1a1a1a; line-height: 1.45; margin: 0; }
+  h1 { font-size: 17pt; margin: 0 0 4pt; letter-spacing: -0.01em; }
+  h2 { font-size: 12pt; margin: 18pt 0 6pt; page-break-after: avoid; }
+  h3 { font-size: 10.5pt; margin: 12pt 0 4pt; page-break-after: avoid; }
+  p, li { margin: 0 0 5pt; text-align: justify; }
+  ol { padding-left: 20pt; }
+  ol ol { padding-left: 18pt; margin-top: 3pt; }
+  ol.lit { list-style-type: lower-alpha; }
+  table { width: 100%; border-collapse: collapse; margin: 6pt 0 10pt; font-size: 9.5pt; page-break-inside: avoid; }
+  th, td { border: 1px solid #999; padding: 4pt 6pt; vertical-align: top; text-align: left; }
+  th { background: #efefef; }
+  .meta { color: #555; font-size: 9.5pt; margin-bottom: 14pt; }
+  .draft { border: 2px solid #b00; color: #b00; padding: 6pt 10pt; font-weight: 700; margin: 0 0 14pt; font-size: 10pt; }
+  .fill { background: #fff3c4; padding: 0 3pt; font-weight: 600; }
+  .parties { display: flex; gap: 14pt; margin: 8pt 0 6pt; }
+  .party { flex: 1; border: 1px solid #bbb; padding: 8pt 10pt; font-size: 9.5pt; }
+  .party strong { display: block; margin-bottom: 3pt; }
+  .sign { display: flex; gap: 30pt; margin-top: 40pt; page-break-inside: avoid; }
+  .sign div { flex: 1; border-top: 1px solid #333; padding-top: 4pt; font-size: 9.5pt; color: #555; }
+  .annex { page-break-before: always; }
+  .note { font-size: 9pt; color: #555; }
+  footer { position: fixed; bottom: -12mm; left: 0; right: 0; font-size: 8pt; color: #777; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="draft">PROJEKT — wersja robocza do weryfikacji prawnej. Pola oznaczone <span class="fill">[…]</span> wymagają uzupełnienia lub potwierdzenia przed podpisaniem lub publikacją.</div>
+
+<h1>Umowa powierzenia przetwarzania danych osobowych</h1>
+<p class="meta">Data Processing Agreement (DPA) — załącznik do umowy o świadczenie usługi PlanOS · wersja <span class="fill">[1.0-draft]</span> · <span class="fill">[data]</span></p>
+
+<p>zawarta w <span class="fill">[miejscowość]</span>, dnia <span class="fill">[data]</span>, pomiędzy:</p>
+
+<div class="parties">
+  <div class="party">
+    <strong>Administrator („Agencja”)</strong>
+    <span class="fill">[pełna nazwa agencji]</span><br />
+    <span class="fill">[adres siedziby]</span><br />
+    NIP <span class="fill">[…]</span>, REGON/KRS <span class="fill">[…]</span><br />
+    reprezentowana przez: <span class="fill">[imię i nazwisko, funkcja]</span><br />
+    e-mail do kontaktu w sprawach danych: <span class="fill">[…]</span>
+  </div>
+  <div class="party">
+    <strong>Podmiot przetwarzający („PlanOS”)</strong>
+    Syntegrade Business Automation - Jakub Lenartowicz<br />
+    ul. Solidarności 7/31, 96-200 Rawa Mazowiecka<br />
+    NIP 8351620867, REGON 540036340<br />
+    reprezentowany przez: Jakub Lenartowicz<br />
+    e-mail do kontaktu w sprawach danych: <span class="fill">[admin@planos.pl — potwierdzić adres docelowy]</span>
+  </div>
+</div>
+
+<p>łącznie „Stronami”, a każda z osobna „Stroną”.</p>
+
+<h2>§ 1. Definicje</h2>
+<ol>
+  <li><strong>RODO</strong> — Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych.</li>
+  <li><strong>Umowa główna</strong> — umowa o świadczenie usługi PlanOS (regulamin oraz zamówienie/plan), na podstawie której PlanOS udostępnia Agencji Platformę.</li>
+  <li><strong>Platforma</strong> — oprogramowanie PlanOS udostępniane w modelu SaaS (aplikacja webowa oraz powiązane usługi: baza talentów, castingi i nabory, potwierdzenia, listy obecności, pliki dla księgowości, eksport ZUS, powiadomienia, panel talentu).</li>
+  <li><strong>Dane</strong> — dane osobowe, których administratorem jest Agencja, a które są przetwarzane w Platformie w związku z wykonywaniem Umowy głównej; kategorie Danych i osób opisuje Załącznik 3.</li>
+  <li><strong>Podprocesor</strong> — dalszy podmiot przetwarzający, z którego usług PlanOS korzysta przy przetwarzaniu Danych; lista w Załączniku 1.</li>
+  <li><strong>Informacje poufne</strong> — wszelkie informacje nieujawnione publicznie, uzyskane przez Stronę w związku z Umową, w szczególności Dane, baza talentów Agencji, stawki, notatki wewnętrzne, listy klientów i projektów, informacje handlowe i techniczne, dokumentacja Platformy oraz treść niniejszej Umowy.</li>
+  <li>Pojęcia „administrator”, „podmiot przetwarzający”, „przetwarzanie”, „naruszenie ochrony danych osobowych” i „osoba, której dane dotyczą” mają znaczenie nadane im w art. 4 RODO.</li>
+</ol>
+
+<h2>§ 2. Przedmiot i czas trwania</h2>
+<ol>
+  <li>Agencja powierza PlanOS przetwarzanie Danych w zakresie i celu niezbędnym do świadczenia usługi Platformy zgodnie z Umową główną, a PlanOS zobowiązuje się je przetwarzać zgodnie z RODO, niniejszą Umową i udokumentowanymi poleceniami Agencji.</li>
+  <li>Niniejsza Umowa stanowi udokumentowane polecenie w rozumieniu art. 28 ust. 3 lit. a RODO. Dalsze polecenia Agencja przekazuje pisemnie lub elektronicznie (w tym poprzez konfigurację Platformy przez uprawnionych użytkowników Agencji).</li>
+  <li>Umowa obowiązuje przez czas trwania Umowy głównej. Postanowienia § 5 (Poufność), § 10 (Usunięcie i zwrot Danych) oraz § 11 (Odpowiedzialność) pozostają w mocy po jej rozwiązaniu, do czasu wykonania wynikających z nich obowiązków.</li>
+</ol>
+
+<h2>§ 3. Charakter, cel i zakres przetwarzania</h2>
+<ol>
+  <li>Charakter przetwarzania: operacje wykonywane automatycznie w Platformie (zbieranie przez formularze zgłoszeń i panel talentu, utrwalanie, przechowywanie, porządkowanie, udostępnianie uprawnionym użytkownikom Agencji i wskazanym przez nią odbiorcom, wysyłka powiadomień, generowanie zestawień i plików dla księgowości, szyfrowanie, archiwizowanie, usuwanie).</li>
+  <li>Cel przetwarzania: obsługa procesów Agencji — prowadzenie bazy talentów, organizacja castingów, naborów i dni pracy, potwierdzenia udziału, listy obecności, rozliczenia i przygotowanie danych do zgłoszeń ZUS oraz realizacja praw osób, których dane dotyczą.</li>
+  <li>Kategorie osób i Danych, w tym Dane szczególnie chronione lub podlegające wzmożonej ochronie (np. numer PESEL, wizerunek, wymiary ciała), określa Załącznik 3.</li>
+  <li>PlanOS nie przetwarza Danych we własnych celach, nie prowadzi wspólnej bazy talentów pomiędzy agencjami i nie udostępnia Danych jednej agencji innej. Dane każdej agencji są przetwarzane w logicznie odseparowanej przestrzeni (Załącznik 2).</li>
+</ol>
+
+<h2>§ 4. Obowiązki PlanOS</h2>
+<ol>
+  <li>PlanOS przetwarza Dane wyłącznie na udokumentowane polecenie Agencji, chyba że obowiązek taki nakłada prawo Unii lub prawo państwa członkowskiego — w takim wypadku, przed rozpoczęciem przetwarzania, informuje Agencję o tym obowiązku, o ile prawo tego nie zabrania.</li>
+  <li>PlanOS zapewnia, że osoby upoważnione do przetwarzania Danych zobowiązały się do zachowania tajemnicy lub podlegają ustawowemu obowiązkowi zachowania tajemnicy, oraz że dostęp mają wyłącznie osoby, którym jest on niezbędny do wykonania Umowy.</li>
+  <li>PlanOS wdraża i utrzymuje środki techniczne i organizacyjne wymagane art. 32 RODO, co najmniej w zakresie opisanym w Załączniku 2, i nie obniża poziomu ochrony w czasie trwania Umowy.</li>
+  <li>PlanOS wspiera Agencję — poprzez funkcje Platformy oraz, w razie potrzeby, bezpośrednio — w wywiązywaniu się z obowiązku odpowiadania na żądania osób, których dane dotyczą (art. 12–22 RODO). Żądanie skierowane bezpośrednio do PlanOS zostanie przekazane Agencji bez zbędnej zwłoki, nie później niż w 3 dni robocze; PlanOS nie odpowiada osobie samodzielnie, chyba że Agencja tak poleci.</li>
+  <li>PlanOS pomaga Agencji w wywiązaniu się z obowiązków określonych w art. 32–36 RODO (bezpieczeństwo, zgłaszanie naruszeń, ocena skutków, uprzednie konsultacje), uwzględniając charakter przetwarzania i dostępne mu informacje.</li>
+  <li>PlanOS niezwłocznie informuje Agencję, jeśli jego zdaniem wydane polecenie narusza RODO lub inne przepisy o ochronie danych.</li>
+  <li>PlanOS prowadzi rejestr kategorii czynności przetwarzania dokonywanych w imieniu Agencji (art. 30 ust. 2 RODO) i udostępnia go na żądanie.</li>
+  <li>PlanOS <span class="fill">[nie ma / ma]</span> obowiązku wyznaczenia inspektora ochrony danych; osobą kontaktową w sprawach ochrony danych jest osoba wskazana w komparycji.</li>
+</ol>
+
+<h2>§ 5. Poufność</h2>
+<ol>
+  <li>Każda ze Stron zobowiązuje się zachować w tajemnicy Informacje poufne drugiej Strony, wykorzystywać je wyłącznie w celu wykonania Umowy głównej i niniejszej Umowy oraz chronić je z zachowaniem co najmniej takiej staranności, jaką stosuje do własnych informacji o podobnym charakterze, nie mniejszej niż należyta.</li>
+  <li>W szczególności PlanOS nie ujawnia, nie sprzedaje, nie użycza ani nie udostępnia bazy talentów, stawek, notatek, listy klientów, projektów ani jakichkolwiek innych Informacji poufnych Agencji osobom trzecim, w tym innym agencjom korzystającym z Platformy, ani nie wykorzystuje ich do budowy własnych zbiorów, analiz rynkowych, uczenia modeli lub do jakiegokolwiek celu innego niż świadczenie usługi Agencji.</li>
+  <li>Ujawnienie Informacji poufnych jest dopuszczalne wyłącznie: (a) Podprocesorom z Załącznika 1 w zakresie niezbędnym do świadczenia usługi, związanym co najmniej równoważnymi obowiązkami poufności; (b) pracownikom i współpracownikom Strony, którym są niezbędne i którzy zostali zobowiązani do poufności; (c) gdy wymaga tego prawo lub prawomocne żądanie uprawnionego organu — po uprzednim, o ile to prawnie dopuszczalne, poinformowaniu drugiej Strony i ograniczeniu ujawnienia do wymaganego zakresu.</li>
+  <li>Obowiązek poufności nie dotyczy informacji, które: były publicznie znane bez naruszenia Umowy; Strona otrzymująca posiadała je zgodnie z prawem przed ich ujawnieniem; zostały uzyskane od osoby trzeciej uprawnionej do ich ujawnienia; zostały niezależnie opracowane bez wykorzystania Informacji poufnych. Wyłączenia te nie dotyczą Danych osobowych, które chronione są zawsze.</li>
+  <li>Obowiązek poufności trwa przez czas obowiązywania Umowy i <span class="fill">[5]</span> lat po jej ustaniu, a w odniesieniu do Danych osobowych oraz tajemnicy przedsiębiorstwa — bezterminowo.</li>
+  <li>Na żądanie Agencji PlanOS przedstawi wzór zobowiązania do poufności podpisywanego przez osoby dopuszczone do Danych.</li>
+  <li>Strony mogą podawać fakt współpracy (nazwa/logo Agencji jako klienta PlanOS) w materiałach marketingowych wyłącznie po uzyskaniu odrębnej, pisemnej zgody drugiej Strony.</li>
+</ol>
+
+<h2>§ 6. Bezpieczeństwo przetwarzania</h2>
+<ol>
+  <li>Szczegółowy opis środków technicznych i organizacyjnych zawiera Załącznik 2. PlanOS może je aktualizować, o ile nie prowadzi to do obniżenia ogólnego poziomu bezpieczeństwa; o istotnych zmianach informuje Agencję.</li>
+  <li>Agencja odpowiada za bezpieczeństwo po swojej stronie, w szczególności za: nadawanie i odbieranie uprawnień użytkownikom Agencji, dobór osób z dostępem do Danych, ochronę własnych danych logowania, treść i podstawy prawne zbieranych Danych oraz konfigurację zgód i informacji dla talentów w Platformie.</li>
+</ol>
+
+<h2>§ 7. Podpowierzenie (Podprocesorzy)</h2>
+<ol>
+  <li>Agencja udziela PlanOS ogólnej zgody na korzystanie z Podprocesorów wymienionych w Załączniku 1 w chwili zawarcia Umowy.</li>
+  <li>O zamiarze dodania lub zmiany Podprocesora PlanOS informuje Agencję (e-mail na adres kontaktowy lub komunikat w Platformie) z co najmniej <span class="fill">[14]</span> dniowym wyprzedzeniem. Agencja może w tym terminie zgłosić uzasadniony sprzeciw. Jeśli Strony nie osiągną porozumienia, Agencja może wypowiedzieć Umowę główną w części dotyczącej usługi, której zmiana dotyczy, bez ponoszenia kar umownych; do dnia rozwiązania Umowy PlanOS umożliwia pełny eksport Danych (§ 10).</li>
+  <li>PlanOS nakłada na każdego Podprocesora, na podstawie umowy, te same obowiązki ochrony danych, jakie ciążą na PlanOS na mocy niniejszej Umowy, w szczególności obowiązek zapewnienia wystarczających gwarancji wdrożenia odpowiednich środków technicznych i organizacyjnych. Jeśli Podprocesor nie wywiąże się ze swoich obowiązków, pełna odpowiedzialność wobec Agencji za jego działania spoczywa na PlanOS.</li>
+  <li>Aktualna lista Podprocesorów jest dostępna w Załączniku 1 oraz w polityce prywatności PlanOS.</li>
+</ol>
+
+<h2>§ 8. Przekazywanie danych poza EOG</h2>
+<ol>
+  <li>Dane są przechowywane na serwerach zlokalizowanych w Europejskim Obszarze Gospodarczym (Załącznik 1 — kolumna „Lokalizacja”).</li>
+  <li>Jeżeli świadczenie usługi przez Podprocesora wiąże się z dostępem do Danych z państwa trzeciego (np. wsparcie techniczne, przesył wiadomości e-mail), przekazanie odbywa się wyłącznie na podstawie zgodnej z rozdziałem V RODO — decyzji Komisji stwierdzającej odpowiedni stopień ochrony (w tym EU-U.S. Data Privacy Framework) lub standardowych klauzul umownych (decyzja 2021/914) wraz z dodatkowymi środkami, jeśli są wymagane.</li>
+  <li>PlanOS nie przekaże Danych do państwa trzeciego na innej podstawie bez uprzedniego poinformowania Agencji.</li>
+</ol>
+
+<h2>§ 9. Naruszenia ochrony danych, audyt i współpraca</h2>
+<ol>
+  <li>PlanOS zawiadamia Agencję o stwierdzonym naruszeniu ochrony Danych bez zbędnej zwłoki, nie później niż w ciągu <span class="fill">[24]</span> godzin od jego stwierdzenia, na adres e-mail kontaktowy Agencji. Zawiadomienie zawiera co najmniej informacje wymienione w art. 33 ust. 3 RODO w zakresie dostępnym w tym momencie; brakujące informacje PlanOS uzupełnia sukcesywnie.</li>
+  <li>PlanOS dokumentuje naruszenia, ich skutki i podjęte działania zaradcze oraz udostępnia dokumentację Agencji na żądanie. Decyzję o zgłoszeniu naruszenia organowi nadzorczemu i zawiadomieniu osób podejmuje Agencja; PlanOS nie kontaktuje się w tej sprawie z organem ani z osobami bez polecenia Agencji, chyba że prawo nakłada na niego taki obowiązek.</li>
+  <li>PlanOS udostępnia Agencji wszelkie informacje niezbędne do wykazania spełnienia obowiązków określonych w art. 28 RODO, w tym: opis środków z Załącznika 2, listę Podprocesorów, rejestr dostępu do danych wrażliwych (logi odczytów numerów PESEL) dotyczący Agencji oraz odpowiedzi na pisemne pytania kontrolne (kwestionariusz) — w terminie <span class="fill">[14]</span> dni od żądania.</li>
+  <li>Agencja jest uprawniona do przeprowadzenia audytu, w tym inspekcji, samodzielnie lub przez upoważnionego audytora niebędącego konkurentem PlanOS, po uprzednim zawiadomieniu z co najmniej <span class="fill">[14]</span> dniowym wyprzedzeniem, nie częściej niż raz w roku kalendarzowym (ograniczenie nie dotyczy audytu po stwierdzonym naruszeniu lub na żądanie organu nadzorczego), w dni robocze, w sposób nieprowadzący do zakłócenia usługi ani ujawnienia danych innych klientów PlanOS. Koszty audytu ponosi Agencja, o ile audyt nie wykaże istotnych uchybień PlanOS.</li>
+  <li>Strony wyznaczają osoby kontaktowe w sprawach niniejszej Umowy w komparycji; zmiana osoby kontaktowej nie wymaga zmiany Umowy i następuje przez powiadomienie e-mail.</li>
+</ol>
+
+<h2>§ 10. Usunięcie i zwrot Danych</h2>
+<ol>
+  <li>W czasie trwania Umowy Agencja może w każdej chwili samodzielnie pobrać komplet swoich Danych z Platformy w formacie umożliwiającym dalsze wykorzystanie (eksport JSON + CSV w archiwum ZIP, wraz z plikami — zdjęciami i dokumentami — o ile wynika to z aktualnej funkcjonalności).</li>
+  <li>Po zakończeniu świadczenia usługi PlanOS, zależnie od decyzji Agencji wyrażonej najpóźniej w dniu rozwiązania Umowy głównej, zwraca Agencji Dane (eksport jak w ust. 1) i/lub usuwa Dane. W braku decyzji PlanOS udostępnia eksport przez <span class="fill">[30]</span> dni od zakończenia usługi, a następnie usuwa Dane.</li>
+  <li>Usunięcie Danych z systemów produkcyjnych następuje w terminie <span class="fill">[30]</span> dni od zakończenia okresu z ust. 2, a z kopii zapasowych — zgodnie z cyklem ich rotacji, nie później niż w <span class="fill">[35]</span> dni od usunięcia z systemów produkcyjnych; do tego czasu Dane w kopiach zapasowych nie są przywracane ani wykorzystywane. Na żądanie Agencji PlanOS potwierdza usunięcie pisemnie lub elektronicznie.</li>
+  <li>PlanOS może zachować Dane wyłącznie w zakresie i przez czas, w jakim wymaga tego prawo Unii lub prawo państwa członkowskiego (np. logi bezpieczeństwa, dokumentacja rozliczeniowa dotycząca samej Umowy), z zachowaniem ich poufności i ograniczeniem przetwarzania do tego celu.</li>
+  <li>Tryb uśpienia konta (ograniczenie do odczytu) nie stanowi zakończenia świadczenia usługi; Dane są w nim nadal przechowywane na zasadach niniejszej Umowy.</li>
+</ol>
+
+<h2>§ 11. Odpowiedzialność</h2>
+<ol>
+  <li>Każda ze Stron odpowiada za szkody spowodowane przetwarzaniem niezgodnym z RODO w zakresie określonym w art. 82 RODO. PlanOS odpowiada za szkody spowodowane przetwarzaniem wyłącznie, gdy nie dopełnił obowiązków nałożonych bezpośrednio na podmioty przetwarzające lub działał poza zgodnymi z prawem poleceniami Agencji albo wbrew nim.</li>
+  <li>Jeśli PlanOS zostanie zobowiązany do zapłaty odszkodowania lub kary administracyjnej z powodu okoliczności, za które odpowiada Agencja (w szczególności brak podstawy prawnej zbierania Danych, błędne polecenia), Agencja zwolni PlanOS z tej odpowiedzialności w odpowiednim zakresie, i odwrotnie.</li>
+  <li>Z zastrzeżeniem bezwzględnie obowiązujących przepisów, umowne ograniczenia odpowiedzialności przewidziane w Umowie głównej stosuje się także do niniejszej Umowy, z wyłączeniem odpowiedzialności za naruszenie § 5 (Poufność) oraz szkód wyrządzonych umyślnie.</li>
+</ol>
+
+<h2>§ 12. Postanowienia końcowe</h2>
+<ol>
+  <li>W sprawach nieuregulowanych stosuje się RODO, ustawę z dnia 10 maja 2018 r. o ochronie danych osobowych oraz Kodeks cywilny. Prawem właściwym jest prawo polskie.</li>
+  <li>W razie sprzeczności między niniejszą Umową a Umową główną w zakresie ochrony danych osobowych pierwszeństwo ma niniejsza Umowa.</li>
+  <li>Zmiany Umowy wymagają formy pisemnej lub dokumentowej (w tym akceptacji w Platformie), z wyjątkiem aktualizacji Załącznika 1 w trybie § 7 oraz Załącznika 2 w trybie § 6 ust. 1.</li>
+  <li>Umowa może zostać zawarta w formie elektronicznej (akceptacja przez upoważnionego użytkownika Agencji w Platformie lub podpis kwalifikowany). Umowę sporządzono w dwóch jednobrzmiących egzemplarzach, po jednym dla każdej ze Stron, jeśli zawierana jest na piśmie.</li>
+  <li>Załączniki stanowią integralną część Umowy: Załącznik 1 — Lista Podprocesorów; Załącznik 2 — Środki techniczne i organizacyjne; Załącznik 3 — Opis przetwarzania.</li>
+</ol>
+
+<div class="sign">
+  <div>Administrator (Agencja)<br /><br /><br />______________________________</div>
+  <div>Podmiot przetwarzający (PlanOS)<br /><br /><br />______________________________</div>
+</div>
+
+<!-- ===================== ZAŁĄCZNIK 1 ===================== -->
+<div class="annex">
+<h2>Załącznik 1 — Lista Podprocesorów</h2>
+<p>Stan na dzień <span class="fill">[data]</span>. Aktualna wersja listy publikowana jest również w polityce prywatności PlanOS.</p>
+<table>
+  <thead>
+    <tr><th style="width:22%">Podmiot</th><th style="width:26%">Usługa i zakres Danych</th><th style="width:20%">Lokalizacja przetwarzania</th><th>Podstawa przekazania / zabezpieczenia</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Supabase, Inc.<br /><span class="note">970 Toa Payoh North #07-04, Singapore <span class="fill">[potwierdzić podmiot umowny — Supabase Inc. (USA) / Supabase Pte. Ltd.]</span></span></td>
+      <td>Baza danych (PostgreSQL), uwierzytelnianie użytkowników, przechowywanie plików (zdjęcia, dokumenty). Wszystkie kategorie Danych z Załącznika 3.</td>
+      <td>Unia Europejska — region <span class="fill">[np. eu-central-1 Frankfurt — potwierdzić w ustawieniach projektu]</span></td>
+      <td>DPA Supabase; SCC (2021/914) na wypadek zdalnego dostępu z państwa trzeciego (wsparcie techniczne); szyfrowanie w spoczynku i w tranzycie.</td>
+    </tr>
+    <tr>
+      <td>Vercel Inc.<br /><span class="note">440 N Barranca Ave #4133, Covina, CA 91723, USA</span></td>
+      <td>Hosting aplikacji webowej i funkcji serwerowych; logi żądań (adres IP, identyfikatory sesji); po zgodzie użytkownika — Vercel Analytics (dane zagregowane). Dane przepływają przez infrastrukturę w chwili obsługi żądania; nie są trwale przechowywane.</td>
+      <td>Funkcje serwerowe: region <span class="fill">[np. fra1 Frankfurt — potwierdzić]</span>; sieć CDN globalna (pliki statyczne, bez Danych).</td>
+      <td>Vercel DPA; EU-U.S. Data Privacy Framework oraz SCC (2021/914).</td>
+    </tr>
+    <tr>
+      <td>Resend, Inc.<br /><span class="note">2261 Market Street #5039, San Francisco, CA 94114, USA</span></td>
+      <td>Wysyłka wiadomości e-mail transakcyjnych w imieniu Agencji i Platformy (zaproszenia, potwierdzenia, powiadomienia o zmianach). Zakres: adres e-mail odbiorcy, imię i nazwisko, treść wiadomości (nazwa projektu, termin, miejsce), status doręczenia.</td>
+      <td>USA / <span class="fill">[region UE, jeśli włączony w koncie — potwierdzić]</span></td>
+      <td>Resend DPA; SCC (2021/914) <span class="fill">[+ DPF, jeśli certyfikowany — sprawdzić]</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="fill">[inne — np. dostawca kopii zapasowych, monitoring błędów, wsparcie/helpdesk; usunąć wiersz, jeśli nie dotyczy]</span></td>
+      <td></td><td></td><td></td>
+    </tr>
+  </tbody>
+</table>
+<p class="note">Platforma nie korzysta z sieci reklamowych ani nie sprzedaje danych. Kalendarz do umawiania demonstracji (Calendly) oraz odtwarzacz filmów demo na stronie marketingowej nie przetwarzają Danych powierzonych przez Agencję i nie są Podprocesorami w rozumieniu niniejszej Umowy.</p>
+</div>
+
+<!-- ===================== ZAŁĄCZNIK 2 ===================== -->
+<div class="annex">
+<h2>Załącznik 2 — Środki techniczne i organizacyjne (art. 32 RODO)</h2>
+<p class="note">Każdy punkt oznaczony <span class="fill">[✓?]</span> należy potwierdzić względem faktycznej konfiguracji produkcyjnej przed publikacją. Nie deklarować środków, których nie da się wykazać podczas audytu.</p>
+
+<h3>1. Separacja danych i kontrola dostępu</h3>
+<ol class="lit">
+  <li>Architektura wielodostępna z logiczną separacją danych każdej agencji na poziomie bazy danych (identyfikator organizacji + polityki bezpieczeństwa na poziomie wierszy, RLS) — użytkownik jednej agencji technicznie nie może odczytać danych innej. <span class="fill">[✓?]</span></li>
+  <li>Role i uprawnienia w Platformie (właściciel, pracownik biura, koordynator, klient/reżyser, talent); koordynator na miejscu widzi wyłącznie listę obecności bez danych wrażliwych; klient widzi wyłącznie profile udostępnione mu w danym projekcie. <span class="fill">[✓?]</span></li>
+  <li>Linki dla klientów i koordynatorów są unikalne, niemożliwe do odgadnięcia, ograniczone do jednego projektu i mogą zostać unieważnione przez Agencję; <span class="fill">[ważność czasowa: … dni ✓?]</span>.</li>
+  <li>Uwierzytelnianie użytkowników: hasło o wymaganej złożoności / logowanie bez hasła (magic link) <span class="fill">[✓?]</span>; uwierzytelnianie wieloskładnikowe (MFA) <span class="fill">[dostępne / wymagane dla właścicieli / brak — uzupełnić]</span>; sesje z automatycznym wygaśnięciem.</li>
+  <li>Dostęp administracyjny PlanOS do infrastruktury: ograniczony do wskazanych osób, chroniony MFA, rejestrowany; brak dostępu „na co dzień” do Danych produkcyjnych — wyłącznie w celu wsparcia na wniosek Agencji lub usunięcia awarii. <span class="fill">[✓?]</span></li>
+</ol>
+
+<h3>2. Szyfrowanie i ochrona danych wrażliwych</h3>
+<ol class="lit">
+  <li>Transmisja danych wyłącznie kanałem szyfrowanym (TLS 1.2+; HSTS). <span class="fill">[✓?]</span></li>
+  <li>Szyfrowanie danych w spoczynku na poziomie infrastruktury (dyski bazy danych i przestrzeni plików). <span class="fill">[✓?]</span></li>
+  <li>Numery PESEL (i <span class="fill">[inne pola: numer dokumentu, numer rachunku — uzupełnić]</span>) dodatkowo szyfrowane na poziomie aplikacji algorytmem AES-256 kluczem odrębnym od danych, przechowywanym poza bazą danych; w interfejsie prezentowane w formie zamaskowanej, odszyfrowywane wyłącznie na wyraźne żądanie uprawnionego użytkownika. <span class="fill">[✓?]</span></li>
+  <li>Każde odszyfrowanie / odczyt numeru PESEL jest zapisywane w rejestrze dostępu (kto, kiedy, w jakim celu/kontekście); rejestr jest dostępny dla Agencji i — w zakresie własnych danych — dla talentu. <span class="fill">[✓?]</span></li>
+  <li>Pliki (zdjęcia, dokumenty) przechowywane w prywatnych zasobnikach; dostęp przez podpisane adresy URL o ograniczonej ważności. <span class="fill">[✓?]</span></li>
+</ol>
+
+<h3>3. Rozliczalność i rejestrowanie</h3>
+<ol class="lit">
+  <li>Dziennik zdarzeń bezpieczeństwa (logowania, zmiany uprawnień, eksporty danych, usunięcia) z retencją <span class="fill">[… dni]</span>. <span class="fill">[✓?]</span></li>
+  <li>Historia komunikacji: rejestr wysłanych powiadomień (adresat, szablon, czas, status doręczenia) dla celów audytu i rozliczalności. <span class="fill">[✓?]</span></li>
+  <li>Rejestr zgód talentów z wersją treści zgody, znacznikiem czasu i źródłem; cofnięcie zgody odnotowywane w ten sam sposób. <span class="fill">[✓?]</span></li>
+</ol>
+
+<h3>4. Ciągłość działania i odtwarzanie</h3>
+<ol class="lit">
+  <li>Automatyczne kopie zapasowe bazy danych <span class="fill">[codziennie]</span>, retencja <span class="fill">[… dni]</span>, przechowywane w UE, zaszyfrowane; <span class="fill">[odtwarzanie do punktu w czasie (PITR): tak/nie]</span>. <span class="fill">[✓?]</span></li>
+  <li>Test odtworzenia kopii co najmniej <span class="fill">[raz na kwartał / rok]</span>. <span class="fill">[✓?]</span></li>
+  <li>Infrastruktura dostawców z redundancją i monitoringiem dostępności; procedura reagowania na incydenty z rolami i kanałem powiadamiania Agencji zgodnie z § 9.</li>
+</ol>
+
+<h3>5. Realizacja praw osób i minimalizacja</h3>
+<ol class="lit">
+  <li>Usuwanie danych na wniosek (prawo do bycia zapomnianym): funkcja usunięcia profilu talentu obejmująca dane, pliki i powiązania, z pozostawieniem wyłącznie danych, których zachowania wymaga prawo (np. dokumentacja rozliczeniowa) w zakresie i przez czas wskazany przez Agencję. <span class="fill">[✓?]</span></li>
+  <li>Eksport kompletu danych Agencji (JSON + CSV w ZIP) dostępny samoobsługowo w każdej chwili; eksport danych pojedynczej osoby na potrzeby art. 15 i 20 RODO. <span class="fill">[✓?]</span></li>
+  <li>Panel talentu: podgląd własnych danych, zgód i historii dostępu do PESEL; możliwość aktualizacji własnych danych i cofnięcia zgód. Dane wewnętrzne Agencji (notatki, stawki, oceny) nie są widoczne dla talentu.</li>
+  <li>Domyślne minimalizowanie: formularze zgłoszeniowe zbierają wyłącznie pola skonfigurowane przez Agencję; PESEL zbierany dopiero na etapie rozliczenia, nie w zgłoszeniu <span class="fill">[potwierdzić / dostosować]</span>.</li>
+</ol>
+
+<h3>6. Środki organizacyjne</h3>
+<ol class="lit">
+  <li>Osoby po stronie PlanOS mające dostęp do Danych: <span class="fill">[liczba / role]</span>; wszystkie związane pisemnym zobowiązaniem do poufności i przeszkolone w zakresie RODO.</li>
+  <li>Bezpieczny cykl wytwarzania: kontrola wersji, przegląd zmian, środowiska testowe bez danych produkcyjnych lub z danymi zanonimizowanymi, aktualizacja zależności i monitorowanie podatności. <span class="fill">[✓?]</span></li>
+  <li>Urządzenia robocze PlanOS: szyfrowanie dysków, blokada ekranu, aktualne oprogramowanie, menedżer haseł, MFA na kontach dostawców. <span class="fill">[✓?]</span></li>
+  <li>Przegląd niniejszego załącznika co najmniej raz w roku oraz po każdym istotnym incydencie lub zmianie architektury.</li>
+</ol>
+</div>
+
+<!-- ===================== ZAŁĄCZNIK 3 ===================== -->
+<div class="annex">
+<h2>Załącznik 3 — Opis przetwarzania</h2>
+<table>
+  <thead><tr><th style="width:24%">Kategoria osób</th><th>Kategorie Danych</th><th style="width:22%">Źródło</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Talenci: statyści, epizodyści, hostessy, promotorzy i inne osoby współpracujące z Agencją</td>
+      <td>Dane identyfikacyjne (imię, nazwisko, data urodzenia, wiek); dane kontaktowe (telefon, e-mail, miejscowość); <strong>numer PESEL</strong> i dane do umów i zgłoszeń ZUS (adres, <span class="fill">[obywatelstwo, numer dokumentu, urząd skarbowy, numer rachunku — potwierdzić zakres]</span>); <strong>wizerunek</strong> (zdjęcia, materiały wideo); cechy fizyczne (wzrost, wymiary, rozmiary, kolor włosów i oczu, tatuaże); umiejętności, języki, prawo jazdy, dostępność; historia udziału w projektach, potwierdzeń, obecności i punktualności (statystyki rzetelności); stawki i rozliczenia; zgody i ich historia; notatki wewnętrzne Agencji; identyfikatory konta, logi logowania i adres IP.</td>
+      <td>Osoba (formularz zgłoszenia, panel talentu); Agencja (import bazy, wpisy ręczne, listy obecności)</td>
+    </tr>
+    <tr>
+      <td>Osoby małoletnie (jeśli Agencja obsadza dzieci) oraz ich opiekunowie prawni</td>
+      <td>Jak wyżej w zakresie dziecka; dane identyfikacyjne i kontaktowe opiekuna; zgody opiekuna. <span class="fill">[Jeśli Agencja nie przetwarza danych małoletnich — usunąć wiersz.]</span></td>
+      <td>Opiekun prawny; Agencja</td>
+    </tr>
+    <tr>
+      <td>Pracownicy i współpracownicy Agencji (użytkownicy Platformy), koordynatorzy na miejscu</td>
+      <td>Imię, nazwisko, e-mail, telefon, rola i uprawnienia, logi aktywności, adres IP.</td>
+      <td>Agencja</td>
+    </tr>
+    <tr>
+      <td>Przedstawiciele klientów Agencji (reżyserzy, producenci, zleceniodawcy eventów)</td>
+      <td>Imię, nazwisko, e-mail, telefon, firma, historia wyborów w panelu klienta, adres IP.</td>
+      <td>Agencja; osoba (panel klienta)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Dane szczególnych kategorii (art. 9 RODO):</strong> Platforma nie jest przeznaczona do przetwarzania danych szczególnych kategorii. Wizerunek i cechy fizyczne nie stanowią danych biometrycznych w rozumieniu art. 9, o ile nie są przetwarzane technikami biometrycznymi — PlanOS takich technik nie stosuje. Agencja odpowiada za niewprowadzanie do pól tekstowych informacji o zdrowiu, pochodzeniu etnicznym itp., chyba że dysponuje podstawą prawną; <span class="fill">[jeśli Agencja zbiera np. informacje o alergiach na potrzeby cateringu — wskazać pole i podstawę]</span>.</p>
+<p><strong>Dane dotyczące wyroków skazujących (art. 10):</strong> nie są przetwarzane.</p>
+<p><strong>Czas przetwarzania:</strong> przez okres obowiązywania Umowy głównej, a następnie zgodnie z § 10. Okresy retencji poszczególnych kategorii Danych w ramach usługi określa Agencja (jako administrator) i realizuje je funkcjami Platformy; PlanOS nie usuwa Danych z własnej inicjatywy poza przypadkami z § 10.</p>
+<p><strong>Częstotliwość:</strong> ciągła (usługa dostępna 24/7).</p>
+</div>
+
+<footer>PlanOS · Umowa powierzenia przetwarzania danych osobowych — PROJEKT do weryfikacji prawnej · Syntegrade Business Automation - Jakub Lenartowicz, NIP 8351620867</footer>
+</body>
+</html>
