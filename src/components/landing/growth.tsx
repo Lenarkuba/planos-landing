@@ -8,9 +8,9 @@ const BULLETS = [
       "Nabór, wybór klienta, potwierdzenia, obecność, umowy — ten sam proces obsługuje dzień zdjęciowy i akcję promocyjną.",
   },
   {
-    title: "Wsparcie wdrożenia w cenie",
+    title: "Wdrożenie 0 zł przy płatności rocznej",
     body:
-      "Migracja bazy, konfiguracja RODO i eksportu ZUS oraz szkolenie zespołu. Bezpośredni kontakt z zespołem PlanOS.",
+      "Migracja bazy, konfiguracja RODO i eksportu ZUS oraz szkolenie zespołu — darmowe przy rozliczeniu rocznym. Bezpośredni kontakt z zespołem PlanOS.",
   },
   {
     title: "Spokój dla talentów i klientów",
@@ -55,7 +55,7 @@ export function Growth() {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-ink">
             Zbudowany na wzrost
           </p>
-          <h2 className="mt-3 text-balance font-display text-3xl font-medium leading-[1.1] tracking-tight text-ink sm:text-4xl md:text-5xl">
+          <h2 className="mt-3 text-balance font-display text-3xl font-semibold leading-[1.12] tracking-tight text-ink sm:text-4xl md:text-5xl">
             Więcej realizacji, mniej administracji
           </h2>
           <p className="mt-5 text-pretty text-lg leading-relaxed text-ink-muted">
@@ -83,7 +83,7 @@ export function Growth() {
               <IconBadge>
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </IconBadge>
-              <h3 className="mt-4 font-display text-xl font-medium text-ink">{title}</h3>
+              <h3 className="mt-4 font-display text-xl font-semibold text-ink">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-muted">{body}</p>
             </Card>
           ))}

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { BOOKING_URL } from "@/lib/site-config";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -53,7 +54,7 @@ export function Navbar() {
           </li>
           <li>
             <a
-              href="https://calendly.com/lenarkuba/planos-prezentacja-systemu-15-min-clone"
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[var(--accent)] text-white py-2.5 px-6 rounded-[10px] font-semibold text-[0.95rem] no-underline border-none cursor-pointer transition-all hover:bg-[var(--accent-soft)] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(79,124,255,0.25)]"
@@ -88,7 +89,7 @@ export function Navbar() {
             Zaloguj się
           </a>
           <a
-            href="https://calendly.com/lenarkuba/planos-prezentacja-systemu-15-min-clone"
+            href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[var(--accent)] text-white py-2.5 px-6 rounded-[10px] font-semibold text-[0.95rem] no-underline border-none cursor-pointer transition-all hover:bg-[var(--accent-soft)] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(79,124,255,0.25)]"

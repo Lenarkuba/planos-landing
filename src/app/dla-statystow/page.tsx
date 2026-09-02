@@ -12,7 +12,8 @@ import {
 } from "lucide-react";
 import { LandingNav } from "@/components/landing/nav";
 import { LandingFooter } from "@/components/landing/footer";
-import { ButtonLink, Card, IconBadge, Section, SectionHeader } from "@/components/landing/ui";
+import { Card, IconBadge, Section, SectionHeader } from "@/components/landing/ui";
+import { SecurityBand, TALENT_PILLARS } from "@/components/landing/security";
 import { WaitlistForm } from "@/components/waitlist-form";
 import { createAdminClient } from "@/lib/supabase-admin";
 
@@ -131,29 +132,6 @@ const BENEFITS = [
   },
 ];
 
-const SECURITY = [
-  {
-    title: "Szyfrowanie danych wrażliwych",
-    body:
-      "PESEL i inne dane wrażliwe są szyfrowane algorytmem AES-256. Nie leżą w arkuszu ani w skrzynce mailowej.",
-  },
-  {
-    title: "Rejestr każdego dostępu",
-    body:
-      "Każde odczytanie Twojego PESEL-u zostaje zapisane: kto, kiedy i w jakim celu. Dostajesz o tym powiadomienie.",
-  },
-  {
-    title: "Zgody i prawo do bycia zapomnianym",
-    body:
-      "Widzisz wszystkie zgody, które wyraziłeś. Cofasz je jednym kliknięciem, a wniosek o usunięcie danych realizuje system — nie ręcznie ktoś w biurze.",
-  },
-  {
-    title: "Odseparowane dane agencji",
-    body:
-      "PlanOS to oprogramowanie, z którego korzysta Twoja agencja — nie portal ani giełda statystów. Dane każdej agencji są oddzielone; nikt spoza niej nie widzi Twojego profilu.",
-  },
-];
-
 const FAQ = [
   {
     q: "Kto widzi mój profil i moje dane?",
@@ -201,47 +179,40 @@ export default async function DlaStatystowPage() {
             aria-hidden="true"
             className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,hsl(var(--lp-brand-soft))_0%,transparent_65%)]"
           />
-          <div className="relative grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <div>
-              <p className="inline-flex items-center gap-2 rounded-full border border-paper-border bg-paper-card px-4 py-1.5 text-sm font-medium text-ink-muted">
-                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-tag-green-tx" />
-                Dla statystów, epizodystów i hostess
-              </p>
-              <h1 className="mt-6 text-balance font-display text-4xl font-medium leading-[1.05] tracking-tight text-ink sm:text-5xl md:text-6xl">
-                Twoje dane u agencji.{" "}
-                <em className="font-normal italic text-brand-ink">Pod Twoją kontrolą.</em>
-              </h1>
-              <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink-muted">
-                Agencja, z&nbsp;którą współpracujesz, zaprasza Cię do PlanOS. Dostajesz
-                bezpłatne konto i&nbsp;własny profil — zdjęcia, wymiary, kontakt — widoczny
-                wyłącznie dla tej agencji. Widzisz swoje zgody i&nbsp;każdy dostęp do
-                PESEL-u, potwierdzasz dni pracy z&nbsp;telefonu.
-              </p>
-              <ul className="mt-7 space-y-2.5">
-                {PAINS.map((p) => (
-                  <li key={p} className="flex items-start gap-2.5 text-[0.95rem] text-ink-muted">
-                    <span aria-hidden="true" className="mt-0.5 shrink-0 text-tag-red-tx">
-                      ✕
-                    </span>
-                    {p}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <ButtonLink href="#zapis" size="lg">
-                  Zapisz się na listę
-                </ButtonLink>
-                {showCount && (
-                  <span className="text-sm text-ink-muted">
-                    Dołącz do <strong className="text-ink">{count}</strong> osób, które już czekają
+          <div className="relative mx-auto max-w-3xl text-center">
+            <p className="inline-flex items-center gap-2 rounded-full border border-paper-border bg-paper-card px-4 py-1.5 text-sm font-medium text-ink-muted">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-tag-green-tx" />
+              Dla statystów, epizodystów i hostess
+            </p>
+            <h1 className="mt-6 text-balance font-display text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-5xl md:text-6xl">
+              Twoje dane u agencji.{" "}
+              <span className="text-brand-ink">Pod Twoją kontrolą.</span>
+            </h1>
+            <p className="mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink-muted">
+              Agencja, z&nbsp;którą współpracujesz, zaprasza Cię do PlanOS. Dostajesz
+              bezpłatne konto i&nbsp;własny profil — zdjęcia, wymiary, kontakt — widoczny
+              wyłącznie dla tej agencji. Widzisz swoje zgody i&nbsp;każdy dostęp do
+              PESEL-u, potwierdzasz dni pracy z&nbsp;telefonu.
+            </p>
+            <ul className="mx-auto mt-7 max-w-xl space-y-2.5 text-left">
+              {PAINS.map((p) => (
+                <li key={p} className="flex items-start gap-2.5 text-[0.95rem] text-ink-muted">
+                  <span aria-hidden="true" className="mt-0.5 shrink-0 text-tag-red-tx">
+                    ✕
                   </span>
-                )}
-              </div>
-            </div>
+                  {p}
+                </li>
+              ))}
+            </ul>
+            {showCount && (
+              <p className="mt-6 text-sm text-ink-muted">
+                Dołącz do <strong className="text-ink">{count}</strong> osób, które już czekają
+              </p>
+            )}
+          </div>
 
-            <div id="zapis-top" className="scroll-mt-28">
-              <WaitlistForm />
-            </div>
+          <div id="zapis" className="relative mx-auto mt-12 max-w-lg scroll-mt-28">
+            <WaitlistForm />
           </div>
         </Section>
 
@@ -249,19 +220,14 @@ export default async function DlaStatystowPage() {
         <Section id="jak-to-dziala" tone="muted">
           <SectionHeader
             eyebrow="Jak to działa"
-            title={
-              <>
-                Zaprasza Cię agencja.{" "}
-                <em className="font-normal italic text-brand-ink">Resztą sterujesz Ty.</em>
-              </>
-            }
+            title="Zaprasza Cię agencja. Resztą sterujesz Ty."
             description="Nie zakładasz konta „w internecie” i nie wystawiasz się do żadnej bazy. PlanOS to system, z którego korzysta Twoja agencja — a Ty dostajesz w nim własne, bezpłatne konto."
           />
           <ol className="mt-14 grid gap-8 md:grid-cols-3">
             {STEPS.map((s) => (
               <li key={s.n} className="relative">
                 <span className="font-display text-5xl font-medium text-brand/60">{s.n}</span>
-                <h3 className="mt-3 font-display text-xl font-medium text-ink md:text-2xl">
+                <h3 className="mt-3 font-display text-xl font-semibold text-ink md:text-2xl">
                   {s.title}
                 </h3>
                 <p className="mt-3 text-pretty leading-relaxed text-ink-muted">{s.body}</p>
@@ -274,12 +240,7 @@ export default async function DlaStatystowPage() {
         <Section id="korzysci" tone="paper">
           <SectionHeader
             eyebrow="Co masz z tego Ty"
-            title={
-              <>
-                Mniej papierologii.{" "}
-                <em className="font-normal italic text-brand-ink">Więcej grania.</em>
-              </>
-            }
+            title="Mniej papierologii. Więcej grania."
             description="PlanOS porządkuje to, co dziś dzieje się w mailach, SMS-ach i arkuszach — i daje Ci wgląd w to, co dzieje się z Twoimi danymi."
           />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -288,77 +249,19 @@ export default async function DlaStatystowPage() {
                 <IconBadge>
                   <Icon aria-hidden="true" className="h-5 w-5" />
                 </IconBadge>
-                <h3 className="mt-4 font-display text-xl font-medium text-ink">{title}</h3>
+                <h3 className="mt-4 font-display text-xl font-semibold text-ink">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink-muted">{body}</p>
               </Card>
             ))}
           </div>
         </Section>
 
-        {/* BEZPIECZEŃSTWO */}
-        <Section id="bezpieczenstwo" tone="muted">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-ink">
-                Bezpieczeństwo
-              </p>
-              <h2 className="mt-3 text-balance font-display text-3xl font-medium leading-[1.1] tracking-tight text-ink sm:text-4xl md:text-5xl">
-                Twoje dane. <em className="font-normal italic text-brand-ink">Twoje zasady.</em>
-              </h2>
-              <p className="mt-5 text-pretty text-lg leading-relaxed text-ink-muted">
-                Dziś Twój PESEL i&nbsp;zdjęcia najczęściej leżą w&nbsp;arkuszu albo w&nbsp;czyjejś
-                skrzynce mailowej. W&nbsp;PlanOS są zaszyfrowane, każdy dostęp zostawia ślad,
-                a&nbsp;Ty masz realne narzędzia, żeby o&nbsp;nich decydować — nie tylko zapis
-                w&nbsp;regulaminie.
-              </p>
-            </div>
-            <div className="grid gap-5 sm:grid-cols-2 lg:col-span-7">
-              {SECURITY.map((s) => (
-                <Card key={s.title}>
-                  <span aria-hidden="true" className="block h-2 w-2 rounded-full bg-brand" />
-                  <h3 className="mt-4 font-semibold text-ink">{s.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-muted">{s.body}</p>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </Section>
-
-        {/* ZAPIS (główny formularz na dole) */}
-        <Section id="zapis" tone="paper">
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-ink">
-                Lista oczekujących
-              </p>
-              <h2 className="mt-3 text-balance font-display text-3xl font-medium leading-[1.1] tracking-tight text-ink sm:text-4xl md:text-5xl">
-                Zapisz się —{" "}
-                <em className="font-normal italic text-brand-ink">
-                  damy znać, gdy ruszy Twoja agencja
-                </em>
-              </h2>
-              <p className="mt-5 text-pretty text-lg leading-relaxed text-ink-muted">
-                Zajmie 20 sekund. Podaj e-mail i&nbsp;nazwę agencji, z&nbsp;którą współpracujesz —
-                powiadomimy Cię, gdy uruchomi PlanOS i&nbsp;będziesz mógł założyć bezpłatne konto.
-              </p>
-              <ul className="mt-6 space-y-3">
-                {[
-                  "Bezpłatnie dla statystów, epizodystów i hostess",
-                  "Bez zobowiązań — tylko zapis na listę",
-                  "Jedna wiadomość, gdy ruszamy w Twojej agencji",
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-2.5 text-[0.95rem] text-ink-muted">
-                    <span aria-hidden="true" className="mt-0.5 shrink-0 text-tag-green-tx">
-                      ✓
-                    </span>
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <WaitlistForm />
-          </div>
-        </Section>
+        <SecurityBand
+          eyebrow="Bezpieczeństwo danych"
+          title="Twoje dane. Twoje zasady."
+          description="Dziś Twój PESEL i zdjęcia najczęściej leżą w arkuszu albo w czyjejś skrzynce mailowej. W PlanOS są zaszyfrowane, każdy dostęp zostawia ślad, a Ty masz realne narzędzia, żeby o nich decydować — nie tylko zapis w regulaminie."
+          pillars={TALENT_PILLARS}
+        />
 
         {/* FAQ */}
         <Section id="faq" tone="muted" width="narrow">

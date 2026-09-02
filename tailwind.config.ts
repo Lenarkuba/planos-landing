@@ -73,7 +73,8 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        display: ["var(--font-display)", "Georgia", "serif"],
+        /* Headings share the body sans — serif display looked decorative, not product-grade. */
+        display: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
       boxShadow: {
         card: "0 1px 2px rgba(60, 45, 20, 0.04), 0 8px 24px -12px rgba(60, 45, 20, 0.18)",

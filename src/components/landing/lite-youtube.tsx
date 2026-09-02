@@ -2,13 +2,48 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { useCookieConsent } from "./cookie-banner";
+import { buttonVariants, cn } from "./ui";
 
 /**
- * Click-to-load YouTube facade: renders a thumbnail until the user clicks,
- * so no third-party JS loads on initial page load (Core Web Vitals friendly).
+ * Click-to-load YouTube facade. The iframe (and thumbnail CDN) load only after
+ * the visitor consents to embedded media — ePrivacy / GDPR.
  */
 export function LiteYouTube({ videoId, title }: { videoId: string; title: string }) {
+  const { ready, consent, allowMedia, openSettings } = useCookieConsent();
   const [loaded, setLoaded] = useState(false);
+  const mediaAllowed = ready && consent?.media === true;
+
+  if (!ready) {
+    return <div className="h-full w-full bg-ink" aria-hidden="true" />;
+  }
+
+  if (!mediaAllowed) {
+    return (
+      <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-ink px-6 text-center">
+        <p className="max-w-sm text-sm leading-relaxed text-paper/80">
+          To wideo jest osadzone z YouTube. Żeby je odtworzyć, potrzebna jest zgoda
+          na treści osadzone.
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          <button
+            type="button"
+            onClick={allowMedia}
+            className={cn(buttonVariants({ variant: "primary", size: "sm" }))}
+          >
+            Zezwól i odtwórz
+          </button>
+          <button
+            type="button"
+            onClick={openSettings}
+            className={cn(buttonVariants({ variant: "outline", size: "sm" }), "border-paper/20 bg-transparent text-paper hover:bg-paper/10")}
+          >
+            Ustawienia
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   if (loaded) {
     return (

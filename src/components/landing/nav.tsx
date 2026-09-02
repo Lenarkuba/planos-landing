@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { APP_URL, BOOKING_URL } from "@/lib/site-config";
 import { ButtonLink } from "./ui";
+import logoMark from "../../../public/brand/logo.png";
 
 /* Root-relative hashes so the nav also works on subpages (/dla-statystow, /privacy, /terms). */
 const NAV_LINKS = [
@@ -16,19 +18,17 @@ const NAV_LINKS = [
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <span className={`inline-flex items-center gap-2 ${className}`}>
-      <span
-        aria-hidden="true"
-        className="flex h-8 w-8 items-center justify-center rounded-lg bg-ink text-paper"
-      >
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="2" y="2.5" width="12" height="11" rx="2" />
-          <path d="M2 6.5h12M5.5 2.5v4M10.5 2.5v4" />
-          <path d="M5 10.5l2 2 4-4" />
-        </svg>
-      </span>
-      <span className="font-display text-xl font-semibold tracking-tight text-ink">
-        Plan<span className="text-brand-ink">OS</span>
+    <span className={`inline-flex items-center gap-2.5 ${className}`}>
+      <Image
+        src={logoMark}
+        alt=""
+        width={40}
+        height={40}
+        className="h-10 w-10"
+        priority
+      />
+      <span className="font-display text-lg font-semibold tracking-tight text-ink">
+        PlanOS
       </span>
     </span>
   );

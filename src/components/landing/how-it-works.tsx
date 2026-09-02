@@ -34,7 +34,7 @@ export function HowItWorks() {
         {STEPS.map((s) => (
           <li key={s.n} className="relative">
             <span className="font-display text-5xl font-medium text-brand/60">{s.n}</span>
-            <h3 className="mt-3 font-display text-xl font-medium text-ink md:text-2xl">
+            <h3 className="mt-3 font-display text-xl font-semibold text-ink md:text-2xl">
               {s.title}
             </h3>
             <p className="mt-3 text-pretty leading-relaxed text-ink-muted">{s.body}</p>

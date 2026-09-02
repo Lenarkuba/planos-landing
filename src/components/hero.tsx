@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { BOOKING_URL } from "@/lib/site-config";
 
 const fadeUp = { opacity: 0, y: 32 };
 const fadeUpEnd = { opacity: 1, y: 0 };
@@ -47,7 +48,7 @@ export function Hero() {
           variants={{ hidden: fadeUp, visible: { ...fadeUpEnd, transition: { duration: 0.55, ease } } }}
         >
           <a
-            href="https://calendly.com/lenarkuba/planos-prezentacja-systemu-15-min-clone"
+            href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[var(--accent)] text-white py-3 px-8 rounded-[10px] font-semibold text-[0.95rem] no-underline border-none cursor-pointer transition-all hover:bg-[var(--accent-soft)] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(79,124,255,0.25)]"

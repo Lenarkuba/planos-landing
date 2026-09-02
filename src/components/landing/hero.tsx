@@ -56,9 +56,9 @@ export function Hero() {
               System dla agencji castingowych, statystów i hostess
             </p>
 
-            <h1 className="lp-animate lp-delay-1 mt-8 text-balance font-display text-4xl font-medium leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+            <h1 className="lp-animate lp-delay-1 mt-8 text-balance font-display text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-6xl lg:text-7xl">
               Cała agencja w jednym systemie —{" "}
-              <span className="lp-gradient-text italic">od zgłoszenia do rozliczenia.</span>
+              <span className="lp-gradient-text">od zgłoszenia do rozliczenia.</span>
             </h1>
 
             <p className="lp-animate lp-delay-2 mx-auto mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-ink-muted sm:text-xl">

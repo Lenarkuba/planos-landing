@@ -15,7 +15,7 @@ export function FinalCta() {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-ink">Kontakt</p>
           <h2
             id="contact-heading"
-            className="mt-3 text-balance font-display text-3xl font-medium leading-[1.1] tracking-tight text-ink sm:text-4xl md:text-5xl"
+            className="mt-3 text-balance font-display text-3xl font-semibold leading-[1.12] tracking-tight text-ink sm:text-4xl md:text-5xl"
           >
             Prowadź całą agencję w jednym systemie
           </h2>

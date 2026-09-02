@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { APP_URL, BOOKING_URL, CONTACT_EMAIL } from "@/lib/site-config";
+import { APP_URL, BOOKING_URL, CONTACT_EMAIL, LEGAL } from "@/lib/site-config";
+import { LegalEntity } from "./legal-entity";
+import { CookieSettingsButton } from "./cookie-banner";
 import { Logo } from "./nav";
 
 const COLUMNS: { title: string; links: { href: string; label: string; external?: boolean }[] }[] = [
@@ -29,7 +31,7 @@ const COLUMNS: { title: string; links: { href: string; label: string; external?:
       { href: BOOKING_URL, label: "Umów demo (kalendarz)", external: true },
       { href: "/privacy", label: "Polityka prywatności" },
       { href: "/terms", label: "Regulamin" },
-      { href: "/privacy", label: "Informacja o cookies" },
+      { href: "/privacy#cookies", label: "Informacja o cookies" },
     ],
   },
 ];
@@ -88,9 +90,17 @@ export function LandingFooter() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-paper-border pt-6 text-xs text-ink-faint sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} PlanOS. Wszelkie prawa zastrzeżone.</p>
-          <p>Zbudowany w Polsce, zgodny z RODO.</p>
+        <div className="mt-12 flex flex-col gap-4 border-t border-paper-border pt-6 text-xs text-ink-faint sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <p>
+              © {new Date().getFullYear()} {LEGAL.brand}. Wszelkie prawa zastrzeżone.
+            </p>
+            <LegalEntity variant="compact" className="mt-2 space-y-0.5" />
+          </div>
+          <p className="flex flex-col items-start gap-1 sm:items-end">
+            <span>Zbudowany w Polsce, zgodny z RODO.</span>
+            <CookieSettingsButton className="text-ink-faint underline underline-offset-2 hover:text-ink" />
+          </p>
         </div>
       </div>
     </footer>

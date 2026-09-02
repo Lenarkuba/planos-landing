@@ -71,7 +71,7 @@ export function Platform() {
                 <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-soft font-display text-xl font-medium text-brand-ink">
                   {step.n}
                 </span>
-                <h3 className="mt-5 font-display text-2xl font-medium leading-tight text-ink md:text-3xl">
+                <h3 className="mt-5 font-display text-2xl font-semibold leading-tight text-ink md:text-3xl">
                   {step.title}
                 </h3>
                 <p className="mt-4 text-pretty leading-relaxed text-ink-muted">{step.body}</p>

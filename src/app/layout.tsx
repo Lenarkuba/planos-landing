@@ -1,22 +1,15 @@
 import type { Metadata } from "next";
-import { DM_Sans, Fraunces, Instrument_Serif } from "next/font/google";
+import { DM_Sans, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { SITE_URL } from "@/lib/site-config";
+import { CookieConsentProvider } from "@/components/landing/cookie-banner";
+import { ConsentAnalytics } from "@/components/landing/analytics";
 
 const dmSans = DM_Sans({
   subsets: ["latin", "latin-ext"],
   weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
   variable: "--font-sans",
-  display: "swap",
-});
-
-const fraunces = Fraunces({
-  subsets: ["latin", "latin-ext"],
-  weight: "variable",
-  style: ["normal", "italic"],
-  axes: ["opsz", "SOFT"],
-  variable: "--font-display",
   display: "swap",
 });
 
@@ -82,9 +75,14 @@ export default function RootLayout({
   return (
     <html
       lang="pl"
-      className={`${dmSans.variable} ${fraunces.variable} ${instrumentSerif.variable}`}
+      className={`${dmSans.variable} ${instrumentSerif.variable}`}
     >
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <CookieConsentProvider>
+          {children}
+          <ConsentAnalytics />
+        </CookieConsentProvider>
+      </body>
     </html>
   );
 }

@@ -1,10 +1,9 @@
 import { LandingNav } from "@/components/landing/nav";
 import { LandingFooter } from "@/components/landing/footer";
+import { LegalEntity } from "@/components/landing/legal-entity";
+import { LEGAL } from "@/lib/site-config";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Linkedin } from "lucide-react";
-
-const LINKEDIN_URL = "https://www.linkedin.com/in/j-lenar/";
 
 export const metadata: Metadata = {
   title: "Regulamin | PlanOS",
@@ -48,8 +47,14 @@ export default function TermsPage() {
               </h2>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
+                  <strong className="text-ink">Usługodawca</strong> — {LEGAL.legalName},
+                  NIP {LEGAL.nip}, REGON {LEGAL.regon}, adres do doręczeń: {LEGAL.addressLine}.
+                  Przedmiot działalności: PKD {LEGAL.pkd} {LEGAL.pkdDescription}.
+                  Usługodawca świadczy usługi Platformy pod marką {LEGAL.brand}.
+                </li>
+                <li>
                   <strong className="text-ink">Platforma</strong> — aplikacja internetowa PlanOS,
-                  dostępna pod adresem planoscast.pl oraz powiązane subdomeny
+                  dostępna pod adresem planos.pl oraz powiązane subdomeny
                 </li>
                 <li>
                   <strong className="text-ink">Użytkownik</strong> — osoba fizyczna lub prawna
@@ -201,7 +206,7 @@ export default function TermsPage() {
               </h2>
               <ul className="list-disc pl-6 space-y-2">
                 <li>Regulamin podlega prawu polskiemu</li>
-                <li>Spory rozstrzygane będą przez sądy właściwe dla PlanOS</li>
+                <li>Spory rozstrzygane będą przez sądy właściwe według siedziby Usługodawcy</li>
                 <li>W sprawach nieuregulowanych stosuje się przepisy Kodeksu cywilnego</li>
               </ul>
             </section>
@@ -211,18 +216,8 @@ export default function TermsPage() {
                 13. Kontakt
               </h2>
               <div className="p-5 rounded-xl bg-paper-muted border border-paper-border">
-                <p className="text-ink font-medium">PlanOS</p>
-                <p className="mt-1">
-                  <a
-                    href={LINKEDIN_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-brand-ink hover:underline"
-                  >
-                    <Linkedin className="w-4 h-4" />
-                    LinkedIn
-                  </a>
-                </p>
+                <p className="text-ink font-medium mb-2">{LEGAL.brand}</p>
+                <LegalEntity />
               </div>
             </section>
           </div>

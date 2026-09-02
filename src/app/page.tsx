@@ -12,7 +12,7 @@ import { Pricing } from "@/components/landing/pricing";
 import { Faq, FAQ_ITEMS } from "@/components/landing/faq";
 import { FinalCta } from "@/components/landing/final-cta";
 import { LandingFooter } from "@/components/landing/footer";
-import { CONTACT_EMAIL, SITE_URL } from "@/lib/site-config";
+import { CONTACT_EMAIL, LEGAL, SITE_URL } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -27,9 +27,24 @@ const jsonLd = {
       "@type": "Organization",
       "@id": ORGANIZATION_ID,
       name: "PlanOS",
+      legalName: LEGAL.legalName,
       url: SITE_URL,
       logo: `${SITE_URL}/logo.svg`,
       email: CONTACT_EMAIL,
+      taxID: LEGAL.nip,
+      vatID: `PL${LEGAL.nip}`,
+      identifier: [
+        { "@type": "PropertyValue", name: "NIP", value: LEGAL.nip },
+        { "@type": "PropertyValue", name: "REGON", value: LEGAL.regon },
+        { "@type": "PropertyValue", name: "PKD", value: LEGAL.pkd },
+      ],
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: LEGAL.streetAddress,
+        postalCode: LEGAL.postalCode,
+        addressLocality: LEGAL.city,
+        addressCountry: LEGAL.country,
+      },
       description:
         "PlanOS to niezależny producent oprogramowania (SaaS) dla agencji castingowych, statystów i hostess. PlanOS nie jest agencją i nie jest powiązany z żadną agencją castingową, statystów ani hostess — żadna agencja nie jest jego właścicielem ani nie finansuje projektu. Dane każdej agencji korzystającej z systemu są odseparowane; PlanOS nie prowadzi wspólnej bazy talentów i nie udostępnia danych między agencjami.",
       knowsAbout: [

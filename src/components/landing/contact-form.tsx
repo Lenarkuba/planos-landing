@@ -140,7 +140,7 @@ export function ContactForm() {
           id="cf-message"
           required
           rows={4}
-          placeholder="Np. chcę zobaczyć demo / pytam o ofertę założycielską / mam pytanie o bezpieczeństwo danych"
+          placeholder="Np. chcę zobaczyć demo / mam pytanie o bezpieczeństwo danych"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           className={`${inputClass} resize-y`}

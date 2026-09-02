@@ -4,9 +4,8 @@
 
 /*
  * Fonts are loaded via next/font in src/app/layout.tsx and exposed as:
- *   --font-sans        DM Sans          (body, all pages)
- *   --font-display     Fraunces         (landing v2 headings)
- *   --font-instrument  Instrument Serif (legacy dark pages: /privacy, /terms, /dla-statystow)
+ *   --font-sans        DM Sans          (body + headings)
+ *   --font-instrument  Instrument Serif (legacy pages that still reference --serif)
  */
 
 :root {

@@ -1,10 +1,9 @@
 import { LandingNav } from "@/components/landing/nav";
 import { LandingFooter } from "@/components/landing/footer";
+import { LegalEntity } from "@/components/landing/legal-entity";
+import { CONTACT_EMAIL, LEGAL } from "@/lib/site-config";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Linkedin } from "lucide-react";
-
-const LINKEDIN_URL = "https://www.linkedin.com/in/j-lenar/";
 
 export const metadata: Metadata = {
   title: "Polityka prywatności | PlanOS",
@@ -57,7 +56,7 @@ export default function PrivacyPage() {
               </h2>
 
               <h3 className="text-base font-semibold mt-6 mb-2 text-ink">
-                1.1 Dane związane z castingu, rekrutacją i bazą talentów
+                1.1 Dane związane z castingiem, rekrutacją i bazą talentów
               </h3>
               <p className="mb-2">
                 Administratorem Twoich danych osobowych (jako artysty/talentu) jest <strong className="text-ink">agencja</strong> —
@@ -80,16 +79,10 @@ export default function PrivacyPage() {
                 logów technicznych i audytowych oraz bezpieczeństwa — <strong className="text-ink">administratorem jest PlanOS</strong>.
               </p>
               <div className="mt-4 p-5 rounded-xl bg-paper-muted border border-paper-border">
-                <p className="text-ink font-medium mb-2">Kontakt z PlanOS (tylko w sprawach platformy):</p>
-                <a
-                  href={LINKEDIN_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-brand-ink hover:underline"
-                >
-                  <Linkedin className="w-4 h-4" />
-                  LinkedIn
-                </a>
+                <p className="text-ink font-medium mb-2">
+                  Administrator (PlanOS / {LEGAL.legalName}):
+                </p>
+                <LegalEntity />
               </div>
             </section>
 
@@ -295,10 +288,9 @@ export default function PrivacyPage() {
                   <strong className="text-ink">Dane talentów/artystów</strong> (casting, profil, umowy, ZUS): realizacji praw dokonuje <strong className="text-ink">agencja</strong>. Z wnioskami (dostęp, usunięcie, sprzeciw itd.) należy kontaktować się z agencją, z którą współpracujesz lub która prowadzi casting.
                 </li>
                 <li>
-                  <strong className="text-ink">Dane konta platformy, sesji, logów</strong>: realizacji praw dokonuje <strong className="text-ink">PlanOS</strong>. Kontakt:{" "}
-                  <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-brand-ink hover:underline">
-                    <Linkedin className="w-4 h-4" />
-                    LinkedIn
+                  <strong className="text-ink">Dane konta platformy, sesji, logów</strong>: realizacji praw dokonuje <strong className="text-ink">PlanOS</strong> ({LEGAL.legalName}). Kontakt:{" "}
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-brand-ink hover:underline">
+                    {CONTACT_EMAIL}
                   </a>.
                 </li>
               </ul>
@@ -315,13 +307,39 @@ export default function PrivacyPage() {
               </ul>
             </section>
 
-            <section>
+            <section id="cookies" className="scroll-mt-24">
               <h2 className="font-display text-2xl font-medium mt-10 mb-4 text-ink">
                 9. Cookies
               </h2>
-              <p>
-                Używamy cookies niezbędnych (sesja, uwierzytelnianie), funkcjonalnych (preferencje)
-                oraz opcjonalnie analitycznych. Nie przekazujemy danych podmiotom trzecim w celach marketingowych.
+              <p className="mb-4">
+                Na stronie marketingowej stosujemy pliki cookies i podobne technologie zgodnie
+                z prawem telekomunikacyjnym i RODO. Cookies niezbędne ładujemy bez zgody.
+                Pozostałe — wyłącznie po Twoim wyborze w banerze (akceptacja, odrzucenie albo
+                wybór kategorii). Decyzję możesz zmienić w każdej chwili: link „Ustawienia cookies”
+                w stopce. Zgoda jest zapisywana lokalnie w Twojej przeglądarce na 12 miesięcy.
+              </p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>
+                  <strong className="text-ink">Niezbędne</strong> — działanie strony oraz zapis
+                  Twojej decyzji o zgodzie (localStorage). Bez nich nie da się zapamiętać wyboru.
+                </li>
+                <li>
+                  <strong className="text-ink">Analityka</strong> — pomiary odwiedzin przez
+                  Vercel Analytics (Vercel Inc.). Skrypt ładuje się wyłącznie po zgodzie w
+                  kategorii „Analityka”. Vercel deklaruje pomiar bez cookies reklamowych;
+                  dane mogą być przetwarzane poza EOG na podstawie umowy powierzenia z Vercel.
+                </li>
+                <li>
+                  <strong className="text-ink">Treści osadzone</strong> — odtwarzanie filmów demo
+                  przez YouTube (domena youtube-nocookie.com oraz i.ytimg.com). Po zgodzie Google
+                  może przetwarzać dane, w tym poza EOG, na podstawie własnej polityki prywatności.
+                  Bez zgody iframe i miniatury YouTube nie są wczytywane.
+                </li>
+              </ul>
+              <p className="mt-4">
+                Nie stosujemy cookies reklamowych ani nie sprzedajemy danych. Odrzucenie opcjonalnych
+                kategorii (w tym zamknięcie banera przyciskiem „Tylko niezbędne” lub „X”) nie ogranicza
+                dostępu do treści strony poza odtwarzaniem filmów demo.
               </p>
             </section>
 
@@ -330,9 +348,9 @@ export default function PrivacyPage() {
                 10. Usługi zewnętrzne (podmioty przetwarzające)
               </h2>
               <p>
-                PlanOS korzysta z: Supabase (baza danych, uwierzytelnianie — hosting w UE), Vercel (hosting aplikacji),
-                Resend (wysyłka e-maili w imieniu agencji i platformy). Dostawcy są wybierani z zachowaniem wymogów
-                RODO (umowy powierzenia / DPA, lokalizacja w EOG gdzie to możliwe).
+                PlanOS korzysta z: Supabase (baza danych, uwierzytelnianie — hosting w UE), Vercel (hosting aplikacji
+                oraz, po zgodzie, Vercel Analytics), Resend (wysyłka e-maili w imieniu agencji i platformy).
+                Dostawcy są wybierani z zachowaniem wymogów RODO (umowy powierzenia / DPA, lokalizacja w EOG gdzie to możliwe).
               </p>
             </section>
 
@@ -361,18 +379,8 @@ export default function PrivacyPage() {
                 13. Kontakt
               </h2>
               <div className="p-5 rounded-xl bg-paper-muted border border-paper-border">
-                <p className="text-ink font-medium">PlanOS</p>
-                <p className="mt-1">
-                  <a
-                    href={LINKEDIN_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-brand-ink hover:underline"
-                  >
-                    <Linkedin className="w-4 h-4" />
-                    LinkedIn
-                  </a>
-                </p>
+                <p className="text-ink font-medium mb-2">{LEGAL.brand}</p>
+                <LegalEntity />
               </div>
             </section>
           </div>

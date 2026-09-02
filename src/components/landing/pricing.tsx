@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Building2, Check, Moon, Rocket } from "lucide-react";
-import { BOOKING_URL, CONTACT_EMAIL, FOUNDING_OFFER_DEADLINE } from "@/lib/site-config";
+import { BOOKING_URL, CONTACT_EMAIL } from "@/lib/site-config";
 import { ButtonLink, Card, IconBadge, Section, SectionHeader } from "./ui";
 
 const INCLUDED = [
@@ -32,7 +32,7 @@ export function Pricing() {
       {/* Billing toggle */}
       <div className="mt-8 flex justify-center">
         <div
-          className="inline-flex items-center rounded-full border border-paper-border bg-paper-muted p-1"
+          className="inline-flex max-w-full flex-wrap items-center justify-center rounded-full border border-paper-border bg-paper-muted p-1"
           role="group"
           aria-label="Wybór okresu rozliczenia"
         >
@@ -42,7 +42,7 @@ export function Pricing() {
           <ToggleButton active={annual} onClick={() => setAnnual(true)}>
             Rocznie
             <span className="ml-2 rounded-full bg-tag-green-bg px-2 py-0.5 text-[0.7rem] font-bold text-tag-green-tx">
-              2 mies. gratis
+              2 mies. gratis · wdrożenie 0 zł
             </span>
           </ToggleButton>
         </div>
@@ -63,7 +63,7 @@ export function Pricing() {
           </p>
           <p className="mt-3 min-h-[3rem] text-pretty text-ink-muted">
             {annual
-              ? "4 990 zł rozliczane raz w roku — płacisz w dobrym miesiącu, korzystasz cały rok, także w spokojniejszych okresach."
+              ? "4 990 zł rozliczane raz w roku — płacisz w dobrym miesiącu, korzystasz cały rok. Wdrożenie (migracja bazy, RODO, ZUS, szkolenie) w cenie: 0 zł."
               : "To wszystko. Bez progów, bez pakietów, bez liczenia użytkowników. Rozliczenie co miesiąc, bez zobowiązań."}
           </p>
 
@@ -104,13 +104,24 @@ export function Pricing() {
               </IconBadge>
               <div>
                 <h3 className="font-semibold text-ink">Wdrożenie</h3>
-                <p className="text-sm text-ink-muted">jednorazowo</p>
+                <p className="text-sm text-ink-muted">
+                  {annual ? "darmowe przy płatności rocznej" : "jednorazowo"}
+                </p>
               </div>
             </div>
-            <p className="mt-4 font-display text-3xl font-medium tracking-tight text-ink">1500 zł</p>
+            <p className="mt-4 flex items-baseline gap-2 font-display text-3xl font-semibold tracking-tight text-ink">
+              {annual ? "0 zł" : "1500 zł"}
+              {annual && (
+                <span className="rounded-full bg-tag-green-bg px-2 py-0.5 font-sans text-[0.7rem] font-bold text-tag-green-tx">
+                  gratis
+                </span>
+              )}
+            </p>
             <p className="mt-2 text-sm leading-relaxed text-ink-muted">
               Migracja Twojej bazy, konfiguracja RODO i eksportu ZUS, szkolenie
-              zespołu. Nie musisz być osobą techniczną — wszystko przygotowujemy za Ciebie.
+              zespołu. {annual
+                ? "Przy rozliczeniu rocznym wdrożenie jest w cenie — 0 zł."
+                : "1500 zł przy rozliczeniu miesięcznym. Przy płatności rocznej: 0 zł."}
             </p>
           </Card>
 
@@ -153,22 +164,6 @@ export function Pricing() {
             </a>
           </Card>
         </div>
-      </div>
-
-      {/* Founders offer */}
-      <div className="mt-8 flex flex-col items-start gap-5 rounded-2xl border border-brand/30 bg-brand-soft/60 p-6 md:flex-row md:items-center md:justify-between md:p-8">
-        <div>
-          <h3 className="font-display text-xl font-medium text-ink">
-            Oferta dla agencji-założycieli
-          </h3>
-          <p className="mt-1.5 max-w-2xl text-[0.95rem] leading-relaxed text-ink-muted">
-            Pierwsze agencje otrzymują stałą, obniżoną stawkę na zawsze. Liczba
-            miejsc ograniczona — zgłoszenia do {FOUNDING_OFFER_DEADLINE}.
-          </p>
-        </div>
-        <ButtonLink href="#kontakt" variant="inverted" size="lg" className="shrink-0 bg-ink text-paper hover:bg-ink-hover">
-          Zapytaj o ofertę założycielską
-        </ButtonLink>
       </div>
     </Section>
   );

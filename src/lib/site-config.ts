@@ -8,16 +8,15 @@
 
 /** Booking link for all "Umów demo" buttons (Cal.com / Calendly). */
 export const BOOKING_URL =
-  "https://calendly.com/lenarkuba/planos-prezentacja-systemu-15-min-clone";
+  "https://calendly.com/lenarkuba/planos-prezentacja-systemu-15-min";
 
 /** Production app login URL (nav "Zaloguj się"). */
 export const APP_URL = "https://app.planos.pl";
 
 /** Contact e-mail shown in the final CTA and footer. TODO: podmień na docelowy adres. */
-export const CONTACT_EMAIL = "kontakt@planos.pl";
+export const CONTACT_EMAIL = "admin@planos.pl";
 
-/** PLACEHOLDER — contact phone shown in the final CTA and footer. */
-export const CONTACT_PHONE = "+48 000 000 000";
+export const CONTACT_PHONE = "+48 534 780 059";
 
 /** YouTube IDs of the product walkthrough videos (click-to-load embeds). */
 export const VIDEO_APPLICATION_FORM_ID = "Gyiwj6UpaBc";
@@ -25,27 +24,19 @@ export const VIDEO_DIRECTOR_PANEL_ID = "EXPI617RY40";
 
 export const SITE_URL = "https://planos.pl";
 
-/** PLACEHOLDER — deadline shown in the founder-offer strip (pricing section). */
-export const FOUNDING_OFFER_DEADLINE = "[DATA]";
-
 /**
- * PLACEHOLDER — trust-band numbers (hero "stats" strip).
- * Replace `value` with real figures once available (e.g. "12 400+").
+ * Legal entity behind the PlanOS brand (CEIDG). Used in footer, privacy, terms, JSON-LD.
  */
-export const STATS: { value: string; label: string }[] = [
-  { value: "[LICZBA]+", label: "talentów w bazach agencji" },
-  { value: "[LICZBA]+", label: "dni pracy rozliczonych" },
-  { value: "[LICZBA]", label: "agencji na platformie" },
-  { value: "3 lata", label: "budowany razem z agencjami" },
-];
-
-/**
- * Team / company identity used in the trust band. Company voice on purpose:
- * PlanOS is an independent software product, not a one-person side project
- * and not owned or financed by any agency. Photo is a generated placeholder.
- */
-export const TEAM = {
-  name: "Zespół PlanOS",
-  role: "niezależny projekt technologiczny",
-  photo: "/graphics/founder-placeholder.png",
-};
+export const LEGAL = {
+  brand: "PlanOS",
+  legalName: "Syntegrade Business Automation - Jakub Lenartowicz",
+  nip: "8351620867",
+  regon: "540036340",
+  streetAddress: "ul. Solidarności 7/31",
+  postalCode: "96-200",
+  city: "Rawa Mazowiecka",
+  country: "PL",
+  addressLine: "ul. Solidarności 7/31, 96-200 Rawa Mazowiecka",
+  pkd: "62.10.B",
+  pkdDescription: "Pozostała działalność w zakresie programowania",
+} as const;

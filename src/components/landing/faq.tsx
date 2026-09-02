@@ -27,7 +27,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Czy muszę być osobą techniczną, żeby korzystać z PlanOS?",
-    a: "Nie. Zajmujemy się migracją i konfiguracją za Ciebie, a zespół przechodzi krótkie szkolenie. Talenty, klienci i koordynatorzy na miejscu korzystają z prostych linków — bez instalowania czegokolwiek.",
+    a: "Nie. Zajmujemy się migracją i konfiguracją za Ciebie, a zespół przechodzi krótkie szkolenie. Przy płatności rocznej wdrożenie jest darmowe (0 zł). Talenty, klienci i koordynatorzy na miejscu korzystają z prostych linków — bez instalowania czegokolwiek.",
   },
   {
     q: "Czy talenty mogą sami zarządzać swoimi profilami?",

@@ -92,7 +92,7 @@ export function SectionHeader({
       ) : null}
       <Tag
         className={cn(
-          "mt-3 text-balance font-display text-3xl font-medium leading-[1.1] tracking-tight sm:text-4xl md:text-5xl",
+          "mt-3 text-balance font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-4xl md:text-5xl",
           invert ? "text-paper" : "text-ink",
         )}
       >

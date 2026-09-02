@@ -111,7 +111,7 @@ export function Features() {
         {FEATURES.map((f) => (
           <Card key={f.title} hover className="flex flex-col">
             <FeatureGraphic feature={f} />
-            <h3 className="mt-5 font-display text-xl font-medium leading-snug text-ink">
+            <h3 className="mt-5 font-display text-xl font-semibold leading-snug text-ink">
               {f.title}
             </h3>
             <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">{f.body}</p>
