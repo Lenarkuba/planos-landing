@@ -1,30 +1,40 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "PlanOS - Profesjonalna platforma do zarządzania castingami i artystami",
+  metadataBase: new URL(SITE_URL),
+  title: "PlanOS — system dla agencji castingowych | baza talentów, RODO, ZUS",
   description:
-    "Automatyzuj obecność, dokumentację ZUS i zgodność z RODO. Platforma dla agencji castingowych i domów produkcyjnych.",
+    "PlanOS to bezpieczny system dla agencji castingowych i agencji statystów: baza talentów, obsługa castingów, obecności na planie, eksport ZUS i pełna zgodność z RODO. Twoje dane są oddzielone i tylko Twoje.",
   keywords: [
-    "casting",
-    "zarządzanie artystami",
     "agencja castingowa",
-    "dom produkcyjny",
-    "ZUS",
+    "agencja statystów",
+    "baza talentów",
+    "system dla agencji castingowej",
     "RODO",
-    "obecność",
+    "eksport ZUS",
+    "lista obecności na planie",
+    "casting",
     "statyści",
-    "epizodyści",
-    "aktorzy",
   ],
   authors: [{ name: "PlanOS" }],
   openGraph: {
-    title: "PlanOS - Profesjonalne zarządzanie castingami",
+    title: "PlanOS — system dla agencji castingowych | baza talentów, RODO, ZUS",
     description:
-      "Automatyzuj zgłosznia, dokumentację ZUS i zgodność z RODO. Platforma dla agencji castingowych i domów produkcyjnych.",
+      "PlanOS to bezpieczny system dla agencji castingowych i agencji statystów: baza talentów, obsługa castingów, obecności na planie, eksport ZUS i pełna zgodność z RODO. Twoje dane są oddzielone i tylko Twoje.",
     type: "website",
     locale: "pl_PL",
+    url: SITE_URL,
+    siteName: "PlanOS",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "PlanOS — system dla agencji castingowych",
+    description:
+      "Bezpieczny system dla agencji castingowych: baza talentów, castingi, obecności na planie, eksport ZUS, RODO. Twoje dane są oddzielone i tylko Twoje.",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

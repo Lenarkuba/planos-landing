@@ -33,3 +33,6 @@ yarn-error.log*
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Cursor local config (may contain keys)
+.cursor/mcp.json
