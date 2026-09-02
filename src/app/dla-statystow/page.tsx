@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import {
   BellRing,
   CalendarCheck2,
@@ -11,7 +10,7 @@ import {
   Smartphone,
   UserRound,
 } from "lucide-react";
-import { Logo } from "@/components/landing/nav";
+import { LandingNav } from "@/components/landing/nav";
 import { LandingFooter } from "@/components/landing/footer";
 import { ButtonLink, Card, IconBadge, Section, SectionHeader } from "@/components/landing/ui";
 import { WaitlistForm } from "@/components/waitlist-form";
@@ -192,23 +191,8 @@ export default async function DlaStatystowPage() {
 
   return (
     <div className="lp-root min-h-screen font-sans">
-      {/* Minimalny header — bez sprzedażowych linków dla agencji */}
-      <header className="sticky top-0 z-50 border-b border-paper-border bg-paper/85 backdrop-blur-md">
-        <nav
-          aria-label="Nawigacja"
-          className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6"
-        >
-          <Link
-            href="/"
-            className="shrink-0 rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
-          >
-            <Logo />
-          </Link>
-          <Link href="/" className="text-sm font-medium text-ink-muted transition-colors hover:text-ink">
-            Jesteś z agencji? →
-          </Link>
-        </nav>
-      </header>
+      {/* Same chrome as the homepage (nav links are root-relative, so they lead back to /). */}
+      <LandingNav />
 
       <main>
         {/* HERO */}
@@ -401,6 +385,12 @@ export default async function DlaStatystowPage() {
               </details>
             ))}
           </div>
+          <p className="mt-8 text-center text-sm text-ink-muted">
+            Prowadzisz agencję?{" "}
+            <a href="/" className="font-semibold text-brand-ink hover:text-brand">
+              Zobacz PlanOS dla agencji →
+            </a>
+          </p>
         </Section>
       </main>
 
