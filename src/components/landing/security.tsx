@@ -1,8 +1,7 @@
 import type { ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
 import { Database, Eye, FileKey2, ShieldCheck } from "lucide-react";
-import { BOOKING_URL } from "@/lib/site-config";
-import { ButtonLink, Card, IconBadge, Section, SectionHeader } from "./ui";
+import { Card, IconBadge, Section, SectionHeader } from "./ui";
 
 type Pillar = {
   icon: LucideIcon;
@@ -27,7 +26,7 @@ const AGENCY_PILLARS: Pillar[] = [
     icon: Eye,
     title: "RODO w praktyce",
     body:
-      "Zarządzanie zgodami, informacja dla talentu i silnik usuwania danych pozwalają realnie wypełnić obowiązki administratora. Udostępniamy umowę powierzenia przetwarzania (DPA).",
+      "Zarządzanie zgodami, informacja dla talentu i usuwanie danych na wniosek (prawo do bycia zapomnianym) pozwalają realnie wypełnić obowiązki administratora. Udostępniamy umowę powierzenia przetwarzania (DPA).",
   },
   {
     icon: Database,
@@ -69,7 +68,8 @@ type SecurityBandProps = {
   title: ReactNode;
   description: string;
   pillars: Pillar[];
-  cta?: { href: string; label: string; external?: boolean };
+  /** Optional closing band with a plain hosting / compliance statement. */
+  footerNote?: string;
 };
 
 /** Shared security section — homepage and /dla-statystow use the same chrome. */
@@ -78,7 +78,7 @@ export function SecurityBand({
   title,
   description,
   pillars,
-  cta,
+  footerNote,
 }: SecurityBandProps) {
   return (
     <Section id="bezpieczenstwo" tone="paper">
@@ -96,21 +96,10 @@ export function SecurityBand({
         ))}
       </div>
 
-      {cta ? (
-        <div className="mt-12 flex flex-col items-center justify-between gap-5 rounded-2xl border border-paper-border bg-paper-muted px-6 py-6 md:flex-row md:px-8">
-          <p className="text-center font-display text-xl font-semibold text-ink md:text-left">
-            Porozmawiajmy o tym, gdzie i jak przechowywane są Twoje dane.
-          </p>
-          <ButtonLink
-            href={cta.href}
-            target={cta.external ? "_blank" : undefined}
-            rel={cta.external ? "noopener noreferrer" : undefined}
-            size="lg"
-            className="shrink-0"
-          >
-            {cta.label}
-          </ButtonLink>
-        </div>
+      {footerNote ? (
+        <p className="mt-12 rounded-2xl border border-paper-border bg-paper-muted px-6 py-5 text-center text-pretty font-display text-lg font-semibold text-ink md:px-8 md:text-left">
+          {footerNote}
+        </p>
       ) : null}
     </Section>
   );
@@ -123,7 +112,7 @@ export function Security() {
       title="Twoja baza nigdy nie trafi do innej agencji"
       description="Baza talentów i hostess to najcenniejszy zasób agencji. Dlatego oddzielenie danych, szyfrowanie i RODO są fundamentem PlanOS, a nie dodatkiem."
       pillars={AGENCY_PILLARS}
-      cta={{ href: BOOKING_URL, label: "Umów demo", external: true }}
+      footerNote="Dane agencji są hostowane w UE (Supabase). Podprocesorów IT wymieniamy w polityce prywatności."
     />
   );
 }

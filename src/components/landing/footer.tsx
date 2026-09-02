@@ -50,11 +50,6 @@ export function LandingFooter() {
               Baza, nabory, obecności i rozliczenia w jednym systemie. Zbudowany
               w Polsce, zgodny z RODO.
             </p>
-            <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink-muted">
-              PlanOS to niezależny produkt technologiczny. Nie jesteśmy agencją
-              i nie współpracujemy z żadną agencją na zasadach właścicielskich —
-              dane każdej agencji są od siebie odseparowane.
-            </p>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
               className="mt-4 inline-block text-sm font-medium text-ink hover:text-brand-ink"

@@ -329,17 +329,16 @@ export default function PrivacyPage() {
                   kategorii „Analityka”. Vercel deklaruje pomiar bez cookies reklamowych;
                   dane mogą być przetwarzane poza EOG na podstawie umowy powierzenia z Vercel.
                 </li>
-                <li>
-                  <strong className="text-ink">Treści osadzone</strong> — odtwarzanie filmów demo
-                  przez YouTube (domena youtube-nocookie.com oraz i.ytimg.com). Po zgodzie Google
-                  może przetwarzać dane, w tym poza EOG, na podstawie własnej polityki prywatności.
-                  Bez zgody iframe i miniatury YouTube nie są wczytywane.
-                </li>
               </ul>
+              <p className="mt-4">
+                Filmy demo na stronie są osadzane z YouTube (youtube-nocookie.com). Miniatura
+                i odtwarzacz ładują się dopiero po kliknięciu „Odtwórz” — wtedy obowiązuje
+                polityka prywatności Google.
+              </p>
               <p className="mt-4">
                 Nie stosujemy cookies reklamowych ani nie sprzedajemy danych. Odrzucenie opcjonalnych
                 kategorii (w tym zamknięcie banera przyciskiem „Tylko niezbędne” lub „X”) nie ogranicza
-                dostępu do treści strony poza odtwarzaniem filmów demo.
+                dostępu do treści strony.
               </p>
             </section>
 

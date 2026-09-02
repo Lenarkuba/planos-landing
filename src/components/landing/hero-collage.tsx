@@ -42,7 +42,7 @@ export function HeroCollage() {
         </div>
         <div className="mt-3 space-y-1.5">
           <div className="rounded-md border-l-2 border-tag-green-tx bg-tag-green-bg px-2 py-1 text-[0.65rem] font-medium text-tag-green-tx">
-            Serial TVP · 12 osób · potwierdzone
+            Serial „Nocna zmiana” · 12 osób · potwierdzone
           </div>
           <div className="rounded-md border-l-2 border-tag-blue-tx bg-tag-blue-bg px-2 py-1 text-[0.65rem] font-medium text-tag-blue-tx">
             Event Galeria · 8 hostess · 2 oczekujące

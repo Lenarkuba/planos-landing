@@ -24,7 +24,7 @@ const instrumentSerif = Instrument_Serif({
 const TITLE =
   "PlanOS — system dla agencji castingowych, statystów i hostess | baza talentów, obecności, ZUS";
 const DESCRIPTION =
-  "PlanOS to niezależny system (oprogramowanie SaaS) dla agencji castingowych, statystów i hostess: baza talentów, castingi i nabory, potwierdzenia, listy obecności i pliki dla księgowości w jednym miejscu. Nie jesteśmy agencją — dane każdej agencji są oddzielone i tylko jej. RODO w standardzie.";
+  "System dla agencji castingowych, statystów i hostess: baza talentów, castingi i nabory, potwierdzenia, listy obecności i pliki dla księgowości w jednym miejscu. RODO w standardzie.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -38,7 +38,6 @@ export const metadata: Metadata = {
     "baza talentów",
     "system dla agencji castingowej",
     "system dla agencji hostess",
-    "niezależny system dla agencji",
     "oprogramowanie dla agencji",
     "oprogramowanie dla agencji castingowej",
     "SaaS dla agencji castingowych i hostess",

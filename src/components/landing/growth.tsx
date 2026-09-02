@@ -24,7 +24,7 @@ const CARDS = [
     icon: ShieldCheck,
     title: "Dane, którym ufasz",
     body:
-      "Każdy dostęp do PESEL jest rejestrowany, a historia komunikacji pokazuje, co system wysłał i czy dotarło. Koniec z „nie dostałem maila”.",
+      "Każdy dostęp do PESEL jest rejestrowany, a historia komunikacji pokazuje, co system wysłał, do kogo i czy dotarło. Koniec z „nikt mi nie powiedział”.",
   },
   {
     icon: BellRing,

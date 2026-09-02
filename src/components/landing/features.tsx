@@ -83,7 +83,7 @@ const FEATURES: Feature[] = [
   {
     title: "Powiadomienia zamiast telefonów",
     body:
-      "Zmiana godziny, odwołanie, nowy dzień pracy — wszyscy zainteresowani dostają powiadomienie e-mail i w aplikacji. Widzisz, co zostało wysłane i czy dotarło.",
+      "Zmiana godziny, odwołanie, nowy dzień pracy — wszyscy zainteresowani dostają powiadomienie w aplikacji. Widzisz, co zostało wysłane i czy dotarło.",
     icon: Bell,
     graphic: FEATURE_ICONS.powiadomienia,
     href: "#wzrost",

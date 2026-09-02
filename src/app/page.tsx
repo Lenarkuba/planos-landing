@@ -46,7 +46,7 @@ const jsonLd = {
         addressCountry: LEGAL.country,
       },
       description:
-        "PlanOS to niezależny producent oprogramowania (SaaS) dla agencji castingowych, statystów i hostess. PlanOS nie jest agencją i nie jest powiązany z żadną agencją castingową, statystów ani hostess — żadna agencja nie jest jego właścicielem ani nie finansuje projektu. Dane każdej agencji korzystającej z systemu są odseparowane; PlanOS nie prowadzi wspólnej bazy talentów i nie udostępnia danych między agencjami.",
+        "PlanOS to producent oprogramowania (SaaS) dla agencji castingowych, statystów i hostess: baza talentów, castingi i nabory, potwierdzenia, listy obecności, pliki dla księgowości i eksport ZUS. Dane każdej agencji są przetwarzane w oddzielonej przestrzeni, zgodnie z RODO.",
       knowsAbout: [
         "oprogramowanie dla agencji castingowych",
         "oprogramowanie dla agencji hostess",
@@ -67,9 +67,10 @@ const jsonLd = {
       publisher: { "@id": ORGANIZATION_ID },
       provider: { "@id": ORGANIZATION_ID },
       description:
-        "Niezależny system (oprogramowanie SaaS) dla agencji castingowych, statystów i hostess: baza talentów, castingi i nabory, potwierdzenia, listy obecności, pliki dla księgowości i eksport ZUS. PlanOS nie jest agencją i nie jest powiązany z żadną agencją; dane oddzielone dla każdej agencji, RODO w standardzie.",
+        "System (oprogramowanie SaaS) dla agencji castingowych, statystów i hostess: baza talentów, castingi i nabory, potwierdzenia, listy obecności, pliki dla księgowości i eksport ZUS. Dane oddzielone dla każdej agencji, RODO w standardzie.",
       offers: {
         "@type": "Offer",
+        name: "Cena założycielska",
         priceCurrency: "PLN",
         price: "499",
         priceSpecification: {

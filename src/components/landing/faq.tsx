@@ -7,7 +7,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Czy PlanOS należy do jakiejś agencji albo z nią współpracuje?",
-    a: "Nie. PlanOS to niezależna firma software'owa — producent oprogramowania (SaaS) dla agencji castingowych, statystów i hostess. Nie jesteśmy agencją, żadna agencja nie jest właścicielem ani inwestorem PlanOS i żadna nas nie finansuje. Nie prowadzimy wspólnej puli talentów: baza każdej agencji jest odseparowana od pozostałych, a PlanOS nigdy nie sprzedaje ani nie udostępnia danych jednej agencji innej.",
+    a: "Nie. PlanOS to niezależne oprogramowanie. Żadna agencja nie jest właścicielem ani inwestorem. Baza każdej agencji jest oddzielona — nie prowadzimy wspólnej puli talentów.",
   },
   {
     q: "Czy inna agencja może zobaczyć moją bazę?",
@@ -19,7 +19,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Jak PlanOS pomaga w zgodności z RODO?",
-    a: "Masz zarządzanie zgodami, silnik usuwania danych (prawo do bycia zapomnianym) i szyfrowanie danych wrażliwych. Każdy dostęp do numerów PESEL jest rejestrowany. Udostępniamy też umowę powierzenia przetwarzania (DPA).",
+    a: "Masz zarządzanie zgodami, usuwanie danych na wniosek (prawo do bycia zapomnianym) i szyfrowanie danych wrażliwych. Każdy dostęp do numerów PESEL jest rejestrowany. Dane są hostowane w UE. Umowę powierzenia przetwarzania (DPA) udostępniamy każdej agencji przy wdrożeniu.",
   },
   {
     q: "Jak wygląda eksport do ZUS?",
@@ -39,7 +39,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Nie mam teraz dużo projektów. Czy muszę płacić pełną stawkę?",
-    a: "Nie. Włącz tryb uśpienia (149 zł/mies.) — konto przechodzi w tryb tylko-do-odczytu, dane są zachowane, a Ty wracasz, kiedy zaczyna się sezon.",
+    a: "Nie. Przy rozliczeniu miesięcznym włączasz tryb uśpienia (149 zł/mies.) — konto przechodzi w tryb tylko-do-odczytu, dane są zachowane, a Ty wracasz, kiedy zaczyna się sezon. Plan roczny jest już rozliczony z góry (dwa miesiące gratis), więc tryb uśpienia go nie dotyczy.",
   },
 ];
 

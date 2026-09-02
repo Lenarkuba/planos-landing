@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import { Building2, Check, Moon, Rocket } from "lucide-react";
-import { BOOKING_URL, CONTACT_EMAIL } from "@/lib/site-config";
+import { BOOKING_URL } from "@/lib/site-config";
 import { ButtonLink, Card, IconBadge, Section, SectionHeader } from "./ui";
 
 const INCLUDED = [
-  "Nieograniczona liczba użytkowników w agencji",
-  "Nieograniczona baza talentów i hostess",
+  "Zespół agencji — bez opłaty za osobę",
+  "Baza talentów i hostess",
   "Castingi, nabory, formularze zgłoszeń i grupy",
   "Panel wyboru dla klienta (link bez logowania)",
   "Dni pracy, potwierdzenia i listy obecności",
@@ -26,7 +26,7 @@ export function Pricing() {
       <SectionHeader
         eyebrow="Cennik"
         title="Jedna opłata za całą agencję. Bez opłat za użytkownika."
-        description="Ta sama cena, czy w biurze pracują dwie osoby, czy dwanaście. Wszystko w cenie od pierwszego dnia — nic nie jest zamknięte w wyższym pakiecie."
+        description="Jedna stawka za zespół biura — bez opłaty za osobę. Cena regularna to 998 zł/mies. Pierwsze dziesięć agencji płaci połowę: 499 zł/mies."
       />
 
       {/* Billing toggle */}
@@ -52,10 +52,17 @@ export function Pricing() {
         {/* Main price card */}
         <article className="relative rounded-3xl border-2 border-brand bg-paper-card p-8 shadow-card-lg md:p-10">
           <span className="absolute -top-3.5 left-8 rounded-full bg-brand px-3.5 py-1 text-xs font-semibold text-brand-foreground">
-            Pełny system dla Twojej agencji
+            Cena założycielska −50% — pierwsze 10 agencji
           </span>
 
-          <p className="mt-2 flex items-baseline gap-2">
+          <p className="mt-2 flex items-baseline gap-2 text-lg font-medium text-ink-faint">
+            <span className="sr-only">Cena regularna:</span>
+            <s aria-hidden="true">{annual ? "832" : "998"} zł / mies.</s>
+            <span className="rounded-full bg-tag-red-bg px-2 py-0.5 font-sans text-xs font-bold text-tag-red-tx">
+              −50%
+            </span>
+          </p>
+          <p className="mt-1 flex items-baseline gap-2">
             <span className="font-display text-6xl font-medium tracking-tight text-ink md:text-7xl">
               {annual ? "416" : "499"} zł
             </span>
@@ -63,13 +70,13 @@ export function Pricing() {
           </p>
           <p className="mt-3 min-h-[3rem] text-pretty text-ink-muted">
             {annual
-              ? "4 990 zł rozliczane raz w roku — płacisz w dobrym miesiącu, korzystasz cały rok. Wdrożenie (migracja bazy, RODO, ZUS, szkolenie) w cenie: 0 zł."
-              : "To wszystko. Bez progów, bez pakietów, bez liczenia użytkowników. Rozliczenie co miesiąc, bez zobowiązań."}
+              ? "4 990 zł rozliczane raz w roku (cena regularna 9 980 zł) — płacisz w dobrym miesiącu, korzystasz cały rok. Wdrożenie (migracja bazy, RODO, ZUS, szkolenie) w cenie: 0 zł."
+              : "Połowa ceny regularnej (998 zł/mies.) dla pierwszych 10 agencji. Rozliczenie co miesiąc, bez zobowiązań."}
           </p>
 
           <div className="mt-8 border-t border-paper-border pt-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-faint">
-              W cenie dla każdej agencji
+              W cenie
             </p>
             <ul className="mt-4 grid gap-3 sm:grid-cols-2">
               {INCLUDED.map((item) => (
@@ -125,42 +132,46 @@ export function Pricing() {
             </p>
           </Card>
 
-          <Card>
-            <div className="flex items-center gap-3">
-              <IconBadge>
-                <Moon aria-hidden="true" className="h-5 w-5" />
-              </IconBadge>
-              <div>
-                <h3 className="font-semibold text-ink">Tryb uśpienia</h3>
-                <p className="text-sm text-ink-muted">na spokojniejsze okresy</p>
+          {!annual && (
+            <Card>
+              <div className="flex items-center gap-3">
+                <IconBadge>
+                  <Moon aria-hidden="true" className="h-5 w-5" />
+                </IconBadge>
+                <div>
+                  <h3 className="font-semibold text-ink">Tryb uśpienia</h3>
+                  <p className="text-sm text-ink-muted">tylko przy rozliczeniu miesięcznym</p>
+                </div>
               </div>
-            </div>
-            <p className="mt-4 font-display text-3xl font-medium tracking-tight text-ink">
-              149 zł <span className="font-sans text-sm font-medium text-ink-muted">/ mies.</span>
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-              Mniej projektów poza sezonem? Przełącz konto w tryb tylko-do-odczytu.
-              Dane są bezpieczne i gotowe, gdy wracasz do produkcji lub sezonu eventowego.
-            </p>
-          </Card>
+              <p className="mt-4 font-display text-3xl font-medium tracking-tight text-ink">
+                149 zł <span className="font-sans text-sm font-medium text-ink-muted">/ mies.</span>
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                Mniej projektów poza sezonem? Przełącz konto w tryb tylko-do-odczytu.
+                Dane są bezpieczne i gotowe, gdy wracasz do produkcji lub sezonu eventowego.
+              </p>
+            </Card>
+          )}
 
           <Card className="bg-paper-muted">
             <div className="flex items-center gap-3">
               <IconBadge className="bg-paper-card">
                 <Building2 aria-hidden="true" className="h-5 w-5" />
               </IconBadge>
-              <h3 className="font-semibold text-ink">Prowadzisz większą agencję lub kilka marek?</h3>
+              <h3 className="font-semibold text-ink">Kilka marek albo kilka agencji?</h3>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-ink-muted">
-              Ta sama cena, bez „pakietu enterprise”. Jeśli chcesz najpierw
-              omówić, jak PlanOS poradzi sobie z Twoją skalą — napisz, przejdziemy
-              przez to razem.
+              Jeśli chcesz zebrać dane kilku marek w jednej bazie albo prowadzisz
+              więcej niż jedną agencję — to już osobna rozmowa. Pokażemy, jak to
+              ułożyć na demo.
             </p>
             <a
-              href={`mailto:${CONTACT_EMAIL}`}
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-4 inline-flex text-sm font-semibold text-brand-ink hover:text-brand"
             >
-              Napisz: {CONTACT_EMAIL}
+              Umów rozmowę →
             </a>
           </Card>
         </div>

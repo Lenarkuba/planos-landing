@@ -23,7 +23,6 @@ type CookieConsentContextValue = {
   ready: boolean;
   consent: CookieConsent | null;
   openSettings: () => void;
-  allowMedia: () => void;
 };
 
 const CookieConsentContext = createContext<CookieConsentContextValue | null>(null);
@@ -41,7 +40,7 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
   const [consent, setConsent] = useState<CookieConsent | null>(null);
   const [open, setOpen] = useState(false);
   const [settings, setSettings] = useState(false);
-  const [draft, setDraft] = useState({ analytics: false, media: false });
+  const [draft, setDraft] = useState({ analytics: false });
 
   useEffect(() => {
     const stored = readCookieConsent();
@@ -58,11 +57,11 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const acceptAll = useCallback(() => {
-    persist(defaultConsent({ analytics: true, media: true }));
+    persist(defaultConsent({ analytics: true }));
   }, [persist]);
 
   const rejectOptional = useCallback(() => {
-    persist(defaultConsent({ analytics: false, media: false }));
+    persist(defaultConsent({ analytics: false }));
   }, [persist]);
 
   const saveCustom = useCallback(() => {
@@ -72,24 +71,14 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
   const openSettings = useCallback(() => {
     setDraft({
       analytics: consent?.analytics === true,
-      media: consent?.media === true,
     });
     setSettings(true);
     setOpen(true);
   }, [consent]);
 
-  const allowMedia = useCallback(() => {
-    persist(
-      defaultConsent({
-        analytics: consent?.analytics === true,
-        media: true,
-      }),
-    );
-  }, [consent, persist]);
-
   const value = useMemo(
-    () => ({ ready, consent, openSettings, allowMedia }),
-    [ready, consent, openSettings, allowMedia],
+    () => ({ ready, consent, openSettings }),
+    [ready, consent, openSettings],
   );
 
   return (
@@ -106,7 +95,6 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
           onOpenSettings={() => {
             setDraft({
               analytics: consent?.analytics === true,
-              media: consent?.media === true,
             });
             setSettings(true);
           }}
@@ -141,8 +129,8 @@ function CookieBanner({
   onDismiss,
 }: {
   settings: boolean;
-  draft: { analytics: boolean; media: boolean };
-  setDraft: (next: { analytics: boolean; media: boolean }) => void;
+  draft: { analytics: boolean };
+  setDraft: (next: { analytics: boolean }) => void;
   onAcceptAll: () => void;
   onRejectOptional: () => void;
   onSaveCustom: () => void;
@@ -175,8 +163,7 @@ function CookieBanner({
         </p>
         <p id="cookie-banner-desc" className="mt-2 text-pretty text-sm leading-relaxed text-ink-muted">
           Używamy niezbędnych plików, żeby strona działała i żeby zapamiętać Twój wybór.
-          Opcjonalnie — tylko za zgodą — ładujemy treści z YouTube (filmy demo) oraz
-          Vercel Analytics (pomiary odwiedzin).{" "}
+          Opcjonalnie — tylko za zgodą — ładujemy Vercel Analytics (pomiary odwiedzin).{" "}
           <Link href="/privacy#cookies" className="font-medium text-ink underline underline-offset-2 hover:text-brand-ink">
             Polityka prywatności
           </Link>
@@ -195,13 +182,7 @@ function CookieBanner({
               title="Analityka"
               description="Anonimowe pomiary odwiedzin przez Vercel Analytics. Ładuje się tylko po Twojej zgodzie."
               checked={draft.analytics}
-              onChange={(analytics) => setDraft({ ...draft, analytics })}
-            />
-            <CategoryRow
-              title="Treści osadzone"
-              description="Odtwarzanie filmów demo przez YouTube (youtube-nocookie.com). Google może przetwarzać dane poza EOG."
-              checked={draft.media}
-              onChange={(media) => setDraft({ ...draft, media })}
+              onChange={(analytics) => setDraft({ analytics })}
             />
           </fieldset>
         ) : null}
