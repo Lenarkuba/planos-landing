@@ -3,16 +3,14 @@
 import { useState } from "react";
 import { Building2, Check, Moon, Rocket } from "lucide-react";
 import { BOOKING_URL, CONTACT_EMAIL } from "@/lib/site-config";
-import { ButtonLink, Card, IconBadge, Section, SectionHeader } from "./ui";
+import { ButtonLink, Card, IconBadge, Section, SectionHeader, cn } from "./ui";
 
-/** Tier limits and the second-tier entry price — defaults until they are fixed. */
-const TALENT_LIMIT = "300";
-const SLEEP_MONTHS_LIMIT = "5";
-const TIER_TWO_FROM = "1490";
+/** Tier limits — defaults until they are fixed. */
+const TALENT_LIMIT = "1000";
 
 const INCLUDED = [
   "Wszyscy użytkownicy biura w cenie",
-  `Baza do [${TALENT_LIMIT}] aktywnych talentów`,
+  `Baza do ${TALENT_LIMIT} aktywnych talentów`,
   "Castingi, nabory, formularze zgłoszeń i grupy",
   "Panel wyboru dla klienta (link bez logowania)",
   "Dni pracy, potwierdzenia i listy obecności",
@@ -53,9 +51,19 @@ export function Pricing() {
         </div>
       </div>
 
-      <div className="mt-12 grid items-start gap-6 lg:grid-cols-[1.25fr_1fr]">
+      <div
+        className={cn(
+          "mt-12 grid gap-6 lg:grid-cols-[1.25fr_1fr]",
+          annual ? "items-start" : "items-stretch",
+        )}
+      >
         {/* Main price card */}
-        <article className="relative rounded-3xl border-2 border-brand bg-paper-card p-8 shadow-card-lg md:p-10">
+        <article
+          className={cn(
+            "relative flex flex-col rounded-3xl border-2 border-brand bg-paper-card p-8 shadow-card-lg md:p-10",
+            !annual && "h-full",
+          )}
+        >
           <span className="absolute -top-3.5 left-8 rounded-full bg-brand px-3.5 py-1 text-xs font-semibold text-brand-foreground">
             Cena startowa dla pierwszych 10 agencji
           </span>
@@ -97,23 +105,25 @@ export function Pricing() {
             </ul>
           </div>
 
-          <ButtonLink
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            size="lg"
-            className="mt-9 w-full"
-          >
-            Umów demo
-          </ButtonLink>
-          <p className="mt-3 text-center text-sm text-ink-faint">
-            Zobaczysz system na przykładzie swojej agencji. Bez zobowiązań.
-          </p>
+          <div className={cn("pt-9", !annual && "mt-auto")}>
+            <ButtonLink
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              size="lg"
+              className="w-full"
+            >
+              Umów demo
+            </ButtonLink>
+            <p className="mt-3 text-center text-sm text-ink-faint">
+              Zobaczysz system na przykładzie swojej agencji. Bez zobowiązań.
+            </p>
+          </div>
         </article>
 
         {/* Side cards */}
-        <div className="flex flex-col gap-5">
-          <Card>
+        <div className={cn("flex flex-col gap-5", !annual && "h-full")}>
+          <Card className={cn(!annual && "flex flex-1 flex-col")}>
             <div className="flex items-center gap-3">
               <IconBadge>
                 <Rocket aria-hidden="true" className="h-5 w-5" />
@@ -149,7 +159,7 @@ export function Pricing() {
           </Card>
 
           {!annual && (
-            <Card>
+            <Card className={cn(!annual && "flex flex-1 flex-col")}>
               <div className="flex items-center gap-3">
                 <IconBadge>
                   <Moon aria-hidden="true" className="h-5 w-5" />
@@ -167,30 +177,28 @@ export function Pricing() {
                 Dane są bezpieczne i gotowe, gdy wracasz do produkcji lub sezonu eventowego.
               </p>
               <p className="mt-3 text-sm leading-relaxed text-ink-muted">
-                Dostępny w planie miesięcznym. Maksymalnie [{SLEEP_MONTHS_LIMIT}]
-                miesięcy w roku.
+                Dostępny w planie miesięcznym.
               </p>
             </Card>
           )}
 
-          <Card className="bg-paper-muted">
+          <Card className={cn("bg-paper-muted", !annual && "flex flex-1 flex-col")}>
             <div className="flex items-center gap-3">
               <IconBadge className="bg-paper-card">
                 <Building2 aria-hidden="true" className="h-5 w-5" />
               </IconBadge>
               <h3 className="font-semibold text-ink">Duża agencja lub kilka marek</h3>
             </div>
-            <p className="mt-4 font-display text-3xl font-medium tracking-tight text-ink">
-              od [{TIER_TWO_FROM}] zł{" "}
-              <span className="font-sans text-sm font-medium text-ink-muted">/ mies.</span>
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-              Powyżej [{TALENT_LIMIT}] aktywnych talentów albo więcej niż jedna
+            <p className="mt-4 text-sm leading-relaxed text-ink-muted">
+              Powyżej {TALENT_LIMIT} aktywnych talentów lub więcej niż jedna
               marka. Napisz, ustalimy zakres.
             </p>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
-              className="mt-4 inline-flex text-sm font-semibold text-brand-ink hover:text-brand"
+              className={cn(
+                "inline-flex text-sm font-semibold text-brand-ink hover:text-brand",
+                annual ? "mt-4" : "mt-auto pt-4",
+              )}
             >
               Napisz do nas →
             </a>

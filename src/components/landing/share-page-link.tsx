@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { buttonVariants } from "./ui";
 
 function isMobileDevice() {
   if (typeof navigator === "undefined") return false;
@@ -38,7 +37,7 @@ export function SharePageLink() {
     <button
       type="button"
       onClick={handleClick}
-      className={buttonVariants({ size: "lg" })}
+      className="inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-brand px-8 text-base font-semibold text-brand-foreground shadow-brand transition-all hover:bg-brand-ink hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
     >
       {copied ? "Skopiowano" : "Skopiuj link"}
     </button>

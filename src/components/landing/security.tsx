@@ -27,7 +27,7 @@ const AGENCY_PILLARS: Pillar[] = [
     icon: Eye,
     title: "RODO w praktyce",
     body:
-      "Zarządzanie zgodami, informacja dla talentu i usuwanie danych na żądanie (prawo do bycia zapomnianym) pozwalają realnie wypełnić obowiązki administratora. Udostępniamy umowę powierzenia przetwarzania (DPA).",
+      "Zarządzanie zgodami, informacja dla talentu i usuwanie danych na żądanie (prawo do bycia zapomnianym) pozwalają realnie wypełnić obowiązki administratora. Na wniosek usuwasz profil, zdjęcia i dane w bazie; rozliczenia i zgłoszenia do ZUS możesz zachować przez okres wymagany prawnie. Udostępniamy umowę powierzenia przetwarzania (DPA).",
   },
   {
     icon: Database,
@@ -54,7 +54,7 @@ export const TALENT_PILLARS: Pillar[] = [
     icon: ShieldCheck,
     title: "Zgody i prawo do bycia zapomnianym",
     body:
-      "Widzisz wszystkie zgody, które wyraziłeś. Cofasz je jednym kliknięciem, a usunięcie danych na żądanie (prawo do bycia zapomnianym) realizuje system.",
+      "Wszystkie zgody widzisz w swoim koncie i możesz je cofnąć jednym kliknięciem. Masz też prawo do bycia zapomnianym: po Twoim wniosku agencja usuwa Twój profil, zdjęcia i dane w bazie. Dane związane z rozliczeniami i zgłoszeniami do ZUS agencja może zachować przez okres wymagany prawnie.",
   },
   {
     icon: Database,

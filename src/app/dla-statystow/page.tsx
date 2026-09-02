@@ -5,9 +5,6 @@ import {
   ClipboardCheck,
   Eye,
   FileText,
-  KeyRound,
-  ShieldCheck,
-  Smartphone,
   UserRound,
 } from "lucide-react";
 import { LandingNav } from "@/components/landing/nav";
@@ -48,25 +45,31 @@ const POSITIVES = [
 const STEPS = [
   {
     n: "01",
-    title: "Agencja Cię zaprasza",
+    title: "Agencja publikuje nabór",
     body:
-      "Agencja, z którą współpracujesz, wysyła Ci link do PlanOS. Widzi Cię tylko ona.",
+      "Agencja ogłasza casting lub nabór z formularzem — zdjęcia, wymiary, to, czego akurat potrzebuje.",
   },
   {
     n: "02",
-    title: "Zakładasz bezpłatne konto i profil",
+    title: "Wysyłasz zgłoszenie",
     body:
-      "Uzupełniasz zdjęcia, wymiary i kontakt. Widzisz, jakie zgody wyraziłeś, i możesz je w każdej chwili cofnąć.",
+      "Wypełniasz formularz i wysyłasz zgłoszenie. Możesz to zrobić bez zakładania konta.",
   },
   {
     n: "03",
-    title: "Potwierdzasz i masz wgląd",
+    title: "Możesz założyć konto",
     body:
-      "Dni pracy potwierdzasz jednym kliknięciem z telefonu. Umowy, historia pracy i historia dostępu do Twojego PESEL-u są w Twoim koncie.",
+      "Jeśli chcesz mieć wgląd w swoje zgody, umowy i historię — zakładasz bezpłatne konto powiązane z tą agencją. Bez konta agencja nadal ma Twoje zgłoszenie, ale nie masz dostępu do edycji profilu.",
   },
 ];
 
 const BENEFITS = [
+  {
+    icon: ClipboardCheck,
+    title: "Zgłoszenie z kompletnymi danymi w kilka sekund",
+    body:
+      "Gdy Twoja agencja prowadzi nabór, wysyłasz kompletne zgłoszenie — zdjęcia, wymiary — bez przepisywania tych samych danych od nowa.",
+  },
   {
     icon: UserRound,
     title: "Bezpłatne konto i własny profil",
@@ -74,34 +77,10 @@ const BENEFITS = [
       "Zdjęcia, wymiary, dane kontaktowe — aktualizujesz je sam, w jednym miejscu. Agencja zawsze widzi aktualną wersję, a Ty decydujesz, co w profilu jest.",
   },
   {
-    icon: Eye,
-    title: "Widzi Cię tylko Twoja agencja",
-    body:
-      "Do PlanOS zaprasza Cię agencja, z którą współpracujesz. Twoje dane są widoczne wyłącznie dla niej — nie trafiają do żadnej wspólnej bazy ani do innych agencji.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Zgody RODO, które widzisz i cofasz",
-    body:
-      "Każda zgoda jest zapisana w Twoim koncie. Możesz ją cofnąć jednym kliknięciem i skorzystać z prawa do bycia zapomnianym — system trwale usuwa Twoje dane.",
-  },
-  {
-    icon: KeyRound,
-    title: "Szyfrowany PESEL i rejestr dostępu",
-    body:
-      "Twój PESEL jest szyfrowany. Każde odczytanie jest zapisywane, a historię dostępu widzisz w swoim koncie.",
-  },
-  {
     icon: CalendarCheck2,
     title: "Potwierdzenia dni pracy z telefonu",
     body:
       "Nowy dzień zdjęciowy lub event? Potwierdzasz albo odrzucasz jednym kliknięciem z telefonu.",
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Zgłoszenie z kompletnymi danymi w kilka sekund",
-    body:
-      "Gdy Twoja agencja prowadzi nabór, wysyłasz kompletne zgłoszenie — zdjęcia, wymiary — bez przepisywania tych samych danych od nowa.",
   },
   {
     icon: BellRing,
@@ -116,14 +95,18 @@ const BENEFITS = [
       "Widzisz swoje umowy, przepracowane dni, historię rzetelności i swoją statystykę rzetelności. Wiesz, co podpisałeś, na jakich warunkach i jak jesteś rozliczany.",
   },
   {
-    icon: Smartphone,
-    title: "Bez sklepu z aplikacjami",
+    icon: Eye,
+    title: "Widzi Cię tylko Twoja agencja",
     body:
-      "Wszystko działa w przeglądarce telefonu przez linki od agencji. Żeby mieć PlanOS zawsze pod ręką i dostawać powiadomienia o dniach pracy, dodaj go do ekranu głównego — na iPhonie przez przycisk Udostępnij → „Do ekranu początkowego”, na Androidzie przez „Zainstaluj aplikację” w menu przeglądarki. Nic nie aktualizujesz.",
+      "Twoje dane są widoczne wyłącznie dla agencji, z którą współpracujesz — nie trafiają do żadnej wspólnej bazy ani do innych agencji.",
   },
 ];
 
 const FAQ = [
+  {
+    q: "Czy muszę mieć konto, żeby się zgłosić?",
+    a: "Nie. Możesz wysłać zgłoszenie na casting bez zakładania konta. Konto zakładasz, jeśli chcesz mieć wgląd w swoje zgody, umowy i historię dostępu do PESEL-u. Zgłoszenia bez konta agencja przechowuje przez ograniczony czas zgodnie ze swoją polityką i mogą zostać usunięte, jeśli nie dojdzie do współpracy.",
+  },
   {
     q: "Kto widzi mój profil i moje dane?",
     a: "Tylko agencja, która zaprosiła Cię do PlanOS i z którą współpracujesz. Twoje dane nie trafiają do żadnej wspólnej bazy ani do innych agencji. PlanOS to oprogramowanie, z którego korzysta Twoja agencja — nie portal ani giełda statystów.",
@@ -134,7 +117,7 @@ const FAQ = [
   },
   {
     q: "Czy mogę cofnąć zgodę i usunąć swoje dane?",
-    a: "Tak. Wszystkie zgody widzisz w swoim koncie i możesz je cofnąć jednym kliknięciem. Masz też prawo do bycia zapomnianym — po Twoim wniosku system trwale usuwa Twoje dane z bazy agencji.",
+    a: "Tak. Wszystkie zgody widzisz w swoim koncie i możesz je cofnąć jednym kliknięciem. Masz też prawo do bycia zapomnianym: po Twoim wniosku agencja usuwa Twój profil, zdjęcia i dane w bazie. Dane związane z rozliczeniami i zgłoszeniami do ZUS agencja może zachować przez okres wymagany prawnie.",
   },
   {
     q: "Czy to dla mnie darmowe?",
@@ -167,11 +150,12 @@ export default function DlaStatystowPage() {
               <span className="text-brand-ink">Pod Twoją kontrolą.</span>
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink-muted">
-              Twoja agencja wybrała PlanOS, żebyś miał własny profil, wgląd w
-              swoje zgody i umowy, i mógł potwierdzać dni pracy z telefonu. Twoje
-              dane widzi tylko ona.
+              Zgłaszasz się do agencji przez PlanOS — konto zawsze zakładasz Ty,
+              kiedy chcesz. Twoja agencja wybrała PlanOS, żebyś miał własny
+              profil, wgląd w swoje zgody i umowy, i mógł potwierdzać dni pracy
+              z telefonu. Twoje dane widzi tylko ona.
             </p>
-            <ul className="mx-auto mt-7 max-w-xl space-y-2.5 text-left">
+            <ul className="mx-auto mt-7 w-fit space-y-2.5 text-left">
               {POSITIVES.map((p) => (
                 <li key={p} className="flex items-start gap-2.5 text-[0.95rem] text-ink">
                   <span aria-hidden="true" className="mt-0.5 shrink-0 text-tag-green-tx">
@@ -187,17 +171,21 @@ export default function DlaStatystowPage() {
         <Section id="jak-to-dziala" tone="muted">
           <SectionHeader
             eyebrow="Jak to działa"
-            title="Zaprasza Cię agencja. Resztą sterujesz Ty."
-            description="Nie zakładasz konta „w internecie” i nie wystawiasz się do żadnej bazy. PlanOS to system, z którego korzysta Twoja agencja — a Ty dostajesz w nim własne, bezpłatne konto."
+            title="Zgłoszenie do naboru"
+            description="Nie dodajesz się do żadnej publicznej bazy danych."
           />
           <ol className="mt-14 grid gap-8 md:grid-cols-3">
             {STEPS.map((s) => (
               <li key={s.n} className="relative">
-                <span className="font-display text-5xl font-medium text-brand/60">{s.n}</span>
+                <span className="font-display text-5xl font-medium text-brand/60">
+                  {s.n}
+                </span>
                 <h3 className="mt-3 font-display text-xl font-semibold text-ink md:text-2xl">
                   {s.title}
                 </h3>
-                <p className="mt-3 text-pretty leading-relaxed text-ink-muted">{s.body}</p>
+                <p className="mt-3 text-pretty leading-relaxed text-ink-muted">
+                  {s.body}
+                </p>
               </li>
             ))}
           </ol>
@@ -206,7 +194,7 @@ export default function DlaStatystowPage() {
         <Section id="co-masz-z-tego" tone="paper">
           <SectionHeader
             eyebrow="Co masz z tego Ty"
-            title="Mniej papierologii."
+            title="Szybszy przepływ informacji"
             description="Twoja agencja prowadzi wszystko w jednym systemie, a Ty masz w nim własne konto."
           />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

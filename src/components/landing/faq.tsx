@@ -19,7 +19,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Jak PlanOS pomaga w zgodności z RODO?",
-    a: "Masz zarządzanie zgodami, usuwanie danych na żądanie (prawo do bycia zapomnianym) i szyfrowanie danych wrażliwych. Każdy dostęp do numerów PESEL jest rejestrowany. Dane są hostowane w UE. Umowę powierzenia przetwarzania (DPA) udostępniamy każdej agencji przy wdrożeniu.",
+    a: "Masz zarządzanie zgodami, usuwanie danych na żądanie (prawo do bycia zapomnianym) i szyfrowanie danych wrażliwych. Na wniosek talentu usuwany jest profil, zdjęcia i dane w bazie; rozliczenia i zgłoszenia do ZUS możesz zachować przez okres wymagany prawnie. Każdy dostęp do numerów PESEL jest rejestrowany. Dane są hostowane w UE. Umowę powierzenia przetwarzania (DPA) udostępniamy każdej agencji przy wdrożeniu.",
   },
   {
     q: "Jak wygląda eksport do ZUS?",
