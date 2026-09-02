@@ -1,8 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import type { CSSProperties } from "react";
-import { AnimateIn, AnimateInStagger, AnimateInChild } from "@/components/animate-in";
-import { Footer } from "@/components/footer";
+import {
+  BellRing,
+  CalendarCheck2,
+  ClipboardCheck,
+  Eye,
+  FileText,
+  KeyRound,
+  ShieldCheck,
+  Smartphone,
+  UserRound,
+} from "lucide-react";
+import { Logo } from "@/components/landing/nav";
+import { LandingFooter } from "@/components/landing/footer";
+import { ButtonLink, Card, IconBadge, Section, SectionHeader } from "@/components/landing/ui";
 import { WaitlistForm } from "@/components/waitlist-form";
 import { createAdminClient } from "@/lib/supabase-admin";
 
@@ -23,17 +34,6 @@ export const metadata: Metadata = {
   },
 };
 
-/**
- * Talent page keeps the legacy dark theme, but swaps the blue accent for the
- * landing's brand amber and uses Fraunces (`font-display`) for headings.
- * The overrides cascade to <WaitlistForm />, which reads the same CSS vars.
- */
-const AMBER_ACCENT = {
-  "--accent": "#F59F0A",
-  "--accent-soft": "#DB7706",
-  "--accent-glow": "rgba(245, 159, 10, 0.16)",
-} as CSSProperties;
-
 async function getWaitlistCount(): Promise<number | null> {
   try {
     const supabase = createAdminClient();
@@ -47,90 +47,115 @@ async function getWaitlistCount(): Promise<number | null> {
   }
 }
 
-const pains = [
+const PAINS = [
   "Twoje zdjęcia i PESEL krążą w mailach i arkuszach, do których nie masz wglądu.",
   "Nie wiesz, kto ma dostęp do Twoich danych i po co.",
   "Zmiana godziny zbiórki przychodzi SMS-em o 22:00.",
   "Nie wiadomo, co podpisałeś i jak jesteś rozliczany.",
 ];
 
-const steps = [
+const STEPS = [
   {
     n: "01",
     title: "Agencja Cię zaprasza",
-    desc: "Agencja, z którą współpracujesz, wysyła Ci link do PlanOS. Tylko ona Cię widzi — nie trafiasz do żadnej wspólnej bazy.",
+    body:
+      "Agencja, z którą współpracujesz, wysyła Ci link do PlanOS. Tylko ona Cię widzi — nie trafiasz do żadnej wspólnej bazy.",
   },
   {
     n: "02",
     title: "Zakładasz bezpłatne konto i profil",
-    desc: "Uzupełniasz zdjęcia, wymiary i kontakt. Widzisz, jakie zgody wyraziłeś, i możesz je w każdej chwili cofnąć.",
+    body:
+      "Uzupełniasz zdjęcia, wymiary i kontakt. Widzisz, jakie zgody wyraziłeś, i możesz je w każdej chwili cofnąć.",
   },
   {
     n: "03",
     title: "Potwierdzasz i masz wgląd",
-    desc: "Dni pracy potwierdzasz jednym kliknięciem z telefonu. Umowy, historia pracy i dostęp do Twojego PESEL-u — wszystko widzisz w swoim koncie.",
+    body:
+      "Dni pracy potwierdzasz jednym kliknięciem z telefonu. Umowy, historia pracy i każdy dostęp do Twojego PESEL-u — wszystko widzisz w swoim koncie.",
   },
 ];
 
-const benefits = [
+const BENEFITS = [
   {
+    icon: UserRound,
     title: "Bezpłatne konto i własny profil",
-    desc: "Zdjęcia, wymiary, dane kontaktowe — aktualizujesz je sam, w jednym miejscu. Agencja zawsze widzi aktualną wersję, a Ty decydujesz, co w profilu jest.",
+    body:
+      "Zdjęcia, wymiary, dane kontaktowe — aktualizujesz je sam, w jednym miejscu. Agencja zawsze widzi aktualną wersję, a Ty decydujesz, co w profilu jest.",
   },
   {
+    icon: Eye,
     title: "Widzi Cię tylko Twoja agencja",
-    desc: "Do PlanOS zaprasza Cię agencja, z którą współpracujesz. Twoje dane są widoczne wyłącznie dla niej — nie trafiają do żadnej wspólnej bazy ani do innych agencji.",
+    body:
+      "Do PlanOS zaprasza Cię agencja, z którą współpracujesz. Twoje dane są widoczne wyłącznie dla niej — nie trafiają do żadnej wspólnej bazy ani do innych agencji.",
   },
   {
+    icon: ShieldCheck,
     title: "Zgody RODO, które widzisz i cofasz",
-    desc: "Każda zgoda jest zapisana w Twoim koncie. Możesz ją cofnąć jednym kliknięciem i skorzystać z prawa do bycia zapomnianym — system trwale usuwa Twoje dane.",
+    body:
+      "Każda zgoda jest zapisana w Twoim koncie. Możesz ją cofnąć jednym kliknięciem i skorzystać z prawa do bycia zapomnianym — system trwale usuwa Twoje dane.",
   },
   {
+    icon: KeyRound,
     title: "Szyfrowany PESEL i rejestr dostępu",
-    desc: "Twój PESEL jest szyfrowany (AES-256). Każde odczytanie jest rejestrowane, a Ty dostajesz powiadomienie, kto i kiedy z niego skorzystał.",
+    body:
+      "Twój PESEL jest szyfrowany (AES-256). Każde odczytanie jest rejestrowane, a Ty dostajesz powiadomienie, kto i kiedy z niego skorzystał.",
   },
   {
+    icon: CalendarCheck2,
     title: "Potwierdzenia dni pracy z telefonu",
-    desc: "Nowy dzień zdjęciowy lub event? Potwierdzasz albo odrzucasz jednym kliknięciem — w kilka sekund, bez dzwonienia i odpisywania na SMS-y.",
+    body:
+      "Nowy dzień zdjęciowy lub event? Potwierdzasz albo odrzucasz jednym kliknięciem — w kilka sekund, bez dzwonienia i odpisywania na SMS-y.",
   },
   {
+    icon: ClipboardCheck,
     title: "Zgłoszenie z kompletnymi danymi w kilka sekund",
-    desc: "Gdy Twoja agencja prowadzi nabór, wysyłasz kompletne zgłoszenie — zdjęcia, self-tape, wymiary — bez przepisywania tych samych danych od nowa.",
+    body:
+      "Gdy Twoja agencja prowadzi nabór, wysyłasz kompletne zgłoszenie — zdjęcia, self-tape, wymiary — bez przepisywania tych samych danych od nowa.",
   },
   {
+    icon: BellRing,
     title: "Powiadomienia o zmianach",
-    desc: "Zmiana godziny zbiórki, lokalizacji albo odwołanie dnia — dostajesz powiadomienie od razu, zamiast SMS-a w środku nocy.",
+    body:
+      "Zmiana godziny zbiórki, lokalizacji albo odwołanie dnia — dostajesz powiadomienie od razu, zamiast SMS-a w środku nocy.",
   },
   {
+    icon: FileText,
     title: "Umowy i historia pracy",
-    desc: "Widzisz swoje umowy, przepracowane dni i historię rzetelności. Wiesz, co podpisałeś, na jakich warunkach i jak jesteś rozliczany.",
+    body:
+      "Widzisz swoje umowy, przepracowane dni i historię rzetelności. Wiesz, co podpisałeś, na jakich warunkach i jak jesteś rozliczany.",
   },
   {
+    icon: Smartphone,
     title: "Bez instalowania aplikacji",
-    desc: "Wszystko działa w przeglądarce telefonu przez linki od agencji. Nic nie instalujesz i nic nie musisz aktualizować.",
+    body:
+      "Wszystko działa w przeglądarce telefonu przez linki od agencji. Nic nie instalujesz i nic nie musisz aktualizować.",
   },
 ];
 
-const security = [
+const SECURITY = [
   {
     title: "Szyfrowanie danych wrażliwych",
-    desc: "PESEL i inne dane wrażliwe są szyfrowane algorytmem AES-256. Nie leżą w arkuszu ani w skrzynce mailowej.",
+    body:
+      "PESEL i inne dane wrażliwe są szyfrowane algorytmem AES-256. Nie leżą w arkuszu ani w skrzynce mailowej.",
   },
   {
     title: "Rejestr każdego dostępu",
-    desc: "Każde odczytanie Twojego PESEL-u zostaje zapisane: kto, kiedy i w jakim celu. Dostajesz o tym powiadomienie.",
+    body:
+      "Każde odczytanie Twojego PESEL-u zostaje zapisane: kto, kiedy i w jakim celu. Dostajesz o tym powiadomienie.",
   },
   {
     title: "Zgody i prawo do bycia zapomnianym",
-    desc: "Widzisz wszystkie zgody, które wyraziłeś. Cofasz je jednym kliknięciem, a wniosek o usunięcie danych realizuje system — nie ręcznie ktoś w biurze.",
+    body:
+      "Widzisz wszystkie zgody, które wyraziłeś. Cofasz je jednym kliknięciem, a wniosek o usunięcie danych realizuje system — nie ręcznie ktoś w biurze.",
   },
   {
     title: "Odseparowane dane agencji",
-    desc: "PlanOS to oprogramowanie, z którego korzysta Twoja agencja — nie portal ani giełda statystów. Dane każdej agencji są oddzielone; nikt spoza niej nie widzi Twojego profilu.",
+    body:
+      "PlanOS to oprogramowanie, z którego korzysta Twoja agencja — nie portal ani giełda statystów. Dane każdej agencji są oddzielone; nikt spoza niej nie widzi Twojego profilu.",
   },
 ];
 
-const faq = [
+const FAQ = [
   {
     q: "Kto widzi mój profil i moje dane?",
     a: "Tylko agencja, która zaprosiła Cię do PlanOS i z którą współpracujesz. Twoje dane nie trafiają do żadnej wspólnej bazy ani do innych agencji. PlanOS to oprogramowanie, z którego korzysta Twoja agencja — nie portal ani giełda statystów.",
@@ -166,212 +191,220 @@ export default async function DlaStatystowPage() {
   const showCount = typeof count === "number" && count >= 10;
 
   return (
-    <div style={AMBER_ACCENT}>
+    <div className="lp-root min-h-screen font-sans">
       {/* Minimalny header — bez sprzedażowych linków dla agencji */}
-      <header className="fixed top-0 left-0 right-0 z-[100] px-4 py-4 md:px-8 backdrop-blur-[20px] bg-[rgba(10,10,12,0.8)] border-b border-[rgba(42,42,53,0.5)]">
-        <div className="w-full max-w-[1100px] mx-auto flex justify-between items-center">
-          <Link href="/" className="font-bold text-xl text-[var(--text)] no-underline tracking-tight">
-            Plan<span className="text-[var(--accent)]">OS</span>
-          </Link>
+      <header className="sticky top-0 z-50 border-b border-paper-border bg-paper/85 backdrop-blur-md">
+        <nav
+          aria-label="Nawigacja"
+          className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6"
+        >
           <Link
             href="/"
-            className="text-[var(--text-muted)] no-underline text-sm font-medium hover:text-[var(--text)] transition-colors"
+            className="shrink-0 rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
           >
+            <Logo />
+          </Link>
+          <Link href="/" className="text-sm font-medium text-ink-muted transition-colors hover:text-ink">
             Jesteś z agencji? →
           </Link>
-        </div>
+        </nav>
       </header>
 
       <main>
         {/* HERO */}
-        <section className="min-h-screen flex items-center pt-32 pb-20 px-4 md:px-8 relative overflow-hidden">
+        <Section tone="paper" className="overflow-hidden pt-14 md:pt-20">
           <div
-            className="absolute top-[-25%] left-1/2 -translate-x-1/2 w-[760px] h-[760px] pointer-events-none"
-            style={{ background: "radial-gradient(circle, var(--accent-glow) 0%, transparent 70%)" }}
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,hsl(var(--lp-brand-soft))_0%,transparent_65%)]"
           />
-          <div className="max-w-[1100px] mx-auto w-full relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-            <AnimateIn>
-              <div className="inline-flex items-center gap-2 py-1.5 px-4 bg-[var(--surface)] border border-[var(--border)] rounded-full text-[0.9rem] text-[var(--text-muted)] mb-6 font-medium">
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--green)] animate-pulse" />
+          <div className="relative grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <p className="inline-flex items-center gap-2 rounded-full border border-paper-border bg-paper-card px-4 py-1.5 text-sm font-medium text-ink-muted">
+                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-tag-green-tx" />
                 Dla statystów, epizodystów i hostess
-              </div>
-              <h1 className="font-display text-[clamp(2.4rem,5vw,3.8rem)] leading-[1.1] font-medium mb-6 tracking-tight">
-                Twoje dane u agencji. <em className="italic font-normal text-[var(--accent)]">Pod Twoją kontrolą.</em>
+              </p>
+              <h1 className="mt-6 text-balance font-display text-4xl font-medium leading-[1.05] tracking-tight text-ink sm:text-5xl md:text-6xl">
+                Twoje dane u agencji.{" "}
+                <em className="font-normal italic text-brand-ink">Pod Twoją kontrolą.</em>
               </h1>
-              <p className="text-[1.1rem] text-[var(--text-muted)] max-w-[520px] mb-7 leading-[1.7]">
+              <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink-muted">
                 Agencja, z&nbsp;którą współpracujesz, zaprasza Cię do PlanOS. Dostajesz
                 bezpłatne konto i&nbsp;własny profil — zdjęcia, wymiary, kontakt — widoczny
                 wyłącznie dla tej agencji. Widzisz swoje zgody i&nbsp;każdy dostęp do
                 PESEL-u, potwierdzasz dni pracy z&nbsp;telefonu.
               </p>
-              <ul className="flex flex-col gap-2.5 mb-8">
-                {pains.map((p) => (
-                  <li key={p} className="flex gap-2.5 items-start text-[0.95rem] text-[var(--text-muted)]">
-                    <span className="text-[var(--red)] shrink-0 mt-0.5">✕</span>
+              <ul className="mt-7 space-y-2.5">
+                {PAINS.map((p) => (
+                  <li key={p} className="flex items-start gap-2.5 text-[0.95rem] text-ink-muted">
+                    <span aria-hidden="true" className="mt-0.5 shrink-0 text-tag-red-tx">
+                      ✕
+                    </span>
                     {p}
                   </li>
                 ))}
               </ul>
-              <div className="flex gap-4 items-center flex-wrap">
-                <a
-                  href="#zapis"
-                  className="inline-flex items-center gap-2 bg-[var(--accent)] text-[var(--bg)] py-3 px-8 rounded-[10px] font-semibold text-[0.95rem] no-underline transition-all hover:bg-[var(--accent-soft)] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_var(--accent-glow)]"
-                >
-                  Zapisz się na listę →
-                </a>
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <ButtonLink href="#zapis" size="lg">
+                  Zapisz się na listę
+                </ButtonLink>
                 {showCount && (
-                  <span className="text-[0.9rem] text-[var(--text-muted)]">
-                    Dołącz do <strong className="text-[var(--text)]">{count}</strong> osób, które już czekają
+                  <span className="text-sm text-ink-muted">
+                    Dołącz do <strong className="text-ink">{count}</strong> osób, które już czekają
                   </span>
                 )}
               </div>
-            </AnimateIn>
+            </div>
 
-            <AnimateIn delay={0.1}>
-              <div id="zapis-top" className="scroll-mt-28">
-                <WaitlistForm />
-              </div>
-            </AnimateIn>
+            <div id="zapis-top" className="scroll-mt-28">
+              <WaitlistForm />
+            </div>
           </div>
-        </section>
+        </Section>
 
         {/* JAK TO DZIAŁA */}
-        <section className="py-16 md:py-24 px-4 md:px-8 max-w-[1100px] mx-auto">
-          <AnimateIn>
-            <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--accent)] mb-4">
-              Jak to działa
-            </div>
-            <h2 className="font-display text-[clamp(1.8rem,4vw,2.8rem)] font-medium leading-[1.15] mb-4">
-              Zaprasza Cię agencja. <em className="italic font-normal text-[var(--accent)]">Resztą sterujesz Ty.</em>
-            </h2>
-            <p className="text-[var(--text-muted)] text-[1.02rem] max-w-[560px] leading-[1.7] mb-12">
-              Nie zakładasz konta „w internecie” i&nbsp;nie wystawiasz się do żadnej bazy.
-              PlanOS to system, z&nbsp;którego korzysta Twoja agencja — a&nbsp;Ty dostajesz
-              w&nbsp;nim własne, bezpłatne konto.
-            </p>
-          </AnimateIn>
-          <AnimateInStagger className="grid md:grid-cols-3 gap-6" staggerDelay={0.08}>
-            {steps.map((s) => (
-              <AnimateInChild key={s.n}>
-                <div className="h-full rounded-2xl p-7 border border-[var(--border)] bg-[var(--bg-card)]">
-                  <div className="font-display text-4xl font-medium text-[var(--accent)] opacity-70 mb-4">{s.n}</div>
-                  <h3 className="text-base font-semibold mb-2 text-[var(--text)]">{s.title}</h3>
-                  <p className="text-[0.9rem] text-[var(--text-muted)] leading-[1.6]">{s.desc}</p>
-                </div>
-              </AnimateInChild>
+        <Section id="jak-to-dziala" tone="muted">
+          <SectionHeader
+            eyebrow="Jak to działa"
+            title={
+              <>
+                Zaprasza Cię agencja.{" "}
+                <em className="font-normal italic text-brand-ink">Resztą sterujesz Ty.</em>
+              </>
+            }
+            description="Nie zakładasz konta „w internecie” i nie wystawiasz się do żadnej bazy. PlanOS to system, z którego korzysta Twoja agencja — a Ty dostajesz w nim własne, bezpłatne konto."
+          />
+          <ol className="mt-14 grid gap-8 md:grid-cols-3">
+            {STEPS.map((s) => (
+              <li key={s.n} className="relative">
+                <span className="font-display text-5xl font-medium text-brand/60">{s.n}</span>
+                <h3 className="mt-3 font-display text-xl font-medium text-ink md:text-2xl">
+                  {s.title}
+                </h3>
+                <p className="mt-3 text-pretty leading-relaxed text-ink-muted">{s.body}</p>
+              </li>
             ))}
-          </AnimateInStagger>
-        </section>
+          </ol>
+        </Section>
 
         {/* KORZYŚCI */}
-        <section className="py-16 md:py-24 px-4 md:px-8 max-w-[1100px] mx-auto">
-          <AnimateIn>
-            <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--accent)] mb-4">
-              Co masz z tego Ty
-            </div>
-            <h2 className="font-display text-[clamp(1.8rem,4vw,2.8rem)] font-medium leading-[1.15] mb-4">
-              Mniej papierologii. <em className="italic font-normal text-[var(--accent)]">Więcej grania.</em>
-            </h2>
-            <p className="text-[var(--text-muted)] text-[1.02rem] max-w-[560px] leading-[1.7] mb-12">
-              PlanOS porządkuje to, co dziś dzieje się w&nbsp;mailach, SMS-ach i&nbsp;arkuszach —
-              i&nbsp;daje Ci wgląd w&nbsp;to, co dzieje się z&nbsp;Twoimi danymi.
-            </p>
-          </AnimateIn>
-          <AnimateInStagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.08}>
-            {benefits.map((b) => (
-              <AnimateInChild key={b.title}>
-                <div className="h-full rounded-2xl p-7 border border-[var(--border)] bg-[var(--bg-card)] transition-all hover:bg-[var(--bg-card-hover)] hover:-translate-y-1">
-                  <div className="w-2 h-2 rounded-full bg-[var(--green)] mb-4" />
-                  <h3 className="text-base font-semibold mb-2 text-[var(--text)]">{b.title}</h3>
-                  <p className="text-[0.9rem] text-[var(--text-muted)] leading-[1.6]">{b.desc}</p>
-                </div>
-              </AnimateInChild>
+        <Section id="korzysci" tone="paper">
+          <SectionHeader
+            eyebrow="Co masz z tego Ty"
+            title={
+              <>
+                Mniej papierologii.{" "}
+                <em className="font-normal italic text-brand-ink">Więcej grania.</em>
+              </>
+            }
+            description="PlanOS porządkuje to, co dziś dzieje się w mailach, SMS-ach i arkuszach — i daje Ci wgląd w to, co dzieje się z Twoimi danymi."
+          />
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {BENEFITS.map(({ icon: Icon, title, body }) => (
+              <Card key={title} hover>
+                <IconBadge>
+                  <Icon aria-hidden="true" className="h-5 w-5" />
+                </IconBadge>
+                <h3 className="mt-4 font-display text-xl font-medium text-ink">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-muted">{body}</p>
+              </Card>
             ))}
-          </AnimateInStagger>
-        </section>
+          </div>
+        </Section>
 
         {/* BEZPIECZEŃSTWO */}
-        <section id="bezpieczenstwo" className="py-16 md:py-24 px-4 md:px-8 scroll-mt-24">
-          <div className="max-w-[1100px] mx-auto grid lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
-            <AnimateIn>
-              <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--accent)] mb-4">
+        <Section id="bezpieczenstwo" tone="muted">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-ink">
                 Bezpieczeństwo
-              </div>
-              <h2 className="font-display text-[clamp(1.8rem,4vw,2.8rem)] font-medium leading-[1.15] mb-5">
-                Twoje dane. <em className="italic font-normal text-[var(--accent)]">Twoje zasady.</em>
+              </p>
+              <h2 className="mt-3 text-balance font-display text-3xl font-medium leading-[1.1] tracking-tight text-ink sm:text-4xl md:text-5xl">
+                Twoje dane. <em className="font-normal italic text-brand-ink">Twoje zasady.</em>
               </h2>
-              <p className="text-[var(--text-muted)] text-[1.02rem] leading-[1.7]">
+              <p className="mt-5 text-pretty text-lg leading-relaxed text-ink-muted">
                 Dziś Twój PESEL i&nbsp;zdjęcia najczęściej leżą w&nbsp;arkuszu albo w&nbsp;czyjejś
                 skrzynce mailowej. W&nbsp;PlanOS są zaszyfrowane, każdy dostęp zostawia ślad,
                 a&nbsp;Ty masz realne narzędzia, żeby o&nbsp;nich decydować — nie tylko zapis
                 w&nbsp;regulaminie.
               </p>
-            </AnimateIn>
-            <AnimateInStagger className="grid sm:grid-cols-2 gap-5" staggerDelay={0.08}>
-              {security.map((s) => (
-                <AnimateInChild key={s.title}>
-                  <div className="h-full rounded-2xl p-6 border border-[var(--border)] bg-[var(--bg-card)]">
-                    <div className="w-2 h-2 rounded-full bg-[var(--accent)] mb-4" />
-                    <h3 className="text-[0.98rem] font-semibold mb-2 text-[var(--text)]">{s.title}</h3>
-                    <p className="text-[0.88rem] text-[var(--text-muted)] leading-[1.6]">{s.desc}</p>
-                  </div>
-                </AnimateInChild>
+            </div>
+            <div className="grid gap-5 sm:grid-cols-2 lg:col-span-7">
+              {SECURITY.map((s) => (
+                <Card key={s.title}>
+                  <span aria-hidden="true" className="block h-2 w-2 rounded-full bg-brand" />
+                  <h3 className="mt-4 font-semibold text-ink">{s.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-muted">{s.body}</p>
+                </Card>
               ))}
-            </AnimateInStagger>
+            </div>
           </div>
-        </section>
+        </Section>
 
         {/* ZAPIS (główny formularz na dole) */}
-        <section id="zapis" className="py-16 md:py-24 px-4 md:px-8 scroll-mt-24">
-          <div className="max-w-[1100px] mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            <AnimateIn>
-              <h2 className="font-display text-[clamp(1.8rem,4vw,2.8rem)] font-medium leading-[1.15] mb-5">
-                Zapisz się — <em className="italic font-normal text-[var(--accent)]">damy znać, gdy ruszy Twoja agencja</em>
+        <Section id="zapis" tone="paper">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-ink">
+                Lista oczekujących
+              </p>
+              <h2 className="mt-3 text-balance font-display text-3xl font-medium leading-[1.1] tracking-tight text-ink sm:text-4xl md:text-5xl">
+                Zapisz się —{" "}
+                <em className="font-normal italic text-brand-ink">
+                  damy znać, gdy ruszy Twoja agencja
+                </em>
               </h2>
-              <p className="text-[var(--text-muted)] text-[1.02rem] leading-[1.7] mb-6">
+              <p className="mt-5 text-pretty text-lg leading-relaxed text-ink-muted">
                 Zajmie 20 sekund. Podaj e-mail i&nbsp;nazwę agencji, z&nbsp;którą współpracujesz —
                 powiadomimy Cię, gdy uruchomi PlanOS i&nbsp;będziesz mógł założyć bezpłatne konto.
               </p>
-              <ul className="flex flex-col gap-3">
+              <ul className="mt-6 space-y-3">
                 {[
                   "Bezpłatnie dla statystów, epizodystów i hostess",
                   "Bez zobowiązań — tylko zapis na listę",
                   "Jedna wiadomość, gdy ruszamy w Twojej agencji",
                 ].map((t) => (
-                  <li key={t} className="flex gap-2.5 items-start text-[0.95rem] text-[var(--text-muted)]">
-                    <span className="text-[var(--green)] shrink-0 mt-0.5">✓</span>
+                  <li key={t} className="flex items-start gap-2.5 text-[0.95rem] text-ink-muted">
+                    <span aria-hidden="true" className="mt-0.5 shrink-0 text-tag-green-tx">
+                      ✓
+                    </span>
                     {t}
                   </li>
                 ))}
               </ul>
-            </AnimateIn>
-            <AnimateIn delay={0.1}>
-              <WaitlistForm />
-            </AnimateIn>
+            </div>
+            <WaitlistForm />
           </div>
-        </section>
+        </Section>
 
         {/* FAQ */}
-        <section className="py-16 md:py-24 px-4 md:px-8 max-w-[760px] mx-auto">
-          <AnimateIn>
-            <h2 className="font-display text-[clamp(1.6rem,3.5vw,2.4rem)] font-medium leading-[1.15] mb-10 text-center">
-              Najczęstsze pytania
-            </h2>
-          </AnimateIn>
-          <AnimateInStagger className="flex flex-col gap-4" staggerDelay={0.08}>
-            {faq.map((item) => (
-              <AnimateInChild key={item.q}>
-                <div className="rounded-2xl p-6 border border-[var(--border)] bg-[var(--bg-card)]">
-                  <h3 className="text-[1rem] font-semibold mb-2 text-[var(--text)]">{item.q}</h3>
-                  <p className="text-[0.92rem] text-[var(--text-muted)] leading-[1.6]">{item.a}</p>
-                </div>
-              </AnimateInChild>
+        <Section id="faq" tone="muted" width="narrow">
+          <SectionHeader eyebrow="FAQ" title="Najczęstsze pytania" />
+          <div className="mt-10 divide-y divide-paper-border rounded-2xl border border-paper-border bg-paper-card shadow-card">
+            {FAQ.map((item) => (
+              <details key={item.q} className="group px-6 py-5">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-semibold text-ink [&::-webkit-details-marker]:hidden">
+                  {item.q}
+                  <svg
+                    aria-hidden="true"
+                    className="h-5 w-5 shrink-0 text-ink-faint transition-transform group-open:rotate-180"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </summary>
+                <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-muted">{item.a}</p>
+              </details>
             ))}
-          </AnimateInStagger>
-        </section>
+          </div>
+        </Section>
       </main>
 
-      <Footer />
+      <LandingFooter />
     </div>
   );
 }
