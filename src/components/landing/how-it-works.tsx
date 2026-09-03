@@ -5,19 +5,19 @@ const STEPS = [
     n: "01",
     title: "Demo i konfiguracja",
     body:
-      "Pokazujemy system na przykładzie Twojej agencji i słuchamy, jak pracujecie. Ustawiamy projekty, typy umów i formularze zgłoszeń tak, jak dziś sprzedajecie.",
+      "Pokazuję system na przykładzie Twojej agencji i słucham, jak pracujecie. Ustawiam projekty, typy umów i formularze zgłoszeń tak, jak dziś sprzedajecie.",
   },
   {
     n: "02",
     title: "Migracja bazy i zaproszenie zespołu",
     body:
-      "Przenosimy dotychczasową bazę z arkuszy — system wyłapuje duplikaty i braki. Zapraszasz zespół z odpowiednimi uprawnieniami, a koordynatorzy dostają tylko listę obecności.",
+      "Przenoszę dotychczasową bazę z arkuszy. System wyłapuje duplikaty i braki. Zapraszasz zespół z odpowiednimi uprawnieniami, a koordynatorzy dostają tylko listę obecności.",
   },
   {
     n: "03",
     title: "Pierwszy projekt na żywo",
     body:
-      "Publikujesz nabór, klient wybiera przez link, talenty potwierdzają dni pracy. Po pierwszym miesiącu pliki dla księgowości i eksport ZUS budują się same z tego, co już zrobiliście.",
+      "Publikujesz nabór, klient wybiera przez link, talenty potwierdzają dni pracy. Po pierwszym miesiącu pliki dla księgowości i ZUS bierzesz z tej historii.",
   },
 ];
 
@@ -26,8 +26,8 @@ export function HowItWorks() {
     <Section id="jak-to-dziala" tone="paper">
       <SectionHeader
         eyebrow="Jak zaczynamy"
-        title="Działasz w systemie po jednym tygodniu, nie po kwartale"
-        description="Nie musisz być osobą techniczną. Migrację i konfigurację robimy razem, a zespół przechodzi krótkie, praktyczne szkolenie."
+        title="Po tygodniu zespół pracuje w systemie"
+        description="Nie musisz być osobą techniczną. Migrację i konfigurację robię z Tobą, a zespół przechodzi krótkie, praktyczne szkolenie."
       />
 
       <ol className="mt-14 grid gap-8 md:grid-cols-3">

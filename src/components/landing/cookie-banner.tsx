@@ -163,7 +163,7 @@ function CookieBanner({
         </p>
         <p id="cookie-banner-desc" className="mt-2 text-pretty text-sm leading-relaxed text-ink-muted">
           Używamy niezbędnych plików, żeby strona działała i żeby zapamiętać Twój wybór.
-          Opcjonalnie — tylko za zgodą — ładujemy Vercel Analytics (pomiary odwiedzin).{" "}
+          Opcjonalnie, tylko za zgodą, ładujemy Vercel Analytics (pomiary odwiedzin).{" "}
           <Link href="/privacy#cookies" className="font-medium text-ink underline underline-offset-2 hover:text-brand-ink">
             Polityka prywatności
           </Link>

@@ -19,9 +19,9 @@ const STEPS: Step[] = [
     n: "1",
     title: "Zaplanuj dzień pracy z jednego kalendarza",
     body:
-      "Dzień zdjęciowy, event albo akcja promocyjna — każdy dzień pracy ma swój projekt, obsadę, stawkę i status. Talenty potwierdzają jednym kliknięciem, a Ty widzisz całą agencję w jednym widoku.",
+      "Dzień zdjęciowy, event albo akcja promocyjna: każdy dzień pracy ma swój projekt, obsadę, stawkę i status. Talenty potwierdzają jednym kliknięciem. Widzisz całą agencję w kalendarzu.",
     caption:
-      "Kalendarz dni pracy: potwierdzone, oczekujące, zrealizowane i no-show — filtrowane po projekcie, umowie i statusie.",
+      "Kalendarz dni pracy: potwierdzone, oczekujące, zrealizowane i no-show, filtrowane po projekcie, umowie i statusie.",
     image: kalendarzShot,
     alt: "Kalendarz dni pracy w PlanOS z podsumowaniem statusów potwierdzeń",
   },
@@ -31,15 +31,15 @@ const STEPS: Step[] = [
     body:
       "Koordynator na planie lub na evencie otwiera bezpieczny link na telefonie i zaznacza obecność, opóźnienie albo nieobecność. Godziny i stawki zapisują się od razu na dniu pracy.",
     caption:
-      "Lista obecności z linku — bez logowania, aktywna tylko w dniu pracy, z godzinami i stawką przy każdej osobie.",
+      "Lista obecności z linku, bez logowania. Aktywna tylko w dniu pracy, z godzinami i stawką przy każdej osobie.",
     image: listaShot,
     alt: "Lista obecności w PlanOS z oznaczeniami obecny, opóźniony, nieobecny",
   },
   {
     n: "3",
-    title: "Rozliczenie i ZUS policzą się same",
+    title: "Rozliczenie i ZUS z dni, które już odhaczyłeś",
     body:
-      "Każdy zrealizowany dzień pracy zna już osobę, umowę i stawkę. Pliki dla księgowości i eksport do ZUS generujesz z historii pracy — bez przepisywania godzin z notatek.",
+      "Każdy zrealizowany dzień pracy zna już osobę, umowę i stawkę. Pliki dla księgowości i eksport do ZUS generujesz z historii pracy, bez przepisywania godzin z notatek.",
     caption:
       "Eksport ZUS: system podpowiada daty umów, wyłapuje braki i oznacza, kto został już zgłoszony.",
     image: zusShot,
@@ -53,8 +53,8 @@ export function Platform() {
     <Section id="platforma" tone="paper" width="wide">
       <SectionHeader
         eyebrow="Platforma"
-        title="Zaplanuj dzień pracy — rozliczenie policzy się samo"
-        description="Trzy ekrany, na których biuro agencji spędza najwięcej czasu — prosto z produktu: kalendarz dni pracy, lista obecności i eksport dla księgowości."
+        title="Zaplanuj dzień pracy. Rozliczenie bierze się z obecności."
+        description="Kalendarz dni pracy, lista obecności na telefonie, plik do ZUS z tych samych godzin. Bez przepisywania z notatek."
       />
 
       <ol className="mt-16 space-y-20 md:space-y-28">
@@ -103,8 +103,8 @@ export function Platform() {
 
       <p className="mx-auto mt-16 max-w-3xl text-pretty text-center leading-relaxed text-ink-muted">
         Część nazw w aplikacji jest jeszcze filmowa (np. „dni zdjęciowe” zamiast
-        „zmiany”), ale mechanika — ludzie, terminy, obecność, stawki,
-        rozliczenia — działa identycznie dla hostess i promotorów.
+        „zmiany”), ale mechanika jest ta sama dla hostess i promotorów: ludzie,
+        terminy, obecność, stawki, rozliczenia.
       </p>
     </Section>
   );

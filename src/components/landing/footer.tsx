@@ -47,7 +47,7 @@ export function LandingFooter() {
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-muted">
               System dla agencji castingowych, statystów i hostess. Baza,
-              nabory, obecności i rozliczenia w jednym systemie. Zbudowany w
+              nabory, obecności i rozliczenia bez trzeciego arkusza. Zbudowany w
               Polsce, zgodny z RODO.
             </p>
             <a

@@ -31,7 +31,7 @@ const FEATURES: Feature[] = [
   {
     title: "Formularze zgłoszeń pod projekt",
     body:
-      "Na każdy casting lub nabór ustalasz, co jest wymagane: zdjęcia, wymiary, self-tape, dodatkowe ujęcia. Zgłoszenia przychodzą kompletne — do jednego panelu.",
+      "Na każdy casting lub nabór ustalasz, co jest wymagane: zdjęcia, wymiary, self-tape, dodatkowe ujęcia. Zgłoszenia przychodzą kompletne, do jednego panelu.",
     icon: ClipboardList,
     graphic: FEATURE_ICONS.formularze,
     href: "#demo",
@@ -39,7 +39,7 @@ const FEATURES: Feature[] = [
   {
     title: "Panel wyboru dla klienta",
     body:
-      "Reżyser, producent albo brand manager dostaje jeden link. Przegląda, notuje, wybiera TAK / MOŻE / NIE — bez logowania i bez wglądu w dane wrażliwe.",
+      "Reżyser, producent albo brand manager dostaje jeden link. Przegląda, notuje, wybiera TAK / MOŻE / NIE. Bez logowania i bez wglądu w dane wrażliwe.",
     icon: ListChecks,
     graphic: FEATURE_ICONS.klient,
     href: "#demo",
@@ -60,7 +60,7 @@ export function Features() {
       <SectionHeader
         eyebrow="Funkcje"
         title="Cztery rzeczy, które przestajesz robić ręcznie"
-        description="Zamiast arkuszy, maili i grup na komunikatorze — jeden system dla biura, koordynatorów na miejscu, klientów i talentów."
+        description="Koniec z arkuszem, mailem i grupą na komunikatorze. Tu pracuje biuro, koordynator na planie, klient i talent."
       />
 
       <div className="mt-14 grid gap-5 sm:grid-cols-2">

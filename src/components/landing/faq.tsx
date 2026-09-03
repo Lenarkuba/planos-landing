@@ -3,7 +3,7 @@ import { Section, SectionHeader } from "./ui";
 const FAQ_ITEMS = [
   {
     q: "Czy PlanOS nadaje się dla agencji hostess i eventowych?",
-    a: "Tak — ten sam przepływ: nabór, wybór klienta przez link, potwierdzenia, lista obecności na evencie, umowy i eksport ZUS. Szczegóły w sekcji Platforma.",
+    a: "Tak. Ten sam przepływ: nabór, wybór klienta przez link, potwierdzenia, lista obecności na evencie, umowy i eksport ZUS. Szczegóły w sekcji Platforma.",
   },
   {
     q: "Czy PlanOS należy do jakiejś agencji albo z nią współpracuje?",
@@ -15,23 +15,23 @@ const FAQ_ITEMS = [
   },
   {
     q: "Co się stanie z moimi danymi, jeśli zrezygnuję?",
-    a: "Zabierasz je ze sobą. W każdej chwili pobierzesz komplet danych (JSON + CSV w ZIP). Nie stosujemy uzależnienia od dostawcy.",
+    a: "Zabierasz JSON i CSV w ZIP. W każdej chwili.",
   },
   {
     q: "Jak PlanOS pomaga w zgodności z RODO?",
-    a: "Masz zarządzanie zgodami, usuwanie danych na żądanie (prawo do bycia zapomnianym) i szyfrowanie danych wrażliwych. Na wniosek talentu usuwany jest profil, zdjęcia i dane w bazie; rozliczenia i zgłoszenia do ZUS możesz zachować przez okres wymagany prawnie. Każdy dostęp do numerów PESEL jest rejestrowany. Dane są hostowane w UE. Umowę powierzenia przetwarzania (DPA) udostępniamy każdej agencji przy wdrożeniu.",
+    a: "Masz zarządzanie zgodami, usuwanie danych na żądanie (prawo do bycia zapomnianym) i szyfrowanie danych wrażliwych. Na wniosek talentu usuwany jest profil, zdjęcia i dane w bazie; rozliczenia i zgłoszenia do ZUS możesz zachować przez okres wymagany prawnie. Każdy dostęp do numerów PESEL jest rejestrowany. Dane są hostowane w UE. Umowę powierzenia przetwarzania (DPA) dostajesz przy wdrożeniu.",
   },
   {
     q: "Jak wygląda eksport do ZUS?",
-    a: "Pliki dla księgowości generujesz wprost z historii dni pracy i obecności — kto, kiedy i w jakim projekcie. System podpowiada daty umów, wyłapuje braki i oznacza, kto już został zgłoszony. Numery PESEL pozostają przy tym zaszyfrowane.",
+    a: "Pliki dla księgowości generujesz wprost z historii dni pracy i obecności: kto, kiedy i w jakim projekcie. System podpowiada daty umów, wyłapuje braki i oznacza, kto już został zgłoszony. Numery PESEL pozostają przy tym zaszyfrowane.",
   },
   {
     q: "Czy muszę być osobą techniczną, żeby korzystać z PlanOS?",
-    a: "Nie. Zajmujemy się migracją i konfiguracją za Ciebie, a zespół przechodzi krótkie szkolenie. Przy płatności rocznej wdrożenie jest darmowe (0 zł). Talenty, klienci i koordynatorzy na miejscu korzystają z prostych linków — bez instalowania czegokolwiek.",
+    a: "Nie. Migracją i konfiguracją zajmuję się ja, a zespół przechodzi krótkie szkolenie. Przy płatności rocznej wdrożenie jest darmowe (0 zł). Talenty, klienci i koordynatorzy na miejscu korzystają z prostych linków, bez instalowania czegokolwiek.",
   },
   {
     q: "Czy talenty mogą sami zarządzać swoimi profilami?",
-    a: "Tak — talent ma bezpłatne konto, aktualizuje własne dane, zdjęcia i wymiary, a dane Twojej agencji (notatki, stawki, historia) pozostają prywatne. Synchronizują się tylko pola zarządzane przez talent, więc baza jest zawsze aktualna.",
+    a: "Tak. Talent ma bezpłatne konto, aktualizuje własne dane, zdjęcia i wymiary, a dane Twojej agencji (notatki, stawki, historia) pozostają prywatne. Synchronizują się tylko pola zarządzane przez talent, więc baza jest zawsze aktualna.",
   },
   {
     q: "Skąd mam wiedzieć, na kim mogę polegać przy obsadzie?",
@@ -39,7 +39,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Nie mam teraz dużo projektów. Czy muszę płacić pełną stawkę?",
-    a: "Nie. Przy rozliczeniu miesięcznym włączasz tryb uśpienia (149 zł/mies.) — konto przechodzi w tryb tylko-do-odczytu, dane są zachowane, a Ty wracasz, kiedy zaczyna się sezon. Plan roczny jest już rozliczony z góry (dwa miesiące gratis), więc tryb uśpienia go nie dotyczy.",
+    a: "Nie. Przy rozliczeniu miesięcznym włączasz tryb uśpienia (149 zł/mies.). Konto przechodzi w tryb tylko-do-odczytu, dane są zachowane, a Ty wracasz, kiedy zaczyna się sezon. Plan roczny jest już rozliczony z góry (dwa miesiące gratis), więc tryb uśpienia go nie dotyczy.",
   },
 ];
 
@@ -51,7 +51,7 @@ export function Faq() {
       <SectionHeader
         eyebrow="FAQ"
         title="Pytania, które agencje zadają przed zmianą"
-        description="Jeśli nie znajdziesz tu odpowiedzi — napisz, odpowiemy konkretnie."
+        description="Jeśli nie znajdziesz tu odpowiedzi, napisz. Odpowiem konkretnie."
       />
 
       <div className="mt-10 divide-y divide-paper-border rounded-2xl border border-paper-border bg-paper-card shadow-card">

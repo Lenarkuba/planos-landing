@@ -14,12 +14,12 @@ import { SecurityBand, TALENT_PILLARS } from "@/components/landing/security";
 import { SharePageLink } from "@/components/landing/share-page-link";
 
 const OG_TITLE =
-  "Twoje dane u agencji. Pod Twoją kontrolą. — PlanOS dla statystów";
+  "Twoje dane u agencji. Pod Twoją kontrolą. PlanOS dla statystów";
 const OG_DESCRIPTION =
   "Bezpłatne konto dla statystów, epizodystów i hostess w agencji, która korzysta z PlanOS. Własny profil, zgody RODO, szyfrowany PESEL z historią dostępu, potwierdzenia dni pracy z telefonu. Dane widzi tylko Twoja agencja.";
 
 export const metadata: Metadata = {
-  title: "PlanOS dla statystów, epizodystów i hostess — Twoje dane pod Twoją kontrolą",
+  title: "PlanOS dla statystów, epizodystów i hostess. Twoje dane pod Twoją kontrolą",
   description: OG_DESCRIPTION,
   keywords: [],
   alternates: { canonical: "/dla-statystow" },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 
 const POSITIVES = [
   "Własny profil, który sam aktualizujesz.",
-  "Zgody i umowy, które widzisz w jednym miejscu.",
+  "Zgody, umowy i kto odczytał Twój PESEL.",
   "Potwierdzenie dnia pracy jednym kliknięciem.",
 ];
 
@@ -47,7 +47,7 @@ const STEPS = [
     n: "01",
     title: "Agencja publikuje nabór",
     body:
-      "Agencja ogłasza casting lub nabór z formularzem — zdjęcia, wymiary, to, czego akurat potrzebuje.",
+      "Agencja ogłasza casting lub nabór z formularzem: zdjęcia, wymiary, to, czego akurat potrzebuje.",
   },
   {
     n: "02",
@@ -59,7 +59,7 @@ const STEPS = [
     n: "03",
     title: "Możesz założyć konto",
     body:
-      "Jeśli chcesz mieć wgląd w swoje zgody, umowy i historię — zakładasz bezpłatne konto powiązane z tą agencją. Bez konta agencja nadal ma Twoje zgłoszenie, ale nie masz dostępu do edycji profilu.",
+      "Jeśli chcesz mieć wgląd w swoje zgody, umowy i historię, zakładasz bezpłatne konto powiązane z tą agencją. Bez konta agencja nadal ma Twoje zgłoszenie, ale nie masz dostępu do edycji profilu.",
   },
 ];
 
@@ -68,13 +68,13 @@ const BENEFITS = [
     icon: ClipboardCheck,
     title: "Zgłoszenie z kompletnymi danymi w kilka sekund",
     body:
-      "Gdy Twoja agencja prowadzi nabór, wysyłasz kompletne zgłoszenie — zdjęcia, wymiary — bez przepisywania tych samych danych od nowa.",
+      "Gdy Twoja agencja prowadzi nabór, wysyłasz kompletne zgłoszenie (zdjęcia, wymiary) bez przepisywania tych samych danych od nowa.",
   },
   {
     icon: UserRound,
     title: "Bezpłatne konto i własny profil",
     body:
-      "Zdjęcia, wymiary, dane kontaktowe — aktualizujesz je sam, w jednym miejscu. Agencja zawsze widzi aktualną wersję, a Ty decydujesz, co w profilu jest.",
+      "Zdjęcia, wymiary i dane kontaktowe aktualizujesz sam. Agencja zawsze widzi aktualną wersję, a Ty decydujesz, co w profilu jest.",
   },
   {
     icon: CalendarCheck2,
@@ -86,7 +86,7 @@ const BENEFITS = [
     icon: BellRing,
     title: "Powiadomienia o zmianach",
     body:
-      "Zmiana godziny zbiórki, lokalizacji albo odwołanie dnia — dostajesz powiadomienie od razu. Powiadomienia na telefonie działają po dodaniu PlanOS do ekranu głównego.",
+      "Zmiana godziny zbiórki, lokalizacji albo odwołanie dnia: dostajesz powiadomienie od razu. Powiadomienia na telefonie działają po dodaniu PlanOS do ekranu głównego.",
   },
   {
     icon: FileText,
@@ -98,7 +98,7 @@ const BENEFITS = [
     icon: Eye,
     title: "Widzi Cię tylko Twoja agencja",
     body:
-      "Twoje dane są widoczne wyłącznie dla agencji, z którą współpracujesz — nie trafiają do żadnej wspólnej bazy ani do innych agencji.",
+      "Twoje dane są widoczne wyłącznie dla agencji, z którą współpracujesz. Nie trafiają do żadnej wspólnej bazy ani do innych agencji.",
   },
 ];
 
@@ -109,11 +109,11 @@ const FAQ = [
   },
   {
     q: "Kto widzi mój profil i moje dane?",
-    a: "Tylko agencja, która zaprosiła Cię do PlanOS i z którą współpracujesz. Twoje dane nie trafiają do żadnej wspólnej bazy ani do innych agencji. PlanOS to oprogramowanie, z którego korzysta Twoja agencja — nie portal ani giełda statystów.",
+    a: "Tylko agencja, która zaprosiła Cię do PlanOS i z którą współpracujesz. Twoje dane nie trafiają do żadnej wspólnej bazy ani do innych agencji. PlanOS to oprogramowanie, z którego korzysta Twoja agencja. Nie portal ani giełda statystów.",
   },
   {
     q: "Kto ma dostęp do mojego PESEL-u?",
-    a: "Tylko upoważnione osoby w Twojej agencji, i tylko wtedy, gdy jest to potrzebne — np. do umowy lub zgłoszenia do ZUS. PESEL jest szyfrowany, a każde odczytanie jest rejestrowane. Historię dostępu widzisz w swoim koncie.",
+    a: "Tylko upoważnione osoby w Twojej agencji, i tylko wtedy, gdy jest to potrzebne, np. do umowy lub zgłoszenia do ZUS. PESEL jest szyfrowany, a każde odczytanie jest rejestrowane. Historię dostępu widzisz w swoim koncie.",
   },
   {
     q: "Czy mogę cofnąć zgodę i usunąć swoje dane?",
@@ -121,11 +121,11 @@ const FAQ = [
   },
   {
     q: "Czy to dla mnie darmowe?",
-    a: "Tak. Jako statysta, epizodysta lub hostessa korzystasz z PlanOS bezpłatnie — za system płaci agencja.",
+    a: "Tak. Jako statysta, epizodysta lub hostessa korzystasz z PlanOS bezpłatnie. Za system płaci agencja.",
   },
   {
     q: "Czy muszę instalować aplikację?",
-    a: "Nie ma aplikacji w sklepie. PlanOS działa w przeglądarce. Jeśli chcesz dostawać powiadomienia o dniach pracy, dodaj go do ekranu głównego — zajmuje to kilka sekund.",
+    a: "Nie ma aplikacji w sklepie. PlanOS działa w przeglądarce. Jeśli chcesz dostawać powiadomienia o dniach pracy, dodaj go do ekranu głównego. Zajmuje to kilka sekund.",
   },
 ];
 
@@ -150,7 +150,7 @@ export default function DlaStatystowPage() {
               <span className="text-brand-ink">Pod Twoją kontrolą.</span>
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink-muted">
-              Zgłaszasz się do agencji przez PlanOS — konto zawsze zakładasz Ty,
+              Zgłaszasz się do agencji przez PlanOS. Konto zawsze zakładasz Ty,
               kiedy chcesz. Twoja agencja wybrała PlanOS, żebyś miał własny
               profil, wgląd w swoje zgody i umowy, i mógł potwierdzać dni pracy
               z telefonu. Twoje dane widzi tylko ona.
@@ -194,8 +194,8 @@ export default function DlaStatystowPage() {
         <Section id="co-masz-z-tego" tone="paper">
           <SectionHeader
             eyebrow="Co masz z tego Ty"
-            title="Szybszy przepływ informacji"
-            description="Twoja agencja prowadzi wszystko w jednym systemie, a Ty masz w nim własne konto."
+            title="Nie przepisujesz tych samych danych do każdego naboru"
+            description="Twoja agencja prowadzi nabór w PlanOS, a Ty masz w nim własne konto."
           />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {BENEFITS.map(({ icon: Icon, title, body }) => (
@@ -218,7 +218,10 @@ export default function DlaStatystowPage() {
         />
 
         <Section id="faq" tone="muted" width="narrow">
-          <SectionHeader eyebrow="FAQ" title="Najczęstsze pytania" />
+          <SectionHeader
+            eyebrow="FAQ"
+            title="Pytania przed zapisem do agencji"
+          />
           <div className="mt-10 divide-y divide-paper-border rounded-2xl border border-paper-border bg-paper-card shadow-card">
             {FAQ.map((item) => (
               <details key={item.q} className="group px-6 py-5">

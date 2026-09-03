@@ -18,7 +18,7 @@ const INCLUDED = [
   "Pliki dla księgowości i eksport ZUS",
   "Zgody RODO, usuwanie danych i rejestr dostępu",
   "Pełny eksport danych w każdej chwili",
-  "Bezpośrednie wsparcie zespołu PlanOS",
+  "Piszesz do mnie, nie do helpdesku",
 ];
 
 export function Pricing() {
@@ -29,7 +29,7 @@ export function Pricing() {
       <SectionHeader
         eyebrow="Cennik"
         title="Jedna opłata za całą agencję. Bez opłat za użytkownika."
-        description="Jedna stawka za zespół biura — bez opłaty za osobę. Cena regularna to 998 zł/mies. Pierwsze dziesięć agencji płaci połowę: 499 zł/mies."
+        description="Jedna stawka za zespół biura, bez opłaty za osobę. Cena regularna to 998 zł/mies. Pierwsze dziesięć agencji płaci połowę: 499 zł/mies."
       />
 
       {/* Billing toggle */}
@@ -87,7 +87,7 @@ export function Pricing() {
           </p>
           <p className="mt-3 min-h-[3rem] text-pretty text-ink-muted">
             {annual
-              ? "4 990 zł rozliczane raz w roku (cena regularna 9 980 zł) — płacisz w dobrym miesiącu, korzystasz cały rok. Wdrożenie (migracja bazy, RODO, ZUS, szkolenie) w cenie: 0 zł."
+              ? "4 990 zł rozliczane raz w roku (cena regularna 9 980 zł). Płacisz w dobrym miesiącu, korzystasz cały rok. Wdrożenie (migracja bazy, RODO, ZUS, szkolenie) w cenie: 0 zł."
               : "Bez liczenia użytkowników. Rozliczenie co miesiąc, bez zobowiązań."}
           </p>
 
@@ -113,11 +113,14 @@ export function Pricing() {
               size="lg"
               className="w-full"
             >
-              Umów demo
+              Umów 15 min demo
             </ButtonLink>
-            <p className="mt-3 text-center text-sm text-ink-faint">
-              Zobaczysz system na przykładzie swojej agencji. Bez zobowiązań.
-            </p>
+            {!annual && (
+              <p className="mt-3 text-center text-sm text-ink-faint">
+                Jeśli w 10 dni od przekazania danych baza nie stoi i zespół nie
+                jest przeszkolony, wdrożenie jest 0 zł.
+              </p>
+            )}
           </div>
         </article>
 
@@ -146,16 +149,15 @@ export function Pricing() {
             <p className="mt-2 text-sm leading-relaxed text-ink-muted">
               Migracja Twojej bazy, konfiguracja RODO i eksportu ZUS, szkolenie
               zespołu. {annual
-                ? "Przy rozliczeniu rocznym wdrożenie jest w cenie — 0 zł."
+                ? "Przy rozliczeniu rocznym wdrożenie jest w cenie: 0 zł."
                 : "1499 zł przy rozliczeniu miesięcznym. Przy płatności rocznej: 0 zł."}
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-ink-muted">
-              Baza zmigrowana i zespół przeszkolony w 10 dni roboczych od
-              przekazania danych — albo wdrożenie jest bezpłatne.
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-              Pierwszy miesiąc abonamentu zwracamy bez pytań, jeśli zrezygnujesz.
-            </p>
+            {!annual && (
+              <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                Baza zmigrowana i zespół przeszkolony w 10 dni roboczych od
+                przekazania danych, albo wdrożenie jest bezpłatne.
+              </p>
+            )}
           </Card>
 
           {!annual && (
@@ -191,7 +193,7 @@ export function Pricing() {
             </div>
             <p className="mt-4 text-sm leading-relaxed text-ink-muted">
               Powyżej {TALENT_LIMIT} aktywnych talentów lub więcej niż jedna
-              marka. Napisz, ustalimy zakres.
+              marka. Napisz, ustalę zakres.
             </p>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
@@ -200,7 +202,7 @@ export function Pricing() {
                 annual ? "mt-4" : "mt-auto pt-4",
               )}
             >
-              Napisz do nas →
+              Napisz do mnie →
             </a>
           </Card>
         </div>

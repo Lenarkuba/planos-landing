@@ -10,13 +10,13 @@ const VIDEOS = [
     id: VIDEO_APPLICATION_FORM_ID,
     title: "Formularz zgłoszenia pod projekt",
     caption:
-      "Sam ustalasz, jakie dane są wymagane na casting lub nabór. Zgłoszenia przychodzą kompletne — bez dopytywania o brakujące zdjęcia.",
+      "Sam ustalasz, jakie dane są wymagane na casting lub nabór. Zgłoszenia przychodzą kompletne, bez dopytywania o brakujące zdjęcia.",
   },
   {
     id: VIDEO_DIRECTOR_PANEL_ID,
     title: "Panel wyboru dla klienta",
     caption:
-      "Reżyser lub brand manager przegląda kandydatów, notuje i wybiera pod jednym linkiem — a Ty widzisz decyzje na żywo.",
+      "Reżyser lub brand manager przegląda kandydatów, notuje i wybiera pod jednym linkiem. Ty widzisz decyzje na żywo.",
   },
 ];
 
@@ -25,8 +25,8 @@ export function DemoVideo() {
     <Section id="demo" tone="paper">
       <SectionHeader
         eyebrow="Demo"
-        title="Zobacz PlanOS w działaniu"
-        description="Krótkie nagrania prosto z systemu — tak wygląda codzienna praca biura agencji w PlanOS."
+        title="Dwa nagrania z systemu: nabór i wybór klienta"
+        description="Tak biuro agencji zbiera zgłoszenia i oddaje wybór reżyserowi albo brand managerowi."
       />
 
       <div className="mt-12 grid gap-8 md:grid-cols-2">

@@ -14,7 +14,7 @@ export function LegalEntity({ variant = "full", className = "" }: LegalEntityPro
       <p>REGON: {LEGAL.regon}</p>
       <p>Adres do doręczeń: {LEGAL.addressLine}</p>
       <p>
-        PKD {LEGAL.pkd} — {LEGAL.pkdDescription}
+        PKD {LEGAL.pkd}: {LEGAL.pkdDescription}
       </p>
       {variant === "full" ? (
         <p className="mt-2">

@@ -13,10 +13,10 @@ export function Founder() {
         <p className="mt-5 text-pretty text-lg leading-relaxed text-ink-muted">
           Zbudowałem PlanOS po tym, jak na planie zdjęciowym patrzyłem, jak te
           same nazwiska są przepisywane ręcznie z arkusza do arkusza, dzień po
-          dniu. Platformę rozwijam jako niezależny produkt i sam prowadzę
-          każde wdrożenie, więc masz pewność, że rozmawiasz z osobą, która zna
-          każdy jej element. Twoje dane są szyfrowane i zawsze Twoje: w każdej
-          chwili pobierzesz je w całości i przeniesiesz, gdzie chcesz.
+          dniu. Platformę rozwijam jako niezależny produkt i każde wdrożenie
+          prowadzę ja, nie handlowiec odczytujący skrypt. Twoje dane są
+          szyfrowane i zawsze Twoje: w każdej chwili pobierzesz je w całości i
+          przeniesiesz, gdzie chcesz.
         </p>
       </div>
     </Section>

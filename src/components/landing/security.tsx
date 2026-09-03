@@ -15,19 +15,19 @@ const AGENCY_PILLARS: Pillar[] = [
     icon: ShieldCheck,
     title: "Pełne oddzielenie Twojej bazy",
     body:
-      "Twoja baza działa w oddzielonej przestrzeni, niewidocznej dla kogokolwiek spoza Twojej agencji. Żadna inna agencja nie zobaczy Twoich talentów, projektów ani stawek — nigdy.",
+      "Twoja baza działa w oddzielonej przestrzeni, niewidocznej dla kogokolwiek spoza Twojej agencji. Żadna inna agencja nie zobaczy Twoich talentów, projektów ani stawek.",
   },
   {
     icon: FileKey2,
     title: "Szyfrowanie i kontrola dostępu",
     body:
-      "Dane wrażliwe, w tym numery PESEL, są szyfrowane. Każde ich użycie jest rejestrowane — zawsze wiesz, kto i kiedy z nich korzystał. Koordynator na miejscu widzi tylko listę obecności.",
+      "Dane wrażliwe, w tym numery PESEL, są szyfrowane. Każde ich użycie jest rejestrowane, więc zawsze wiesz, kto i kiedy z nich korzystał. Koordynator na miejscu widzi tylko listę obecności.",
   },
   {
     icon: Eye,
     title: "RODO w praktyce",
     body:
-      "Zarządzanie zgodami, informacja dla talentu i usuwanie danych na żądanie (prawo do bycia zapomnianym) pozwalają realnie wypełnić obowiązki administratora. Na wniosek usuwasz profil, zdjęcia i dane w bazie; rozliczenia i zgłoszenia do ZUS możesz zachować przez okres wymagany prawnie. Udostępniamy umowę powierzenia przetwarzania (DPA).",
+      "Zarządzanie zgodami, informacja dla talentu i usuwanie danych na żądanie (prawo do bycia zapomnianym) pozwalają realnie wypełnić obowiązki administratora. Na wniosek usuwasz profil, zdjęcia i dane w bazie; rozliczenia i zgłoszenia do ZUS możesz zachować przez okres wymagany prawnie. Umowę powierzenia przetwarzania (DPA) dostajesz przy wdrożeniu.",
   },
   {
     icon: Database,
@@ -60,7 +60,7 @@ export const TALENT_PILLARS: Pillar[] = [
     icon: Database,
     title: "Odseparowane dane agencji",
     body:
-      "PlanOS to oprogramowanie, z którego korzysta Twoja agencja — nie portal ani giełda statystów. Dane każdej agencji są oddzielone; nikt spoza niej nie widzi Twojego profilu.",
+      "PlanOS to oprogramowanie, z którego korzysta Twoja agencja. Nie portal ani giełda statystów. Dane każdej agencji są oddzielone; nikt spoza niej nie widzi Twojego profilu.",
   },
 ];
 
@@ -110,8 +110,8 @@ export function Security() {
   return (
     <SecurityBand
       eyebrow="Bezpieczeństwo danych"
-      title="Twoja baza nigdy nie trafi do innej agencji"
-      description="Baza talentów i hostess to najcenniejszy zasób agencji. Dlatego oddzielenie danych, szyfrowanie i RODO są fundamentem PlanOS, a nie dodatkiem."
+      title="Twoja baza nie trafi do innej agencji"
+      description="Baza talentów to majątek agencji. Oddzielona przestrzeń, szyfrowany PESEL i DPA są w produkcie. Hosting w UE."
       pillars={AGENCY_PILLARS}
       footerNote={<HostingNote />}
     />
@@ -122,12 +122,11 @@ function HostingNote() {
   return (
     <>
       <p className="font-display text-lg font-semibold text-ink">
-        Dane są przechowywane w Unii Europejskiej (Supabase, AWS eu-west-1 —
-        Irlandia). Pełna lista podprocesorów znajduje się w załączniku do umowy
-        powierzenia.
+        Dane są przechowywane w Unii Europejskiej. Pełna lista podprocesorów
+        znajduje się w załączniku do umowy powierzenia.
       </p>
       <p className="mt-3 text-sm leading-relaxed text-ink-muted">
-        Umowę powierzenia (DPA) wysyłamy na życzenie:{" "}
+        Umowę powierzenia (DPA) wysyłam na życzenie:{" "}
         <a
           href={`mailto:${CONTACT_EMAIL}`}
           className="font-semibold text-brand-ink hover:text-brand"
